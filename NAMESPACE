@@ -1,0 +1,7 @@
+useDynLib(CellChatFastCpp, .registration = TRUE)
+importFrom(Rcpp, sourceCpp)
+importFrom(methods, slot)
+export(computeCommunProbFastCpp)
+export(computeCommunProbPathwayFastCpp)
+export(aggregateNetFastCpp)
+export(computeAveExprFastCpp)
