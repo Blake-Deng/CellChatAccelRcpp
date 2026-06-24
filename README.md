@@ -34,6 +34,38 @@ Per sample:
 | SCPCL000123 | 50.705 sec | 3.600 sec |
 | SCPCL000125 | 86.494 sec | 7.455 sec |
 
+## Large Benchmark On 42 SCPCP000004 RDS Files
+
+A larger benchmark was run on 42 processed Seurat RDS files from the
+SCPCP000004 collection using `openscpca_celltype_annotation` as the CellChat
+grouping column.
+
+| method | successful samples | failed samples | successful elapsed time |
+| --- | ---: | ---: | ---: |
+| Original CellChat R | 40 | 2 | 15,202.23 sec |
+| CellChatAccelRcpp/FastCpp | 40 | 2 | 1,805.11 sec |
+
+Overall speedup on successful samples: `8.42x`.
+
+For the main bottleneck:
+
+| step | Original CellChat R | FastCpp |
+| --- | ---: | ---: |
+| `computeCommunProb` | 14,526.05 sec | 957.60 sec |
+
+`computeCommunProb` speedup: `15.17x`.
+
+Saved CellChat objects were also compared for the 40 successful samples:
+
+- identical cell groups: `40 / 40`
+- identical ligand-receptor pair counts: `40 / 40`
+- LR pair overlap: `100%`
+- median probability matrix correlation: `1`
+- median network weight correlation: `1`
+
+Scripts and CSV summaries are in
+[`benchmarks/SCPCP000004`](benchmarks/SCPCP000004).
+
 The fast C++ outputs were checked against original CellChat / previously validated C++ results:
 
 - `prob` max absolute difference: floating point noise only
@@ -74,13 +106,13 @@ remotes::install_github("jinworks/CellChat")
 Then install this package from the local clone:
 
 ```r
-remotes::install_local("/path/to/CellChatFastCpp")
+remotes::install_local("/path/to/CellChatAccelRcpp")
 ```
 
-After you upload it to GitHub:
+Install directly from GitHub:
 
 ```r
-remotes::install_github("YOUR_GITHUB_USERNAME/CellChatFastCpp")
+remotes::install_github("Blake-Deng/CellChatAccelRcpp")
 ```
 
 ## Single Object Usage
@@ -217,6 +249,7 @@ Do upload:
 - `R/`
 - `src/`
 - `scripts/`
+- small benchmark CSV summaries under `benchmarks/`
 - `README.md`
 - `.gitignore`
 
@@ -224,7 +257,7 @@ Do not upload:
 
 - local `.rds` files
 - `Rlib/`
-- large benchmark `results/`
+- large benchmark objects or raw benchmark result directories
 - `.DS_Store`
 
 The `.gitignore` already excludes these files.

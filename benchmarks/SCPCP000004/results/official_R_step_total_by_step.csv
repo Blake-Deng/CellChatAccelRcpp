@@ -1,0 +1,13 @@
+"step","elapsed_sec"
+"computeCommunProb_official_R",14526.0453364849
+"identifyOverExpressedInteractions",192.358654975891
+"filter_cells_and_groups",186.869560480118
+"readRDS",52.0248370170593
+"identifyOverExpressedGenes",44.763979434967
+"createCellChat",34.7056250572205
+"check_or_normalize_data_slot",30.375449180603
+"write_outputs",28.6300098896027
+"computeCommunProbPathway_official_R",28.4196424484253
+"subsetData",11.7736451625824
+"aggregateNet_official_R",1.18640637397766
+"filterCommunication",0.290111064910889

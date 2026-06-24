@@ -6,6 +6,10 @@
 *.tar.gz
 Rlib/
 results/
+!benchmarks/
+!benchmarks/**/
+!benchmarks/**/results/
+!benchmarks/**/results/*.csv
 data/
 *.rds
 *.rda
