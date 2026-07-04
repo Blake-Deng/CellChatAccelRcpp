@@ -4,6 +4,12 @@ CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA w
 
 The package is designed for users who want to run many CellChat analyses at larger cell scales while preserving outputs that remain directly comparable with the original CellChat workflow.
 
+## Repository Status
+
+This repository now contains both the R/Rcpp package and the benchmark evidence used for the Bioinformatics Application Note.
+
+The main publication benchmark is not the `SCPCP000004` folder. `SCPCP000004` is an earlier cohort-specific validation. The paper-facing benchmark is [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026), which contains the completed 12-dataset benchmark, processed tables, figures, environment records and reproduction scripts.
+
 ## Key Results
 
 In a paired benchmark across 12 real single-cell datasets, six target cell scales and three repeats, CellChatAccelRcpp completed 864 benchmark jobs without failed metric files.
@@ -30,7 +36,7 @@ Median speedup by target cell scale:
 
 ![Runtime compression](benchmarks/cellchat_acceleration_2026/results/figures/Fig01_runtime_compression.png)
 
-Full benchmark scripts, summary tables and publication figures are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). Application Note writing material and LaTeX sources are in [`paper`](paper).
+Full benchmark scripts, summary tables and publication figures are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). A benchmark index is available in [`benchmarks/README.md`](benchmarks/README.md). Application Note writing material and LaTeX sources are in [`paper`](paper).
 
 ## Installation
 
@@ -107,9 +113,24 @@ It does not currently validate spatial distance constraints, `population.size = 
 R/                      R interface for accelerated CellChat steps
 src/                    Rcpp implementations and registration
 scripts/                batch and equivalence-check scripts
-benchmarks/             reproducible benchmark summaries and figures
-paper/                  Bioinformatics Application Note draft material
+benchmarks/             benchmark index plus completed benchmark tracks
+  SCPCP000004/          earlier OpenScPCA cohort validation benchmark
+  cellchat_acceleration_2026/
+                         main Bioinformatics Application Note benchmark
+paper/                  Bioinformatics Application Note LaTeX source and figures
 ```
+
+## Benchmark And Paper Files
+
+| path | content |
+| --- | --- |
+| [`benchmarks/README.md`](benchmarks/README.md) | top-level benchmark map |
+| [`benchmarks/cellchat_acceleration_2026/results/tables`](benchmarks/cellchat_acceleration_2026/results/tables) | processed runtime, accuracy and ablation tables |
+| [`benchmarks/cellchat_acceleration_2026/results/figures`](benchmarks/cellchat_acceleration_2026/results/figures) | final publication figure PDFs and PNGs |
+| [`benchmarks/cellchat_acceleration_2026/results/figures_nature`](benchmarks/cellchat_acceleration_2026/results/figures_nature) | alternate Nature-style PNG figures |
+| [`benchmarks/SCPCP000004/results`](benchmarks/SCPCP000004/results) | earlier cohort-level validation summaries |
+| [`paper/main.tex`](paper/main.tex) | manuscript LaTeX source |
+| [`paper/Supplementary_Table_S1.csv`](paper/Supplementary_Table_S1.csv) | dataset accession table used by Data availability |
 
 ## Citation
 

@@ -4,6 +4,8 @@ This directory contains the publication-oriented benchmark used to evaluate Cell
 
 The benchmark was designed for a Bioinformatics Application Note: paired original and accelerated runs were executed from the same prepared CellChat objects, followed by numerical-equivalence checks and component ablations.
 
+This is the main paper benchmark. The separate [`../SCPCP000004`](../SCPCP000004) folder is an earlier cohort-specific validation benchmark and is kept for transparency, but the abstract, main figure and manuscript tables are based on this `cellchat_acceleration_2026` benchmark.
+
 ## Design
 
 | component | setting |
@@ -51,18 +53,25 @@ The final figure files are in [`results/figures`](results/figures). PDF files ar
 | `Fig05_component_ablation` | contribution of each accelerated component |
 | `Fig06_dataset_speedup_heatmap` | dataset-level speedup landscape |
 
+Alternate Nature-style PNG versions generated during figure refinement are stored in [`results/figures_nature`](results/figures_nature).
+
 ## Tables
 
 Summary tables are in [`results/tables`](results/tables).
 
 | table | purpose |
 | --- | --- |
-| `publication_runtime_speedup_summary.tsv` | cell-scale runtime and speedup summary |
-| `publication_accuracy_summary.tsv` | numerical-equivalence summary |
+| `publication_runtime_speedup_summary_v2.tsv` | final cell-scale runtime and speedup summary used for the manuscript |
+| `publication_accuracy_summary_v2.tsv` | final numerical-equivalence summary used for the manuscript |
+| `publication_ablation_summary_v2.tsv` | final component-ablation summary used for the manuscript |
+| `publication_runtime_speedup_summary.tsv` | earlier publication runtime summary retained for provenance |
+| `publication_accuracy_summary.tsv` | earlier publication accuracy summary retained for provenance |
 | `publication_ablation_slowdown.tsv` | per-run component ablation results |
 | `runtime_summary.tsv` | runtime summaries by dataset and scale |
 | `accuracy_summary.tsv` | paired probability agreement details |
 | `all_metrics.tsv` | complete benchmark metric table |
+
+The manuscript uses the `_v2` publication summary tables where available. The larger detail tables remain in the repository so the summarized values can be audited.
 
 ## Reproducing The Benchmark
 
