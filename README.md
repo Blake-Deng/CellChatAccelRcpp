@@ -113,9 +113,10 @@ paper/                  Bioinformatics Application Note draft material
 
 ## Citation
 
-The manuscript is in preparation for a Bioinformatics Application Note. Until a DOI is available, cite the GitHub repository:
+Please cite the archived software release:
 
 ```text
-Deng Z. CellChatAccelRcpp: scalable Rcpp acceleration of CellChat communication inference.
+Deng Z. CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses.
+DOI: https://doi.org/10.5281/zenodo.21186108
 GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
 ```
