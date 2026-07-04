@@ -64,9 +64,9 @@ Supplementary data are available in the project repository and in the submission
 
 \section{Introduction}
 
-Single-cell RNA sequencing has made it possible to describe cellular states across tissues, diseases and perturbations at atlas scale \citep{hao2021integrated}.
+Single-cell RNA sequencing has made it possible to describe cellular states across tissues, diseases and perturbations at atlas scale \citep{regev2017human,hao2021integrated}.
 After cell annotation, cell-cell communication analysis is commonly used to convert these cellular maps into hypotheses about ligand-receptor signaling among cell groups.
-CellChat provides a widely adopted R framework for inferring and interpreting communication networks from single-cell expression data \citep{jin2021cellchat}.
+CellChat provides a widely adopted R framework for inferring and interpreting communication networks from single-cell expression data \citep{armingol2021deciphering,dimitrov2022comparison,jin2021cellchat}.
 Its object model, curated interaction database and visualization ecosystem make it attractive for routine biological analysis, but the probability estimation and aggregation steps can become expensive when users run large samples, repeated subsampling experiments or benchmark cohorts.
 
 CellChatAccelRcpp addresses this practical scaling problem by accelerating selected CellChat hot paths while preserving the original biological model and user-facing workflow.
@@ -93,6 +93,10 @@ For every dataset-scale pair, three random repeats were run from the same prepar
 Additional ablation runs disabled the accelerated probability kernel, pathway aggregation or network aggregation to estimate the contribution of each component.
 
 Experiments were run in a conda-managed R environment on a Linux server with 256 CPU threads and approximately 1 TiB RAM.
+Both engines were run under the same benchmark runner and hardware environment.
+Grid tasks were scheduled as independent \texttt{Rscript} jobs; within each paired job, the baseline and accelerated engines were executed serially from the same prepared CellChat object.
+All runs used one R process per benchmark job unless otherwise stated, with \texttt{OMP\_NUM\_THREADS}, \texttt{OPENBLAS\_NUM\_THREADS}, \texttt{MKL\_NUM\_THREADS} and \texttt{BLIS\_NUM\_THREADS} fixed to 1.
+Concurrent scheduling of independent jobs was used only for batch throughput and not as an engine-specific optimization.
 The benchmark runner used checkpointing at the prepared-object and computed-result levels, so interrupted large-scale runs could resume without recomputing completed stages.
 Runtime was measured as elapsed wall-clock time for each engine-specific inference run.
 Speedup was calculated as original CellChat runtime divided by CellChatAccelRcpp runtime.
