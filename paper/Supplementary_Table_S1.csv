@@ -1,0 +1,13 @@
+dataset_id,benchmark_collection,accession_identifier,sample_or_subset,benchmark_input_path
+3CA_data__10X,3CA_data,PRJNA330719,10X,/home/dzf/share/3CA_data/PRJNA330719/10X/10X.rds
+3CA_data__SmartSeq2,3CA_data,PRJNA330719,SmartSeq2,/home/dzf/share/3CA_data/PRJNA330719/SmartSeq2/SmartSeq2.rds
+3CA_data__EGAS00001004422,3CA_data,EGAS00001004422,EGAS00001004422,/home/dzf/share/3CA_data/EGAS00001004422/EGAS00001004422.rds
+3CA_data__Group1,3CA_data,PRJNA543322,Group1,/home/dzf/share/3CA_data/PRJNA543322/Group1/Group1.rds
+3CA_data__Group2,3CA_data,PRJNA543322,Group2,/home/dzf/share/3CA_data/PRJNA543322/Group2/Group2.rds
+3CA_data__PRJNA289244,3CA_data,PRJNA289244,PRJNA289244,/home/dzf/share/3CA_data/PRJNA289244/PRJNA289244.rds
+3CA_data__PRJNA395045,3CA_data,PRJNA395045,PRJNA395045,/home/dzf/share/3CA_data/PRJNA395045/PRJNA395045.rds
+3CA_data__PRJNA490728,3CA_data,PRJNA490728,PRJNA490728,/home/dzf/share/3CA_data/PRJNA490728/PRJNA490728.rds
+3CA_data__PRJNA593551,3CA_data,PRJNA593551,PRJNA593551,/home/dzf/share/3CA_data/PRJNA593551/PRJNA593551.rds
+3CA_data__PRJNA638151,3CA_data,PRJNA638151,PRJNA638151,/home/dzf/share/3CA_data/PRJNA638151/PRJNA638151.rds
+normal_control__Sample5,normal_control,PRJNA871268,Sample5,/home/dzf/share/normal_control/seurat_rds_PRJNA871268/Sample5/Sample5.rds
+normal_control__Sample8,normal_control,PRJNA871268,Sample8,/home/dzf/share/normal_control/seurat_rds_PRJNA871268/Sample8/Sample8.rds

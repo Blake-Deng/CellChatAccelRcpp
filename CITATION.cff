@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use CellChatAccelRcpp, please cite this software."
+title: "CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses"
+version: 0.1.0
+date-released: 2026-07-04
+type: software
+authors:
+  - family-names: Deng
+    given-names: Zifeng
+    email: zifengd8@gmail.com
+repository-code: "https://github.com/Blake-Deng/CellChatAccelRcpp"
+license: GPL-3.0-only
+keywords:
+  - single-cell RNA-seq
+  - cell-cell communication
+  - CellChat
+  - Rcpp
+  - computational acceleration

@@ -1,0 +1,27 @@
+{
+  "title": "CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses",
+  "creators": [
+    {
+      "name": "Deng, Zifeng",
+      "affiliation": "Hainan Bielefeld University of Applied Sciences"
+    }
+  ],
+  "description": "CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It preserves the standard CellChat object interface while replacing selected computational bottlenecks with compiled implementations for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "single-cell RNA-seq",
+    "cell-cell communication",
+    "CellChat",
+    "Rcpp",
+    "computational acceleration"
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Blake-Deng/CellChatAccelRcpp",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
