@@ -1,8 +1,8 @@
-\name{computeAveExprFastCpp}
-\alias{computeAveExprFastCpp}
-\title{Fast Group Average Expression}
+\name{computeAveExprAccelRcpp}
+\alias{computeAveExprAccelRcpp}
+\title{Accelerated Group Average Expression}
 \usage{
-computeAveExprFastCpp(object, features = NULL, group.by = NULL,
+computeAveExprAccelRcpp(object, features = NULL, group.by = NULL,
   type = "triMean", slot.name = c("data.signaling", "data"),
   data.use = NULL)
 }

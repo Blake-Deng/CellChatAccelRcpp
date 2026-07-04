@@ -1,162 +1,77 @@
-# CellChatFastCpp
+# CellChatAccelRcpp
 
-Fast Rcpp helpers for a common CellChat single-sample RNA workflow.
+CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It keeps the standard CellChat object interface and replaces selected computational bottlenecks with compiled routines for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.
 
-This package accelerates the CellChat steps that were slow in the tested Seurat RDS workflow:
+The package is designed for users who want to run many CellChat analyses at larger cell scales while preserving outputs that remain directly comparable with the original CellChat workflow.
 
-- `computeCommunProbFastCpp()`
-- `computeCommunProbPathwayFastCpp()`
-- `aggregateNetFastCpp()`
-- `computeAveExprFastCpp()`
+## Key Results
 
-The main speedup is in `computeCommunProbFastCpp()`.
+In a paired benchmark across 12 real single-cell datasets, six target cell scales and three repeats, CellChatAccelRcpp completed 864 benchmark jobs without failed metric files.
 
-## Benchmark On Two Local RDS Files
+| metric | result |
+| --- | ---: |
+| paired original/accelerated comparisons | 216 |
+| overall median speedup | 11.4x |
+| median original CellChat runtime | 426.6 s |
+| median CellChatAccelRcpp runtime | 36.0 s |
+| maximum absolute probability difference | 1.39e-16 |
+| minimum probability Pearson correlation | 1.000 |
 
-Tested files:
+Median speedup by target cell scale:
 
-- `SCPCL000123_processed_seurat.rds`
-- `SCPCL000125_processed_seurat.rds`
+| cells | median speedup |
+| ---: | ---: |
+| 1k | 37.4x |
+| 5k | 15.3x |
+| 10k | 11.0x |
+| 25k | 8.0x |
+| 50k | 6.0x |
+| all available cells | 6.0x |
 
-Original CellChat:
+![Runtime compression](benchmarks/cellchat_acceleration_2026/results/figures/Fig01_runtime_compression.png)
 
-- `computeCommunProb`: `137.199 sec` total
+Full benchmark scripts, summary tables and publication figures are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). Application Note writing material and LaTeX sources are in [`paper`](paper).
 
-Fast C++:
+## Installation
 
-- `computeCommunProbFastCpp`: `11.055 sec` total
-- Speedup: `12.41x`
-
-Per sample:
-
-| sample | CellChat computeCommunProb | Fast C++ |
-| --- | ---: | ---: |
-| SCPCL000123 | 50.705 sec | 3.600 sec |
-| SCPCL000125 | 86.494 sec | 7.455 sec |
-
-## Large Benchmark On 42 SCPCP000004 RDS Files
-
-A larger benchmark was run on 42 processed Seurat RDS files from the
-SCPCP000004 collection using `openscpca_celltype_annotation` as the CellChat
-grouping column.
-
-| method | successful samples | failed samples | successful elapsed time |
-| --- | ---: | ---: | ---: |
-| Original CellChat R | 40 | 2 | 15,202.23 sec |
-| CellChatAccelRcpp/FastCpp | 40 | 2 | 1,805.11 sec |
-
-Overall speedup on successful samples: `8.42x`.
-
-For the main bottleneck:
-
-| step | Original CellChat R | FastCpp |
-| --- | ---: | ---: |
-| `computeCommunProb` | 14,526.05 sec | 957.60 sec |
-
-`computeCommunProb` speedup: `15.17x`.
-
-Saved CellChat objects were also compared for the 40 successful samples:
-
-- identical cell groups: `40 / 40`
-- identical ligand-receptor pair counts: `40 / 40`
-- LR pair overlap: `100%`
-- median probability matrix correlation: `1`
-- median network weight correlation: `1`
-
-Scripts and CSV summaries are in
-[`benchmarks/SCPCP000004`](benchmarks/SCPCP000004).
-
-The fast C++ outputs were checked against original CellChat / previously validated C++ results:
-
-- `prob` max absolute difference: floating point noise only
-- `pval` max absolute difference: `0`
-- pathway aggregation: equal within tolerance
-- aggregate network count/weight: equal within tolerance
-
-## Scope
-
-This is not a full CellChat replacement. It is a focused accelerator for this setting:
-
-- single-dataset CellChat object
-- sc/snRNA-seq RNA data
-- `type = "triMean"`
-- `population.size = FALSE`
-- non-spatial workflow
-- CellChat v1-style object/API
-
-It does not currently implement:
-
-- spatial CellChat distance constraints
-- `population.size = TRUE`
-- `truncatedMean`, `thresholdedMean`, or `median`
-- merged CellChat objects
-- full CellChat v2 validation
-
-If you change any of these assumptions, run the equivalence script before using the result at scale.
-
-## Install
-
-Install CellChat first. CellChat has moved over time; use the version that works in your environment.
+Install CellChat and then install this package from GitHub:
 
 ```r
 install.packages("remotes")
 remotes::install_github("jinworks/CellChat")
-```
-
-Then install this package from the local clone:
-
-```r
-remotes::install_local("/path/to/CellChatAccelRcpp")
-```
-
-Install directly from GitHub:
-
-```r
 remotes::install_github("Blake-Deng/CellChatAccelRcpp")
+```
+
+For reproducible benchmark work, use the conda environment file in:
+
+```text
+benchmarks/cellchat_acceleration_2026/environment.yml
 ```
 
 ## Single Object Usage
 
 ```r
-library(Seurat)
 library(CellChat)
-library(CellChatFastCpp)
+library(CellChatAccelRcpp)
 
-obj <- readRDS("sample_processed_seurat.rds")
-DefaultAssay(obj) <- "RNA"
+cellchat <- CellChat::subsetData(cellchat)
+cellchat <- CellChat::identifyOverExpressedGenes(cellchat)
+cellchat <- CellChat::identifyOverExpressedInteractions(cellchat)
 
-group_col <- "openscpca_celltype_annotation"
-group <- as.character(obj@meta.data[[group_col]])
-keep <- !is.na(group) & nzchar(group) & group != "openscpca-excluded"
-obj <- subset(obj, cells = colnames(obj)[keep])
-
-group <- as.character(obj@meta.data[[group_col]])
-valid <- names(table(group))[table(group) >= 10]
-obj <- subset(obj, cells = colnames(obj)[group %in% valid])
-
-cellchat <- createCellChat(object = obj, group.by = group_col, assay = "RNA")
-cellchat@DB <- CellChatDB.human
-
-cellchat <- subsetData(cellchat)
-cellchat <- identifyOverExpressedGenes(cellchat)
-cellchat <- identifyOverExpressedInteractions(cellchat)
-
-cellchat <- computeCommunProbFastCpp(cellchat, nboot = 100, seed.use = 1L)
-cellchat <- filterCommunication(cellchat, min.cells = 10)
-cellchat <- computeCommunProbPathwayFastCpp(cellchat)
-cellchat <- aggregateNetFastCpp(cellchat)
-
-saveRDS(cellchat, "sample_cellchat_fast.rds", compress = FALSE)
+cellchat <- computeCommunProbAccelRcpp(cellchat, nboot = 100, seed.use = 1L)
+cellchat <- CellChat::filterCommunication(cellchat, min.cells = 10)
+cellchat <- computeCommunProbPathwayAccelRcpp(cellchat)
+cellchat <- aggregateNetAccelRcpp(cellchat)
 ```
 
 ## Batch Usage
 
-Run all `.rds` files in one directory:
+Run CellChatAccelRcpp on all Seurat `.rds` files in a directory:
 
 ```bash
-Rscript scripts/run_cellchat_fast_batch.R \
+Rscript scripts/run_cellchat_accel_batch.R \
   --input_dir /path/to/seurat_rds \
-  --output_dir /path/to/cellchat_fast_results \
+  --output_dir /path/to/cellchat_accel_results \
   --group_col openscpca_celltype_annotation \
   --pattern '\\.rds$' \
   --nboot 100 \
@@ -164,53 +79,7 @@ Rscript scripts/run_cellchat_fast_batch.R \
   --species human
 ```
 
-Recursive search:
-
-```bash
-Rscript scripts/run_cellchat_fast_batch.R \
-  --input_dir /path/to/project \
-  --output_dir /path/to/cellchat_fast_results \
-  --group_col openscpca_celltype_annotation \
-  --recursive true \
-  --pattern '_processed_seurat\\.rds$'
-```
-
-Important options:
-
-| option | default | meaning |
-| --- | --- | --- |
-| `--input_dir` | required | directory containing Seurat `.rds` files |
-| `--output_dir` | `cellchat_fast_results` | result directory |
-| `--group_col` | `openscpca_celltype_annotation` | Seurat metadata column for cell groups |
-| `--pattern` | `\\.rds$` | regex used by `list.files()` |
-| `--recursive` | `false` | recursively find input files |
-| `--assay` | `RNA` | Seurat assay for CellChat |
-| `--species` | `human` | `human` or `mouse` |
-| `--min_cells` | `10` | remove groups with fewer cells |
-| `--nboot` | `100` | bootstrap permutations |
-| `--seed` | `1` | random seed |
-| `--exclude_label` | `openscpca-excluded` | annotation label to remove |
-| `--skip_existing` | `true` | skip files with existing output RDS |
-
-## Batch Outputs
-
-For each input sample:
-
-- `{sample_id}_cellchat_fast.rds`
-- `{sample_id}_LR_detail.csv`
-- `{sample_id}_step_timings.csv`
-
-Batch-level summaries:
-
-- `batch_summary.csv`
-- `all_step_timings.csv`
-- `step_total_by_step.csv`
-
-Use `step_total_by_step.csv` to see which step is still slow across a large run.
-
-## Equivalence Check
-
-Before a new dataset type or CellChat version, run:
+Before applying the package to a new dataset type or CellChat version, run:
 
 ```bash
 Rscript scripts/check_equivalence_one.R \
@@ -219,45 +88,34 @@ Rscript scripts/check_equivalence_one.R \
   5
 ```
 
-This compares:
+## Scope
 
-- original `CellChat::computeCommunProb()`
-- `CellChatFastCpp::computeCommunProbFastCpp()`
-- pathway aggregation
-- network aggregation
+CellChatAccelRcpp currently targets:
 
-Use a small `nboot` first because original CellChat may be slow.
+- single-dataset CellChat objects
+- sc/snRNA-seq RNA workflows
+- `type = "triMean"`
+- `population.size = FALSE`
+- non-spatial CellChat workflows
+- CellChat v1-style object/API
 
-## What Was Not Worth Rewriting
+It does not currently validate spatial distance constraints, `population.size = TRUE`, alternative mean functions, merged CellChat objects or full CellChat v2 workflows. Run the equivalence script before using new settings at scale.
 
-In the tested data:
+## Repository Layout
 
-- `identifyOverExpressedGenes` used `presto::wilcoxauc` and was already fast.
-- `identifyOverExpressedInteractions` took about `0.257 sec` total.
-- `filterCommunication` was about `0.001 sec` total.
-- `subsetCommunication` was about `0.039 sec` total.
-- `readRDS`, Seurat filtering, and `saveRDS` are mostly I/O/object-copying costs.
+```text
+R/                      R interface for accelerated CellChat steps
+src/                    Rcpp implementations and registration
+scripts/                batch and equivalence-check scripts
+benchmarks/             reproducible benchmark summaries and figures
+paper/                  Bioinformatics Application Note draft material
+```
 
-The meaningful target was `computeCommunProb`, especially repeated bootstrap aggregation and ligand/receptor expression calculation.
+## Citation
 
-## GitHub Upload Notes
+The manuscript is in preparation for a Bioinformatics Application Note. Until a DOI is available, cite the GitHub repository:
 
-Do upload:
-
-- `DESCRIPTION`
-- `NAMESPACE`
-- `R/`
-- `src/`
-- `scripts/`
-- small benchmark CSV summaries under `benchmarks/`
-- `README.md`
-- `.gitignore`
-
-Do not upload:
-
-- local `.rds` files
-- `Rlib/`
-- large benchmark objects or raw benchmark result directories
-- `.DS_Store`
-
-The `.gitignore` already excludes these files.
+```text
+Deng Z. CellChatAccelRcpp: scalable Rcpp acceleration of CellChat communication inference.
+GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
+```

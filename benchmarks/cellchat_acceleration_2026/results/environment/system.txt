@@ -1,0 +1,20 @@
+timestamp: 2026-07-03T16:23:31+08:00
+host: user-G7466-M5
+kernel: Linux user-G7466-M5 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+cpu_threads: 256
+
+memory:
+               total        used        free      shared  buff/cache   available
+Mem:           1.0Ti        12Gi       927Gi        33Mi        74Gi       995Gi
+Swap:          3.8Gi          0B       3.8Gi
+
+disk:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p1  7.0T   75G  6.6T   2% /home
+/dev/nvme0n1p1  7.0T   75G  6.6T   2% /home
+
+executables:
+/home/dzf/miniforge3/envs/cellchat-acceleration/bin/R
+/home/dzf/miniforge3/envs/cellchat-acceleration/bin/Rscript
+/home/dzf/miniforge3/envs/cellchat-acceleration/bin/python3
+/home/dzf/miniforge3/envs/cellchat-acceleration/bin/git

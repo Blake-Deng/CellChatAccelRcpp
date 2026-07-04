@@ -3,13 +3,13 @@
 suppressPackageStartupMessages({
   library(Seurat)
   library(CellChat)
-  library(CellChatFastCpp)
+  library(CellChatAccelRcpp)
 })
 
 parse_args <- function(args) {
   out <- list(
     input_dir = NULL,
-    output_dir = "cellchat_fast_results",
+    output_dir = "cellchat_accel_results",
     pattern = "\\.rds$",
     recursive = FALSE,
     group_col = "openscpca_celltype_annotation",
@@ -43,7 +43,7 @@ parse_args <- function(args) {
 usage <- function() {
   cat(
     "Usage:\n",
-    "  Rscript scripts/run_cellchat_fast_batch.R \\\n",
+    "  Rscript scripts/run_cellchat_accel_batch.R \\\n",
     "    --input_dir /path/to/rds_dir \\\n",
     "    --output_dir /path/to/results \\\n",
     "    --group_col openscpca_celltype_annotation \\\n",
@@ -53,7 +53,7 @@ usage <- function() {
     "Required:\n",
     "  --input_dir   Directory containing Seurat .rds files.\n\n",
     "Common options:\n",
-    "  --output_dir      Output directory. Default: cellchat_fast_results\n",
+    "  --output_dir      Output directory. Default: cellchat_accel_results\n",
     "  --group_col       Seurat metadata column used as cell group labels.\n",
     "  --pattern         Regex for input files. Default: \\\\.rds$\n",
     "  --recursive       true/false. Default: false\n",
@@ -123,7 +123,7 @@ select_cellchat_db <- function(species) {
 
 process_one <- function(path, args, db) {
   sample_id <- sub("\\.rds$", "", basename(path), ignore.case = TRUE)
-  out_rds <- file.path(args$output_dir, paste0(sample_id, "_cellchat_fast.rds"))
+  out_rds <- file.path(args$output_dir, paste0(sample_id, "_cellchat_accel.rds"))
   out_lr <- file.path(args$output_dir, paste0(sample_id, "_LR_detail.csv"))
   rows <- list()
 
@@ -182,8 +182,8 @@ process_one <- function(path, args, db) {
   if (!rr$ok) return(write_sample_failure(args$output_dir, sample_id, path, out_rds, rows))
   cc <- rr$value
 
-  rr <- record(rows, sample_id, "07_computeCommunProbFastCpp",
-               CellChatFastCpp::computeCommunProbFastCpp(cc, nboot = args$nboot, seed.use = args$seed))
+  rr <- record(rows, sample_id, "07_computeCommunProbAccelRcpp",
+               CellChatAccelRcpp::computeCommunProbAccelRcpp(cc, nboot = args$nboot, seed.use = args$seed))
   rows <- rr$rows
   if (!rr$ok) return(write_sample_failure(args$output_dir, sample_id, path, out_rds, rows))
   cc <- rr$value
@@ -194,14 +194,14 @@ process_one <- function(path, args, db) {
   if (!rr$ok) return(write_sample_failure(args$output_dir, sample_id, path, out_rds, rows))
   cc <- rr$value
 
-  rr <- record(rows, sample_id, "09_computeCommunProbPathwayFastCpp",
-               CellChatFastCpp::computeCommunProbPathwayFastCpp(cc))
+  rr <- record(rows, sample_id, "09_computeCommunProbPathwayAccelRcpp",
+               CellChatAccelRcpp::computeCommunProbPathwayAccelRcpp(cc))
   rows <- rr$rows
   if (!rr$ok) return(write_sample_failure(args$output_dir, sample_id, path, out_rds, rows))
   cc <- rr$value
 
-  rr <- record(rows, sample_id, "10_aggregateNetFastCpp",
-               CellChatFastCpp::aggregateNetFastCpp(cc))
+  rr <- record(rows, sample_id, "10_aggregateNetAccelRcpp",
+               CellChatAccelRcpp::aggregateNetAccelRcpp(cc))
   rows <- rr$rows
   if (!rr$ok) return(write_sample_failure(args$output_dir, sample_id, path, out_rds, rows))
   cc <- rr$value

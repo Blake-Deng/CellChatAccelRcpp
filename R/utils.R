@@ -38,15 +38,15 @@ make_index_matrix <- function(items, data_genes, complex_input = NULL,
 
 check_supported_object <- function(object, type, population.size, distance.use) {
   if (!identical(type, "triMean")) {
-    stop("CellChatFastCpp currently supports only type = 'triMean'.", call. = FALSE)
+    stop("CellChatAccelRcpp currently supports only type = 'triMean'.", call. = FALSE)
   }
   if (!identical(population.size, FALSE)) {
-    stop("CellChatFastCpp currently supports only population.size = FALSE.", call. = FALSE)
+    stop("CellChatAccelRcpp currently supports only population.size = FALSE.", call. = FALSE)
   }
   if (!is.null(distance.use) && !identical(distance.use, FALSE)) {
-    stop("CellChatFastCpp currently supports only non-spatial RNA workflows with distance.use = NULL/FALSE.", call. = FALSE)
+    stop("CellChatAccelRcpp currently supports only non-spatial RNA workflows with distance.use = NULL/FALSE.", call. = FALSE)
   }
   if (!identical(object@options$datatype, "RNA")) {
-    stop("CellChatFastCpp currently supports only object@options$datatype == 'RNA'.", call. = FALSE)
+    stop("CellChatAccelRcpp currently supports only object@options$datatype == 'RNA'.", call. = FALSE)
   }
 }

@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // cellchat_prob_boot_cpp
 List cellchat_prob_boot_cpp(NumericMatrix dataLavg, NumericMatrix dataRavg, NumericMatrix dataLavgBoot, NumericMatrix dataRavgBoot, NumericMatrix agonist, NumericMatrix antagonist, NumericMatrix agonistBoot, NumericMatrix antagonistBoot, LogicalVector hasAgonist, LogicalVector hasAntagonist, double Kh, double n_power, int nboot);
-RcppExport SEXP _CellChatFastCpp_cellchat_prob_boot_cpp(SEXP dataLavgSEXP, SEXP dataRavgSEXP, SEXP dataLavgBootSEXP, SEXP dataRavgBootSEXP, SEXP agonistSEXP, SEXP antagonistSEXP, SEXP agonistBootSEXP, SEXP antagonistBootSEXP, SEXP hasAgonistSEXP, SEXP hasAntagonistSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP nbootSEXP) {
+RcppExport SEXP _CellChatAccelRcpp_cellchat_prob_boot_cpp(SEXP dataLavgSEXP, SEXP dataRavgSEXP, SEXP dataLavgBootSEXP, SEXP dataRavgBootSEXP, SEXP agonistSEXP, SEXP antagonistSEXP, SEXP agonistBootSEXP, SEXP antagonistBootSEXP, SEXP hasAgonistSEXP, SEXP hasAntagonistSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP nbootSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -35,7 +35,7 @@ END_RCPP
 }
 // group_tri_mean_cpp
 NumericMatrix group_tri_mean_cpp(NumericMatrix data, IntegerVector group, int K);
-RcppExport SEXP _CellChatFastCpp_group_tri_mean_cpp(SEXP dataSEXP, SEXP groupSEXP, SEXP KSEXP) {
+RcppExport SEXP _CellChatAccelRcpp_group_tri_mean_cpp(SEXP dataSEXP, SEXP groupSEXP, SEXP KSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -48,7 +48,7 @@ END_RCPP
 }
 // group_tri_mean_boot_cpp
 List group_tri_mean_boot_cpp(NumericMatrix data, IntegerMatrix groupBoot, int K);
-RcppExport SEXP _CellChatFastCpp_group_tri_mean_boot_cpp(SEXP dataSEXP, SEXP groupBootSEXP, SEXP KSEXP) {
+RcppExport SEXP _CellChatAccelRcpp_group_tri_mean_boot_cpp(SEXP dataSEXP, SEXP groupBootSEXP, SEXP KSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -61,7 +61,7 @@ END_RCPP
 }
 // cellchat_prob_from_avg_cpp
 List cellchat_prob_from_avg_cpp(NumericMatrix avg, NumericVector avgBoot, IntegerMatrix ligandIdx, IntegerMatrix receptorIdx, IntegerMatrix coAIdx, IntegerMatrix coIIdx, IntegerMatrix agonistIdx, IntegerMatrix antagonistIdx, LogicalVector hasAgonist, LogicalVector hasAntagonist, double Kh, double n_power);
-RcppExport SEXP _CellChatFastCpp_cellchat_prob_from_avg_cpp(SEXP avgSEXP, SEXP avgBootSEXP, SEXP ligandIdxSEXP, SEXP receptorIdxSEXP, SEXP coAIdxSEXP, SEXP coIIdxSEXP, SEXP agonistIdxSEXP, SEXP antagonistIdxSEXP, SEXP hasAgonistSEXP, SEXP hasAntagonistSEXP, SEXP KhSEXP, SEXP n_powerSEXP) {
+RcppExport SEXP _CellChatAccelRcpp_cellchat_prob_from_avg_cpp(SEXP avgSEXP, SEXP avgBootSEXP, SEXP ligandIdxSEXP, SEXP receptorIdxSEXP, SEXP coAIdxSEXP, SEXP coIIdxSEXP, SEXP agonistIdxSEXP, SEXP antagonistIdxSEXP, SEXP hasAgonistSEXP, SEXP hasAntagonistSEXP, SEXP KhSEXP, SEXP n_powerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -83,7 +83,7 @@ END_RCPP
 }
 // pathway_sum_cpp
 List pathway_sum_cpp(NumericVector prob, NumericVector pval, IntegerVector pathway, int n_pathways, double thresh);
-RcppExport SEXP _CellChatFastCpp_pathway_sum_cpp(SEXP probSEXP, SEXP pvalSEXP, SEXP pathwaySEXP, SEXP n_pathwaysSEXP, SEXP threshSEXP) {
+RcppExport SEXP _CellChatAccelRcpp_pathway_sum_cpp(SEXP probSEXP, SEXP pvalSEXP, SEXP pathwaySEXP, SEXP n_pathwaysSEXP, SEXP threshSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -98,7 +98,7 @@ END_RCPP
 }
 // aggregate_net_cpp
 List aggregate_net_cpp(NumericVector prob, NumericVector pval, double thresh);
-RcppExport SEXP _CellChatFastCpp_aggregate_net_cpp(SEXP probSEXP, SEXP pvalSEXP, SEXP threshSEXP) {
+RcppExport SEXP _CellChatAccelRcpp_aggregate_net_cpp(SEXP probSEXP, SEXP pvalSEXP, SEXP threshSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -111,16 +111,16 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_CellChatFastCpp_cellchat_prob_boot_cpp", (DL_FUNC) &_CellChatFastCpp_cellchat_prob_boot_cpp, 13},
-    {"_CellChatFastCpp_group_tri_mean_cpp", (DL_FUNC) &_CellChatFastCpp_group_tri_mean_cpp, 3},
-    {"_CellChatFastCpp_group_tri_mean_boot_cpp", (DL_FUNC) &_CellChatFastCpp_group_tri_mean_boot_cpp, 3},
-    {"_CellChatFastCpp_cellchat_prob_from_avg_cpp", (DL_FUNC) &_CellChatFastCpp_cellchat_prob_from_avg_cpp, 12},
-    {"_CellChatFastCpp_pathway_sum_cpp", (DL_FUNC) &_CellChatFastCpp_pathway_sum_cpp, 5},
-    {"_CellChatFastCpp_aggregate_net_cpp", (DL_FUNC) &_CellChatFastCpp_aggregate_net_cpp, 3},
+    {"_CellChatAccelRcpp_cellchat_prob_boot_cpp", (DL_FUNC) &_CellChatAccelRcpp_cellchat_prob_boot_cpp, 13},
+    {"_CellChatAccelRcpp_group_tri_mean_cpp", (DL_FUNC) &_CellChatAccelRcpp_group_tri_mean_cpp, 3},
+    {"_CellChatAccelRcpp_group_tri_mean_boot_cpp", (DL_FUNC) &_CellChatAccelRcpp_group_tri_mean_boot_cpp, 3},
+    {"_CellChatAccelRcpp_cellchat_prob_from_avg_cpp", (DL_FUNC) &_CellChatAccelRcpp_cellchat_prob_from_avg_cpp, 12},
+    {"_CellChatAccelRcpp_pathway_sum_cpp", (DL_FUNC) &_CellChatAccelRcpp_pathway_sum_cpp, 5},
+    {"_CellChatAccelRcpp_aggregate_net_cpp", (DL_FUNC) &_CellChatAccelRcpp_aggregate_net_cpp, 3},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_CellChatFastCpp(DllInfo *dll) {
+RcppExport void R_init_CellChatAccelRcpp(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

@@ -1,4 +1,4 @@
-"sample_id","elapsed_sec_fastcpp","n_cells_used_fastcpp","n_groups_fastcpp","n_lr_fastcpp","n_pathways_fastcpp","elapsed_sec_official_R","n_cells_used_official_R","n_groups_official_R","n_lr_official_R","n_pathways_official_R","speedup_total"
+"sample_id","elapsed_sec_accelrcpp","n_cells_used_accelrcpp","n_groups_accelrcpp","n_lr_accelrcpp","n_pathways_accelrcpp","elapsed_sec_official_R","n_cells_used_official_R","n_groups_official_R","n_lr_official_R","n_pathways_official_R","speedup_total"
 "SCPCL000120",8.66385245323181,292,5,205,56,322.488173484802,292,5,1273,56,37.2222605619867
 "SCPCL000142",48.4240136146545,3315,8,750,134,1582.52571344376,3315,8,2162,134,32.6805978132478
 "SCPCL000140",40.6111361980438,3337,11,387,87,798.314651489258,3337,11,2405,87,19.6575305747716

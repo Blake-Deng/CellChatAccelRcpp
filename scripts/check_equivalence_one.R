@@ -3,7 +3,7 @@
 suppressPackageStartupMessages({
   library(Seurat)
   library(CellChat)
-  library(CellChatFastCpp)
+  library(CellChatAccelRcpp)
 })
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -38,18 +38,18 @@ cc_ref <- CellChat::computeCommunProb(cc, type = "triMean", nboot = nboot, seed.
 t_ref <- proc.time() - t0
 
 t0 <- proc.time()
-cc_fast <- CellChatFastCpp::computeCommunProbFastCpp(cc, nboot = nboot, seed.use = 1L)
-t_fast <- proc.time() - t0
+cc_accel <- CellChatAccelRcpp::computeCommunProbAccelRcpp(cc, nboot = nboot, seed.use = 1L)
+t_accel <- proc.time() - t0
 
 cc_ref <- CellChat::computeCommunProbPathway(cc_ref)
-cc_fast <- CellChatFastCpp::computeCommunProbPathwayFastCpp(cc_fast)
+cc_accel <- CellChatAccelRcpp::computeCommunProbPathwayAccelRcpp(cc_accel)
 cc_ref <- CellChat::aggregateNet(cc_ref)
-cc_fast <- CellChatFastCpp::aggregateNetFastCpp(cc_fast)
+cc_accel <- CellChatAccelRcpp::aggregateNetAccelRcpp(cc_accel)
 
 cat("reference elapsed:", unname(t_ref[["elapsed"]]), "\n")
-cat("fast elapsed:", unname(t_fast[["elapsed"]]), "\n")
-cat("prob max abs diff:", max(abs(cc_ref@net$prob - cc_fast@net$prob), na.rm = TRUE), "\n")
-cat("pval max abs diff:", max(abs(cc_ref@net$pval - cc_fast@net$pval), na.rm = TRUE), "\n")
-cat("pathway prob all.equal:", isTRUE(all.equal(cc_ref@netP$prob, cc_fast@netP$prob, tolerance = 1e-12)), "\n")
-cat("aggregate count all.equal:", isTRUE(all.equal(cc_ref@net$count, cc_fast@net$count, tolerance = 1e-12)), "\n")
-cat("aggregate weight all.equal:", isTRUE(all.equal(cc_ref@net$weight, cc_fast@net$weight, tolerance = 1e-12)), "\n")
+cat("accelerated elapsed:", unname(t_accel[["elapsed"]]), "\n")
+cat("prob max abs diff:", max(abs(cc_ref@net$prob - cc_accel@net$prob), na.rm = TRUE), "\n")
+cat("pval max abs diff:", max(abs(cc_ref@net$pval - cc_accel@net$pval), na.rm = TRUE), "\n")
+cat("pathway prob all.equal:", isTRUE(all.equal(cc_ref@netP$prob, cc_accel@netP$prob, tolerance = 1e-12)), "\n")
+cat("aggregate count all.equal:", isTRUE(all.equal(cc_ref@net$count, cc_accel@net$count, tolerance = 1e-12)), "\n")
+cat("aggregate weight all.equal:", isTRUE(all.equal(cc_ref@net$weight, cc_accel@net$weight, tolerance = 1e-12)), "\n")

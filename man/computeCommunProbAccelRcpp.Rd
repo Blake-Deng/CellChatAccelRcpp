@@ -1,8 +1,8 @@
-\name{computeCommunProbFastCpp}
-\alias{computeCommunProbFastCpp}
-\title{Fast CellChat Communication Probability}
+\name{computeCommunProbAccelRcpp}
+\alias{computeCommunProbAccelRcpp}
+\title{Accelerated CellChat Communication Probability}
 \usage{
-computeCommunProbFastCpp(object, type = "triMean", raw.use = TRUE,
+computeCommunProbAccelRcpp(object, type = "triMean", raw.use = TRUE,
   population.size = FALSE, nboot = 100, seed.use = 1L, Kh = 0.5,
   n = 1, distance.use = NULL)
 }

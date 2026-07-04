@@ -1,0 +1,117 @@
+\pdfminorversion=5
+\documentclass[unnumsec,webpdf,contemporary,large]{oup-authoring-template}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+
+% The CTAN bundle does not include the optional PNAS society logo referenced by the class.
+\makeatletter
+\def\societylogo{}
+\makeatother
+
+\begin{document}
+
+\journaltitle{Bioinformatics}
+\DOI{DOI added during production}
+\copyrightyear{2026}
+\pubyear{2026}
+\vol{XX}
+\issue{x}
+\access{Published: Date added during production}
+\appnotes{Application Note}
+\firstpage{1}
+
+\title[CellChatAccelRcpp]{CellChatAccelRcpp: scalable acceleration of CellChat inference for large single-cell communication analyses}
+
+\author[1,$\ast$]{First Author}
+\author[1]{Second Author}
+
+\address[1]{\orgdiv{Department}, \orgname{Institution}, \orgaddress{\street{Street}, \postcode{Postcode}, \state{State}, \country{Country}}}
+
+\corresp[$\ast$]{Corresponding author. \href{mailto:email@example.com}{email@example.com}}
+
+\received{Date}{0}{2026}
+\revised{Date}{0}{2026}
+\accepted{Date}{0}{2026}
+
+\abstract{
+\textbf{Summary:}
+CellChatAccelRcpp is an accelerated implementation for large-scale CellChat analysis.
+It preserves the CellChat user workflow while replacing computational bottlenecks with optimized C++ routines.
+% Replace this placeholder with a concise 150--250 word summary.
+\\
+\textbf{Availability and implementation:}
+Source code, documentation, test data and reproducibility scripts will be available at \url{https://github.com/Blake-Deng/CellChatAccelRcpp}.
+An archived release will be deposited at Zenodo before submission.
+\\
+\textbf{Contact:}
+\href{mailto:email@example.com}{email@example.com}
+\\
+\textbf{Supplementary information:}
+Supplementary data are available online.
+}
+
+\keywords{single-cell RNA-seq, cell-cell communication, CellChat, Rcpp, computational acceleration}
+
+\maketitle
+
+\section{Introduction}
+
+% Briefly introduce CellChat, the computational bottleneck in large datasets,
+% and why an accelerated but numerically equivalent implementation matters.
+
+\section{Materials and methods}
+
+% Describe implementation, benchmark design, datasets, hardware, and reproducibility.
+% Keep enough detail for reviewers to reproduce the runtime and accuracy figures.
+
+\section{Results}
+
+% Report speedup, scaling behavior, numerical equivalence, and ablation results.
+
+\begin{figure*}[t]
+\centering
+% Put the final main figure in paper/figures/, then uncomment the next line.
+% \includegraphics[width=\textwidth]{main_figure.pdf}
+\caption{
+Performance and numerical agreement of CellChatAccelRcpp.
+Alt text: Placeholder for a concise description of the main performance figure.
+}
+\label{fig:main}
+\end{figure*}
+
+\section{Availability and implementation}
+
+% State stable GitHub URL, archive DOI, license, R version, dependencies,
+% operating systems tested, and example install command.
+
+\section{Discussion}
+
+% Explain the practical impact: larger datasets, shorter iteration time, and unchanged biological interpretation.
+% Mention limitations honestly, such as dependency on CellChat input assumptions.
+
+\section{Acknowledgements}
+
+% Add non-author contributions here.
+
+\section{Funding}
+
+% Add grant numbers here. If none, state that no specific funding was received.
+
+\section{Conflict of interest}
+
+The authors declare no competing interests.
+
+\section{Data availability}
+
+% Add source datasets and accessions. Add benchmark output repository/Zenodo DOI.
+
+% Uncomment when references are ready.
+% \bibliographystyle{oup-plain}
+% \bibliography{references}
+
+\end{document}

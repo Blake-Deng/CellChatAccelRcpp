@@ -1,5 +1,5 @@
 "step","elapsed_sec"
-"computeCommunProbFastCpp",957.599537372589
+"computeCommunProbAccelRcpp",957.599537372589
 "saveRDS",324.119924545288
 "filter_cells_and_groups",179.818691730499
 "identifyOverExpressedInteractions",80.2222156524658
@@ -10,6 +10,6 @@
 "netAnalysis_computeCentrality",27.9592866897583
 "subsetData",12.7565674781799
 "writeCommunicationCsv",2.02897000312805
-"computeCommunProbPathwayFastCpp",0.219330072402954
+"computeCommunProbPathwayAccelRcpp",0.219330072402954
 "filterCommunication",0.204925775527954
-"aggregateNetFastCpp",0.0667729377746582
+"aggregateNetAccelRcpp",0.0667729377746582

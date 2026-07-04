@@ -1,0 +1,8 @@
+^benchmarks$
+^paper$
+^README_files$
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.DS_Store$
+^src/symbols\.rds$

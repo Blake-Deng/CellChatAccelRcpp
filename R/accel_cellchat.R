@@ -1,4 +1,4 @@
-computeCommunProbFastCpp <- function(object, type = "triMean", raw.use = TRUE, population.size = FALSE,
+computeCommunProbAccelRcpp <- function(object, type = "triMean", raw.use = TRUE, population.size = FALSE,
                                      nboot = 100, seed.use = 1L, Kh = 0.5, n = 1,
                                      distance.use = NULL) {
   check_supported_object(object, type, population.size, distance.use)
@@ -102,7 +102,7 @@ computeCommunProbFastCpp <- function(object, type = "triMean", raw.use = TRUE, p
   object
 }
 
-computeCommunProbPathwayFastCpp <- function(object = NULL, net = NULL, pairLR.use = NULL, thresh = 0.05) {
+computeCommunProbPathwayAccelRcpp <- function(object = NULL, net = NULL, pairLR.use = NULL, thresh = 0.05) {
   if (is.null(net)) net <- object@net
   if (is.null(pairLR.use)) pairLR.use <- object@LR$LRsig
   pathways <- unique(pairLR.use$pathway_name)
@@ -131,7 +131,7 @@ computeCommunProbPathwayFastCpp <- function(object = NULL, net = NULL, pairLR.us
   }
 }
 
-aggregateNetFastCpp <- function(object, thresh = 0.05) {
+aggregateNetAccelRcpp <- function(object, thresh = 0.05) {
   res <- aggregate_net_cpp(object@net$prob, object@net$pval, thresh)
   dimnames(res$count) <- dimnames(object@net$prob)[1:2]
   dimnames(res$weight) <- dimnames(object@net$prob)[1:2]
@@ -140,11 +140,11 @@ aggregateNetFastCpp <- function(object, thresh = 0.05) {
   object
 }
 
-computeAveExprFastCpp <- function(object, features = NULL, group.by = NULL,
+computeAveExprAccelRcpp <- function(object, features = NULL, group.by = NULL,
                                   type = "triMean", slot.name = c("data.signaling", "data"),
                                   data.use = NULL) {
   if (!identical(type, "triMean")) {
-    stop("CellChatFastCpp currently supports only type = 'triMean'.", call. = FALSE)
+    stop("CellChatAccelRcpp currently supports only type = 'triMean'.", call. = FALSE)
   }
   slot.name <- match.arg(slot.name)
   if (is.null(data.use)) data.use <- methods::slot(object, slot.name)

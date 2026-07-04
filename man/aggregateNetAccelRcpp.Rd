@@ -1,8 +1,8 @@
-\name{aggregateNetFastCpp}
-\alias{aggregateNetFastCpp}
-\title{Fast CellChat Network Aggregation}
+\name{aggregateNetAccelRcpp}
+\alias{aggregateNetAccelRcpp}
+\title{Accelerated CellChat Network Aggregation}
 \usage{
-aggregateNetFastCpp(object, thresh = 0.05)
+aggregateNetAccelRcpp(object, thresh = 0.05)
 }
 \arguments{
 \item{object}{A CellChat object with \code{object@net$prob} and \code{object@net$pval}.}

@@ -1,7 +1,7 @@
 # SCPCP000004 Benchmark
 
 This benchmark compares the original CellChat R implementation with the
-CellChatAccelRcpp/FastCpp workflow on the SCPCP000004 Seurat RDS collection.
+CellChatAccelRcpp/AccelRcpp workflow on the SCPCP000004 Seurat RDS collection.
 
 The raw `.rds` CellChat objects and expression matrices are intentionally not
 included in this repository. This directory contains only runnable scripts and
@@ -31,7 +31,7 @@ CSV summaries.
 | method | successful samples | failed samples | successful elapsed time |
 | --- | ---: | ---: | ---: |
 | Original CellChat R | 40 | 2 | 15,202.23 sec |
-| CellChatAccelRcpp/FastCpp | 40 | 2 | 1,805.11 sec |
+| CellChatAccelRcpp/AccelRcpp | 40 | 2 | 1,805.11 sec |
 
 Overall speedup on successful samples:
 
@@ -50,7 +50,7 @@ The two failed samples were identical between the two methods:
 
 The main acceleration target remains `computeCommunProb()`.
 
-| step | Original CellChat R | FastCpp |
+| step | Original CellChat R | AccelRcpp |
 | --- | ---: | ---: |
 | communication probability inference | 14,526.05 sec | 957.60 sec |
 
@@ -83,13 +83,13 @@ Scripts:
 
 - `scripts/run_SCPCP000004_official_cellchat_R.R`: runs the original CellChat R
   workflow on the RDS directory using the same filtering and annotation rules.
-- `scripts/compare_SCPCP000004_official_R_vs_fastcpp.R`: compares original R
-  summaries against FastCpp summaries.
+- `scripts/compare_SCPCP000004_official_R_vs_accelrcpp.R`: compares original R
+  summaries against AccelRcpp summaries.
 
 Result summaries:
 
 - `results/official_R_run_summary.csv`
-- `results/fastcpp_run_summary.csv`
+- `results/accelrcpp_run_summary.csv`
 - `results/status_counts.csv`
 - `results/sample_elapsed_comparison.csv`
 - `results/computeCommunProb_step_comparison.csv`
@@ -99,9 +99,9 @@ Result summaries:
 Full per-step timing tables:
 
 - `results/official_R_all_step_timings.csv`
-- `results/fastcpp_all_step_timings.csv`
+- `results/accelrcpp_all_step_timings.csv`
 - `results/official_R_step_total_by_step.csv`
-- `results/fastcpp_step_total_by_step.csv`
+- `results/accelrcpp_step_total_by_step.csv`
 
 ## Reproduce
 
@@ -115,10 +115,10 @@ SCPCP_NBOOT=100 \
 Rscript benchmarks/SCPCP000004/scripts/run_SCPCP000004_official_cellchat_R.R
 ```
 
-Run the FastCpp workflow with the package batch script:
+Run the AccelRcpp workflow with the package batch script:
 
 ```bash
-Rscript scripts/run_cellchat_fast_batch.R \
+Rscript scripts/run_cellchat_accel_batch.R \
   --input_dir /path/to/SCPCP000004/rds \
   --output_dir /path/to/results/SCPCP000004 \
   --group_col openscpca_celltype_annotation \
@@ -131,8 +131,8 @@ Rscript scripts/run_cellchat_fast_batch.R \
 Then compare summaries:
 
 ```bash
-SCPCP_FASTCPP_DIR=/path/to/results/SCPCP000004 \
+SCPCP_ACCELRCPP_DIR=/path/to/results/SCPCP000004 \
 SCPCP_OFFICIAL_DIR=/path/to/results/SCPCP000004_official_cellchat_R \
-SCPCP_COMPARE_DIR=/path/to/results/SCPCP000004_official_R_vs_fastcpp_compare \
-Rscript benchmarks/SCPCP000004/scripts/compare_SCPCP000004_official_R_vs_fastcpp.R
+SCPCP_COMPARE_DIR=/path/to/results/SCPCP000004_official_R_vs_accelrcpp_compare \
+Rscript benchmarks/SCPCP000004/scripts/compare_SCPCP000004_official_R_vs_accelrcpp.R
 ```

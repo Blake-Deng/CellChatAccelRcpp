@@ -1,11 +1,11 @@
-Package: CellChatFastCpp
+Package: CellChatAccelRcpp
 Type: Package
-Title: Fast Rcpp Helpers for CellChat RNA Workflows
+Title: Rcpp Acceleration for CellChat RNA Workflows
 Version: 0.1.0
 Authors@R: person("DENG", "Zifeng", role = c("aut", "cre"), email = "zifengd8@gmail.com")
 Author: DENG Zifeng [aut, cre]
 Maintainer: DENG Zifeng <zifengd8@gmail.com>
-Description: Rcpp implementations for selected CellChat RNA workflow hot paths,
+Description: Rcpp implementations for selected CellChat RNA workflow bottlenecks,
     including triMean-based communication probability estimation, pathway
     aggregation, network aggregation, and average expression by group.
 License: GPL-3
@@ -17,5 +17,4 @@ Imports:
     methods
 LinkingTo:
     Rcpp
-SystemRequirements: C++11
 RoxygenNote: 7.3.2

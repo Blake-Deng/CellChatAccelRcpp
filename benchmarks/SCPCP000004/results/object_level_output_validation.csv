@@ -1,4 +1,4 @@
-"sample_id","same_groups","n_groups_fast","n_groups_official","n_lr_fast","n_lr_official","n_lr_common","lr_overlap_fast_frac","lr_overlap_official_frac","prob_common_values","prob_cor","prob_mean_abs","prob_max_abs","weight_cor","weight_mean_abs","weight_max_abs"
+"sample_id","same_groups","n_groups_accel","n_groups_official","n_lr_accel","n_lr_official","n_lr_common","lr_overlap_accel_frac","lr_overlap_official_frac","prob_common_values","prob_cor","prob_mean_abs","prob_max_abs","weight_cor","weight_mean_abs","weight_max_abs"
 "SCPCL000118",TRUE,2,2,4,4,4,1,1,16,1,2.71050543121376e-20,4.33680868994202e-19,NA,0,0
 "SCPCL000119",TRUE,6,6,1475,1475,1475,1,1,53100,1,1.75713236268684e-20,2.77555756156289e-17,1,2.73218947466347e-17,2.22044604925031e-16
 "SCPCL000120",TRUE,5,5,1273,1273,1273,1,1,31825,1,1.91119377459346e-20,5.55111512312578e-17,1,5.09661757241986e-17,4.44089209850063e-16

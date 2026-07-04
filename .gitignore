@@ -9,7 +9,13 @@ results/
 !benchmarks/
 !benchmarks/**/
 !benchmarks/**/results/
+!benchmarks/**/results/**/
 !benchmarks/**/results/*.csv
+!benchmarks/**/results/**/*.csv
+!benchmarks/**/results/**/*.tsv
+!benchmarks/**/results/**/*.txt
+!benchmarks/**/results/**/*.pdf
+!benchmarks/**/results/**/*.png
 data/
 *.rds
 *.rda

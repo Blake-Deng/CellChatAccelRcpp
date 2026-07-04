@@ -1,8 +1,8 @@
-\name{computeCommunProbPathwayFastCpp}
-\alias{computeCommunProbPathwayFastCpp}
-\title{Fast CellChat Pathway Aggregation}
+\name{computeCommunProbPathwayAccelRcpp}
+\alias{computeCommunProbPathwayAccelRcpp}
+\title{Accelerated CellChat Pathway Aggregation}
 \usage{
-computeCommunProbPathwayFastCpp(object = NULL, net = NULL, pairLR.use = NULL,
+computeCommunProbPathwayAccelRcpp(object = NULL, net = NULL, pairLR.use = NULL,
   thresh = 0.05)
 }
 \arguments{

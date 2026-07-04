@@ -1,0 +1,24 @@
+name: cellchat-acceleration
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base>=4.3
+  - r-remotes
+  - r-devtools
+  - git
+  - gcc_linux-64
+  - gxx_linux-64
+  - gfortran_linux-64
+  - r-rcpp
+  - r-rcppparallel
+  - r-matrix
+  - r-data.table
+  - r-dplyr
+  - r-ggplot2
+  - r-future
+  - r-seurat
+  - bioconductor-complexheatmap
+  - bioconductor-biocneighbors
+  - bioconductor-biobase
+  - python>=3.10
