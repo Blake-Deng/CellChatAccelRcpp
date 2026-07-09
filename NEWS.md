@@ -1,11 +1,16 @@
 # CellChatAccelRcpp News
 
+## CellChatAccelRcpp 0.1.2
+
+- Added 64-bit R vector indexing in C++ probability and aggregation kernels for large output tensors.
+- Rebuilt the GitHub and Zenodo release archive for the long-vector indexing update.
+- Kept `sparse_stream` as the default `computeCommunProbAccelRcpp()` probability kernel.
+
 ## CellChatAccelRcpp 0.1.1
 
 - Made `sparse_stream` the default `computeCommunProbAccelRcpp()` probability kernel.
 - Added the `sparse_stream` communication-probability kernel for active sender-receiver ligand-receptor pairs.
 - Added sparse benchmark summaries, checkpoint grids, memory-stress evidence and publication figure outputs.
-- Added 64-bit R vector indexing in C++ probability and aggregation kernels for large output tensors.
 - Updated the README, package metadata and citation metadata for the v0.1.1 GitHub release.
 - Clarified that the package preserves the CellChat model and accelerates execution without removing the sender-by-receiver group-pair scaling term.
 

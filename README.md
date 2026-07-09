@@ -1,6 +1,6 @@
 # CellChatAccelRcpp
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21277472.svg)](https://doi.org/10.5281/zenodo.21277472)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21186107.svg)](https://doi.org/10.5281/zenodo.21186107)
 [![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![R](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](DESCRIPTION)
 
@@ -8,7 +8,7 @@ CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA w
 
 The package is intended for users who need to run many CellChat analyses, larger cell sets or high-resolution groupings while preserving outputs that remain directly comparable with the original CellChat workflow.
 
-Current release: `v0.1.1`
+Current release: `v0.1.2`
 
 ## What Is Accelerated
 
@@ -142,7 +142,7 @@ NEWS.md                 release notes
 
 ## Release Notes
 
-See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.1` release makes `sparse_stream` the default probability kernel and includes expanded benchmark outputs and updated publication material.
+See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.2` release keeps `sparse_stream` as the default probability kernel and adds 64-bit R vector indexing for large output tensors.
 
 ## Citation
 
@@ -150,6 +150,6 @@ Please cite the archived software release:
 
 ```text
 Deng Z. CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses.
-DOI: https://doi.org/10.5281/zenodo.21277472
+DOI: https://doi.org/10.5281/zenodo.21186107
 GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
 ```
