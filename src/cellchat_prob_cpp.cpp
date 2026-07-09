@@ -24,6 +24,7 @@ List cellchat_prob_boot_cpp(
   const int nLR = dataLavg.nrow();
   const int K = dataLavg.ncol();
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   NumericVector prob(Dimension(K, K, nLR));
   NumericVector pval(Dimension(K, K, nLR));
 
@@ -49,14 +50,14 @@ List cellchat_prob_boot_cpp(
 
         const int idx = s + K * r;
         pnull[idx] = val;
-        prob[s + K * r + KK * lr] = val;
+        prob[static_cast<R_xlen_t>(s + K * r) + KK_x * lr] = val;
         if (val != 0.0) all_zero = false;
       }
     }
 
     if (all_zero) {
       for (int idx = 0; idx < KK; ++idx) {
-        pval[idx + KK * lr] = 1.0;
+        pval[static_cast<R_xlen_t>(idx) + KK_x * lr] = 1.0;
       }
       continue;
     }
@@ -86,7 +87,7 @@ List cellchat_prob_boot_cpp(
     for (int idx = 0; idx < KK; ++idx) {
       double pv = static_cast<double>(reject[idx]) / static_cast<double>(nboot);
       if (pnull[idx] == 0.0) pv = 1.0;
-      pval[idx + KK * lr] = pv;
+      pval[static_cast<R_xlen_t>(idx) + KK_x * lr] = pv;
     }
   }
 
@@ -345,6 +346,7 @@ List cellchat_prob_from_avg_cpp(
   const int nboot = dims[2];
   const int nLR = ligandIdx.nrow();
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   const double Kh_n = std::pow(Kh, n_power);
 
   NumericVector prob(Dimension(K, K, nLR));
@@ -377,13 +379,13 @@ List cellchat_prob_from_avg_cpp(
         double val = p1 * ago[s] * ago[r] * ant[s] * ant[r];
         const int idx = s + K * r;
         pnull[idx] = val;
-        prob[idx + KK * lr] = val;
+        prob[static_cast<R_xlen_t>(idx) + KK_x * lr] = val;
         if (val != 0.0) all_zero = false;
       }
     }
 
     if (all_zero) {
-      for (int idx = 0; idx < KK; ++idx) pval[idx + KK * lr] = 1.0;
+      for (int idx = 0; idx < KK; ++idx) pval[static_cast<R_xlen_t>(idx) + KK_x * lr] = 1.0;
       continue;
     }
 
@@ -416,7 +418,7 @@ List cellchat_prob_from_avg_cpp(
     for (int idx = 0; idx < KK; ++idx) {
       double pv = static_cast<double>(reject[idx]) / static_cast<double>(nboot);
       if (pnull[idx] == 0.0) pv = 1.0;
-      pval[idx + KK * lr] = pv;
+      pval[static_cast<R_xlen_t>(idx) + KK_x * lr] = pv;
     }
   }
 
@@ -444,6 +446,7 @@ List cellchat_prob_from_avg_sparse_cpp(
   const int nboot = dims[2];
   const int nLR = ligandIdx.nrow();
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   const double Kh_n = std::pow(Kh, n_power);
 
   NumericVector prob(Dimension(K, K, nLR));
@@ -485,10 +488,10 @@ List cellchat_prob_from_avg_sparse_cpp(
     std::vector<char> group_seen(K, 0);
     active_idx.reserve(KK);
     active_groups.reserve(K);
-    const int lr_offset = KK * lr;
+    const R_xlen_t lr_offset = KK_x * lr;
 
     for (int idx = 0; idx < KK; ++idx) {
-      pval[idx + lr_offset] = 1.0;
+      pval[static_cast<R_xlen_t>(idx) + lr_offset] = 1.0;
     }
 
     for (int s = 0; s < K; ++s) {
@@ -503,7 +506,7 @@ List cellchat_prob_from_avg_sparse_cpp(
         const int idx = s + K * r;
         product_null[idx] = dataLR;
         pnull[idx] = val;
-        prob[idx + lr_offset] = val;
+        prob[static_cast<R_xlen_t>(idx) + lr_offset] = val;
         if (val != 0.0) {
           active_idx.push_back(idx);
           if (!group_seen[s]) {
@@ -562,7 +565,7 @@ List cellchat_prob_from_avg_sparse_cpp(
 
     for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
       const int idx = active_idx[j];
-      pval[idx + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
+      pval[static_cast<R_xlen_t>(idx) + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
     }
   }
 
@@ -687,6 +690,7 @@ List cellchat_prob_sparse_stream_cpp(
   const int nboot = groupBoot.ncol();
   const int nLR = ligandIdx.nrow();
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   const double Kh_n = std::pow(Kh, n_power);
 
   std::vector< std::vector<int> > boot_cells(nboot * K);
@@ -734,10 +738,10 @@ List cellchat_prob_sparse_stream_cpp(
   for (int lr = 0; lr < nLR; ++lr) {
     const bool simple_lr = !hasAgonist[lr] && !hasAntagonist[lr] &&
       index_row_empty(coAIdx, lr) && index_row_empty(coIIdx, lr);
-    const int lr_offset = KK * lr;
+    const R_xlen_t lr_offset = KK_x * lr;
 
     for (int idx = 0; idx < KK; ++idx) {
-      pval[idx + lr_offset] = 1.0;
+      pval[static_cast<R_xlen_t>(idx) + lr_offset] = 1.0;
     }
 
     for (int k = 0; k < K; ++k) {
@@ -773,7 +777,7 @@ List cellchat_prob_sparse_stream_cpp(
         const double val = p1 * ago[s] * ago[r] * ant[s] * ant[r];
         const int idx = s + K * r;
         pnull[idx] = val;
-        prob[idx + lr_offset] = val;
+        prob[static_cast<R_xlen_t>(idx) + lr_offset] = val;
         if (val != 0.0) {
           active_idx.push_back(idx);
           if (!group_seen[s]) {
@@ -865,7 +869,7 @@ List cellchat_prob_sparse_stream_cpp(
 
     for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
       const int idx = active_idx[j];
-      pval[idx + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
+      pval[static_cast<R_xlen_t>(idx) + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
     }
 
     for (int g0 : lr_genes) {
@@ -904,6 +908,7 @@ List cellchat_prob_simple_ondemand_cpp(
   const int nboot = groupBoot.ncol();
   const int nLR = ligandGene.size();
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   const double Kh_n = std::pow(Kh, n_power);
 
   NumericVector prob(Dimension(K, K, nLR));
@@ -950,7 +955,7 @@ List cellchat_prob_simple_ondemand_cpp(
   for (int lr = 0; lr < nLR; ++lr) {
     const int lig0 = ligandGene[lr] - 1;
     const int rec0 = receptorGene[lr] - 1;
-    const int lr_offset = KK * lr;
+    const R_xlen_t lr_offset = KK_x * lr;
     std::vector<double> product_null(KK, 0.0);
     std::vector<double> pnull(KK, 0.0);
     std::vector<int> active_idx;
@@ -960,7 +965,7 @@ List cellchat_prob_simple_ondemand_cpp(
     active_groups.reserve(K);
 
     for (int idx = 0; idx < KK; ++idx) {
-      pval[idx + lr_offset] = 1.0;
+      pval[static_cast<R_xlen_t>(idx) + lr_offset] = 1.0;
     }
 
     for (int s = 0; s < K; ++s) {
@@ -974,7 +979,7 @@ List cellchat_prob_simple_ondemand_cpp(
         const int idx = s + K * r;
         product_null[idx] = dataLR;
         pnull[idx] = p1;
-        prob[idx + lr_offset] = p1;
+        prob[static_cast<R_xlen_t>(idx) + lr_offset] = p1;
         if (p1 != 0.0) {
           active_idx.push_back(idx);
           if (!group_seen[s]) {
@@ -1016,7 +1021,7 @@ List cellchat_prob_simple_ondemand_cpp(
 
     for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
       const int idx = active_idx[j];
-      pval[idx + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
+      pval[static_cast<R_xlen_t>(idx) + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
     }
   }
 
@@ -1038,6 +1043,7 @@ List pathway_sum_cpp(NumericVector prob, NumericVector pval, IntegerVector pathw
   const int K = dims[0];
   const int nLR = dims[2];
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   NumericVector prob_pathway(Dimension(K, K, n_pathways));
   NumericVector lr_sum(nLR);
   NumericVector pathway_sum(n_pathways);
@@ -1048,10 +1054,10 @@ List pathway_sum_cpp(NumericVector prob, NumericVector pval, IntegerVector pathw
     double lr_total = 0.0;
     for (int idx = 0; idx < KK; ++idx) {
       const int src_tgt = idx;
-      const int pos = src_tgt + KK * lr;
+      const R_xlen_t pos = static_cast<R_xlen_t>(src_tgt) + KK_x * lr;
       double val = prob[pos];
       if (pval[pos] > thresh) val = 0.0;
-      prob_pathway[src_tgt + KK * p] += val;
+      prob_pathway[static_cast<R_xlen_t>(src_tgt) + KK_x * p] += val;
       lr_total += val;
       pathway_sum[p] += val;
     }
@@ -1071,12 +1077,13 @@ List aggregate_net_cpp(NumericVector prob, NumericVector pval, double thresh) {
   const int K = dims[0];
   const int nLR = dims[2];
   const int KK = K * K;
+  const R_xlen_t KK_x = static_cast<R_xlen_t>(KK);
   NumericMatrix count(K, K);
   NumericMatrix weight(K, K);
 
   for (int lr = 0; lr < nLR; ++lr) {
     for (int idx = 0; idx < KK; ++idx) {
-      const int pos = idx + KK * lr;
+      const R_xlen_t pos = static_cast<R_xlen_t>(idx) + KK_x * lr;
       const double val = prob[pos];
       double pv = pval[pos];
       if (val == 0.0) pv = 1.0;
