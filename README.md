@@ -1,6 +1,6 @@
 # CellChatAccelRcpp
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21186107.svg)](https://doi.org/10.5281/zenodo.21186107)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21279589.svg)](https://doi.org/10.5281/zenodo.21279589)
 [![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![R](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](DESCRIPTION)
 
@@ -150,6 +150,6 @@ Please cite the archived software release:
 
 ```text
 Deng Z. CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses.
-DOI: https://doi.org/10.5281/zenodo.21186107
+DOI: https://doi.org/10.5281/zenodo.21279589
 GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
 ```
