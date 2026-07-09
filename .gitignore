@@ -26,3 +26,20 @@ src/*.o
 src/*.so
 src/*.dll
 src/*.dylib
+
+# Keep manuscript text and submission template files local until submission.
+paper/main.tex
+paper/main.pdf
+paper/application_note_draft.md
+paper/bioinformatics_manuscript_draft.md
+paper/references.bib
+paper/oup-authoring-template.cls
+paper/oup-plain.bst
+paper/oup-abbrvnat.bst
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out

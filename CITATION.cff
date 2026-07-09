@@ -4,8 +4,8 @@ title: "CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for 
 version: 0.1.1
 date-released: 2026-07-09
 type: software
-doi: 10.5281/zenodo.21186108
-url: "https://doi.org/10.5281/zenodo.21186108"
+doi: 10.5281/zenodo.21277472
+url: "https://doi.org/10.5281/zenodo.21277472"
 authors:
   - family-names: Deng
     given-names: Zifeng
