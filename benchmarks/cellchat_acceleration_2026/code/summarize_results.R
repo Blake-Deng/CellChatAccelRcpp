@@ -1,6 +1,10 @@
 #!/usr/bin/env Rscript
 
-root <- Sys.getenv("CELLCHAT_BENCH_ROOT", "/home/dzf/cellchat_acceleration")
+all_args <- commandArgs(trailingOnly = FALSE)
+script_arg <- grep("^--file=", all_args, value = TRUE)
+script_file <- if (length(script_arg) > 0) sub("^--file=", "", script_arg[[1]]) else NA_character_
+default_root <- if (!is.na(script_file)) normalizePath(file.path(dirname(script_file), ".."), mustWork = FALSE) else getwd()
+root <- Sys.getenv("CELLCHAT_BENCH_ROOT", default_root)
 run_dir <- file.path(root, "results", "runs")
 table_dir <- file.path(root, "results", "tables")
 figure_dir <- file.path(root, "results", "figures")

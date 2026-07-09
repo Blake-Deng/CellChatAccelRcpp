@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="${ROOT:-/home/dzf/cellchat_acceleration}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BENCH_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT="${ROOT:-$BENCH_ROOT}"
+DATA_ROOT="${DATA_ROOT:-$ROOT/data}"
 OUT="$ROOT/results/environment"
 mkdir -p "$OUT"
 
@@ -15,7 +18,7 @@ mkdir -p "$OUT"
   free -h || true
   echo
   echo "disk:"
-  df -h "$ROOT" /home/dzf/share || true
+  df -h "$ROOT" "$DATA_ROOT" || true
   echo
   echo "executables:"
   command -v R || true

@@ -10,13 +10,13 @@
 CellChat is widely used to infer cell-cell communication from single-cell transcriptomic data, but its communication probability estimation and downstream aggregation steps become computational bottlenecks as datasets increase in size. We present CellChatAccelRcpp, an Rcpp-based acceleration layer that preserves the CellChat object interface while replacing selected hot paths with compiled implementations. CellChatAccelRcpp accelerates communication probability estimation, pathway-level aggregation and network aggregation, and supports checkpointed benchmark execution for large-scale studies. Across 12 single-cell datasets, six cell-scale settings and three random repeats, CellChatAccelRcpp achieved a median 11.4-fold speedup over the original CellChat workflow while preserving numerically equivalent communication probability tensors. In 216 paired baseline/accelerated comparisons, the maximum absolute probability difference was 1.39e-16 and Pearson correlation was 1.0 in all comparisons.
 
 ### Availability and implementation
-CellChatAccelRcpp is implemented in R and C++ via Rcpp. Source code, reproducible benchmark scripts, conda environment files, processed benchmark tables and figure-generation scripts will be made available at: TODO: GitHub URL. An archived release will be deposited at: TODO: Zenodo DOI.
+CellChatAccelRcpp is implemented in R and C++ via Rcpp. Source code, reproducible benchmark scripts, conda environment files, processed benchmark tables and figure-generation scripts are available at https://github.com/Blake-Deng/CellChatAccelRcpp. The archived v0.1.0 release is available at https://doi.org/10.5281/zenodo.21186108.
 
 ### Contact
-TODO: corresponding author email.
+zifengd8@gmail.com.
 
 ### Supplementary information
-Supplementary data and figures are available online at TODO.
+Supplementary data and figures are available in the project repository and submission package.
 
 ## 1. Introduction
 Cell-cell communication analysis is a central step in interpreting single-cell and spatial transcriptomic datasets. CellChat provides a widely adopted statistical framework and visualization ecosystem for inferring ligand-receptor mediated interactions among annotated cell groups. However, modern atlases increasingly contain tens of thousands to millions of cells, and the computational cost of repeated communication probability estimation can limit routine use in large-scale benchmarking, perturbation analysis and exploratory workflows.
@@ -29,7 +29,7 @@ CellChatAccelRcpp addresses this computational bottleneck by accelerating select
 CellChatAccelRcpp implements compiled Rcpp routines for triMean-based group expression aggregation, ligand-receptor communication probability computation, pathway-level communication aggregation and network aggregation. The accelerated functions operate on standard CellChat objects and return CellChat-compatible outputs. The package currently targets RNA-based CellChat workflows and prioritizes numerical equivalence to the original CellChat implementation.
 
 ### Benchmark design
-We benchmarked CellChatAccelRcpp against the original CellChat workflow using 12 real single-cell datasets collected under `/home/dzf/share`. Each dataset was evaluated at six target cell scales: 1k, 5k, 10k, 25k, 50k and all available cells. Each dataset-scale pair was repeated with three random seeds. The main paired benchmark ran both original CellChat and CellChatAccelRcpp from the same prepared CellChat object, enabling direct runtime and numerical equivalence comparisons. Additional component ablations disabled the accelerated probability kernel, pathway aggregation or network aggregation to quantify the contribution of each component.
+We benchmarked CellChatAccelRcpp against the original CellChat workflow using 12 real single-cell datasets stored in the benchmark workspace. Each dataset was evaluated at six target cell scales: 1k, 5k, 10k, 25k, 50k and all available cells. Each dataset-scale pair was repeated with three random seeds. The main paired benchmark ran both original CellChat and CellChatAccelRcpp from the same prepared CellChat object, enabling direct runtime and numerical equivalence comparisons. Additional component ablations disabled the accelerated probability kernel, pathway aggregation or network aggregation to quantify the contribution of each component.
 
 All experiments were run in a conda-managed R environment on a Linux server with 256 CPU threads and approximately 1 TiB RAM. The benchmark runner used checkpointing at the prepared CellChat object and computed-result levels, enabling resumable execution and protecting against partial failures.
 
@@ -66,20 +66,19 @@ Current limitations include support focused on RNA-based CellChat workflows and 
 
 ## Files generated for this draft
 
-- Main figure: `/home/dzf/cellchat_acceleration/results/figures/Figure1_CellChatAccelRcpp_application_note.pdf`
-- Main figure PNG: `/home/dzf/cellchat_acceleration/results/figures/Figure1_CellChatAccelRcpp_application_note.png`
-- Supplementary ablation figure: `/home/dzf/cellchat_acceleration/results/figures/FigureS1_component_ablation.pdf`
-- Supplementary accuracy figure: `/home/dzf/cellchat_acceleration/results/figures/FigureS2_accuracy_equivalence.pdf`
-- Runtime summary: `/home/dzf/cellchat_acceleration/results/tables/publication_runtime_speedup_summary.tsv`
-- Ablation summary: `/home/dzf/cellchat_acceleration/results/tables/publication_ablation_slowdown.tsv`
-- Accuracy summary: `/home/dzf/cellchat_acceleration/results/tables/publication_accuracy_summary.tsv`
+- Main figure: `benchmarks/cellchat_acceleration_2026/results/figures/Fig01_runtime_compression.pdf`
+- Main figure PNG: `benchmarks/cellchat_acceleration_2026/results/figures/Fig01_runtime_compression.png`
+- Supplementary ablation figure: `benchmarks/cellchat_acceleration_2026/results/figures/Fig05_component_ablation.pdf`
+- Supplementary accuracy figure: `benchmarks/cellchat_acceleration_2026/results/figures/Fig04_numerical_equivalence.pdf`
+- Runtime summary: `benchmarks/cellchat_acceleration_2026/results/tables/publication_runtime_speedup_summary.tsv`
+- Ablation summary: `benchmarks/cellchat_acceleration_2026/results/tables/publication_ablation_slowdown.tsv`
+- Accuracy summary: `benchmarks/cellchat_acceleration_2026/results/tables/publication_accuracy_summary.tsv`
 
 ## TODO before submission
 
-1. Confirm final package name: repository is CellChatAccelRcpp but installed package currently declares `CellChatAccelRcpp`.
-2. Add license, README, installation instructions and minimal test dataset.
-3. Archive a release on Zenodo and add DOI.
-4. Decide author order, affiliations, funding and acknowledgements.
-5. Confirm whether the benchmark datasets can be redistributed or only referenced by accession/path.
-6. Add references in journal style.
-7. Include a short disclosure if AI-assisted writing or code generation is used.
+1. Add license, README, installation instructions and minimal test dataset.
+2. Archive a release on Zenodo and add DOI.
+3. Decide author order, affiliations, funding and acknowledgements.
+4. Confirm whether the benchmark datasets can be redistributed or only referenced by accession/path.
+5. Add references in journal style.
+6. Include a short disclosure if AI-assisted writing or code generation is used.

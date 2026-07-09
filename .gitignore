@@ -4,7 +4,6 @@
 .Rproj.user
 *.Rcheck
 *.tar.gz
-Rplots.pdf
 Rlib/
 results/
 !benchmarks/

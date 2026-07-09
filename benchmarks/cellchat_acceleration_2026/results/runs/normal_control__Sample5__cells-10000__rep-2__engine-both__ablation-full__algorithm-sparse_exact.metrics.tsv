@@ -1,0 +1,2 @@
+experiment_id	dataset_id	input_path	engine	ablation	n_cells_target	seed	status	elapsed_sec	n_groups	total_lr_pairs	mean_weight	max_weight	max_abs_prob_diff	pearson_prob	error	accel_algorithm	active_pairs	skipped_pairs	total_pairs_sparse	active_fraction	n_genes_kernel
+normal_control__Sample5__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_exact	normal_control__Sample5	NA	accelerated	full	10000	111002	ok	34.829	15	1343	0.202843047435401	0.71230448513918	NA	NA		sparse_exact	1775	326950	328725	0.00539965016351053	1011

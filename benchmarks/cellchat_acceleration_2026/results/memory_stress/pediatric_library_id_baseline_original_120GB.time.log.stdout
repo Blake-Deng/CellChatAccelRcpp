@@ -1,0 +1,8 @@
+loaded prepared
+data.signaling 1016 x 1517274 groups 249 LR 1939 
+triMean is used for calculating the average gene expression per cell group. 
+ERROR subscript out of bounds 
+             engine                   algorithm status elapsed_sec
+1 baseline_original CellChat::computeCommunProb  error    195.7223
+  compute_elapsed_sec   cells genes groups   lr                   error
+1                  NA 1517274  1016    249 1939 subscript out of bounds

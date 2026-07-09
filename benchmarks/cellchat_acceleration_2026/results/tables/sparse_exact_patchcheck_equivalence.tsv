@@ -1,0 +1,7 @@
+experiment_id	prob_max_abs_diff	pval_max_abs_diff	prob_pearson	pval_pearson
+3CA_data__PRJNA490728__cells-1000__rep-2__engine-both__ablation-full	0	0	1	1
+3CA_data__PRJNA593551__cells-1000__rep-2__engine-both__ablation-full	0	0	1	1
+3CA_data__PRJNA593551__cells-5000__rep-1__engine-both__ablation-full	0	0	1	1
+3CA_data__PRJNA638151__cells-1000__rep-3__engine-both__ablation-full	0	0	1	1
+normal_control__Sample8__cells-1000__rep-2__engine-both__ablation-full	0	0	1	1
+3CA_data__Group1__cells-1000__rep-3__engine-both__ablation-full	0	0	1	1

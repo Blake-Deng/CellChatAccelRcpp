@@ -1,0 +1,2 @@
+cells	genes	groups	lr	baseline_sec	sparse_stream_sec	speedup	prob_max_abs_diff	pval_max_abs_diff	prob_cor	pval_cor	active_fraction
+1517274	1016	249	100	17900.6383957863	212.935829401016	84.065882412276	6.61744490042422e-24	0	1	1	0.00983968000516121

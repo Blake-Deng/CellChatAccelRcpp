@@ -1,0 +1,7 @@
+dataset_id	name	cells	n_cell_type	min_cell_type_count	median_cell_type_count	max_cell_type_count	n_tissue	query_sec
+8e10f1c4-8e98-41e5-b65f-8cd89a887122	Human Brain Cell Atlas v1.0 - All neurons	2480956	2	3753	1240478.0	2477203	10	40.0
+9f222629-9e39-47d0-b83f-e08d610c7479	Integrated Human Lung Cell Atlas full	2282447	51	61	11680.0	623313	4	96.4
+55003f67-c494-46f1-83fb-902745646379	Human breast cell atlas Integrated HBCA	2122065	26	659	28166.5	477181	1	24.9
+e522d2cd-7927-4e59-a4ed-064009569279	Human Immune Health Atlas	1821725	38	78	11942.0	378071	1	43.3
+f7c1c579-2dc0-47e2-ba19-8165c5a0e353	Human fetal gene expression survey	4062980	72	102	7625.0	1258818	15	59.2
+37a17b78-4864-4a42-b67b-31c00962795a	Human PFC MSSM cohort	4140453	25	66	35109.0	1632971	1	80.4

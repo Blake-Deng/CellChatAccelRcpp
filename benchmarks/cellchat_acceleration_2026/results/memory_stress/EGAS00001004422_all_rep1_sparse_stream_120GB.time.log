@@ -1,0 +1,23 @@
+	Command being timed: "prlimit --as=128849018880 /home/dzf/miniforge3/envs/cellchat-acceleration/bin/Rscript /home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/code/09_memory_limit_stress_one.R --engine=sparse_stream --algorithm=sparse_stream --prepared=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds --out=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/memory_stress/EGAS00001004422_all_rep1_sparse_stream_120GB.tsv"
+	User time (seconds): 158.23
+	System time (seconds): 5.35
+	Percent of CPU this job got: 109%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:29.43
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5397688
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 2353198
+	Voluntary context switches: 270
+	Involuntary context switches: 747
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 1124592
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

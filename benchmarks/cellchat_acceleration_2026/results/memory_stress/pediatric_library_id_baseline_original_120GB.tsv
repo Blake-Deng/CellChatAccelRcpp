@@ -1,0 +1,2 @@
+engine	algorithm	status	elapsed_sec	compute_elapsed_sec	cells	genes	groups	lr	error
+baseline_original	CellChat::computeCommunProb	ok	19176.5180425644	18830.1868724823	1517274	1016	249	1934	

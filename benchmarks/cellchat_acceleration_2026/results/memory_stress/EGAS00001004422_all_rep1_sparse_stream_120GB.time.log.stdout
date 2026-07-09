@@ -1,0 +1,4 @@
+         engine     algorithm memory_limit status elapsed_sec  cells genes
+1 sparse_stream sparse_stream        120GB     ok    48.08938 100335  1003
+  groups   lr accel_algorithm active_fraction error
+1     32 1765   sparse_stream     0.009611809      

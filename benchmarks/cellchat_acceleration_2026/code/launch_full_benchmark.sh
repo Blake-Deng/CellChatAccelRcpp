@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="${ROOT:-/home/dzf/cellchat_acceleration}"
-DATA_ROOT="${DATA_ROOT:-/home/dzf/share}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BENCH_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT="${ROOT:-$BENCH_ROOT}"
+DATA_ROOT="${DATA_ROOT:-$ROOT/data}"
 JOBS="${JOBS:-64}"
 MAX_DATASETS="${MAX_DATASETS:-12}"
 REPEATS="${REPEATS:-3}"
 SCALES="${SCALES:-1000,5000,10000,25000,50000,all}"
+ENGINES="${ENGINES:-both,accelerated}"
+ABLATIONS="${ABLATIONS:-no_accel_kernel,no_accel_pathway,no_accel_aggregate}"
+ACCEL_ALGORITHMS="${ACCEL_ALGORITHMS:-dense}"
 export OMP_NUM_THREADS="${OMP_NUM_THREADS:-1}"
 export OPENBLAS_NUM_THREADS="${OPENBLAS_NUM_THREADS:-1}"
 export MKL_NUM_THREADS="${MKL_NUM_THREADS:-1}"
@@ -24,7 +29,10 @@ python3 code/02_make_experiment_grid.py \
   --out results/experiment_grid.csv \
   --max-datasets "$MAX_DATASETS" \
   --repeats "$REPEATS" \
-  --scales "$SCALES"
+  --scales "$SCALES" \
+  --engines "$ENGINES" \
+  --ablations "$ABLATIONS" \
+  --accel-algorithms "$ACCEL_ALGORITHMS"
 
 if ! command -v Rscript >/dev/null 2>&1; then
   echo "Rscript is not available. Install or activate R, then rerun this launcher." >&2

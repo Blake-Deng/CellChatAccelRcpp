@@ -1,4 +1,4 @@
-name: cellchat-acceleration
+name: cellchat-accelrcpp
 channels:
   - conda-forge
   - bioconda

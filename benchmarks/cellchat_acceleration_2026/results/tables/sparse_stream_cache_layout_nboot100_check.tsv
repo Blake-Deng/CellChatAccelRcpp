@@ -1,0 +1,2 @@
+object	nboot	dense_sec	sparse_stream_sec	speedup	active_pairs	total_pairs	active_fraction	boot_tri_mean_evals	cache_hits	cache_genes	cache_slots	streamed_lr	max_lr_genes	prob_max_abs	prob_cor	pval_max_abs	pval_cor
+prjna490728_5k	100	17.605	4.267	4.12584954300445	41968	1092500	0.0384146453089245	601400	2621600	949	2372500	472	28	0	1	0	1

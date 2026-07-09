@@ -1,6 +1,8 @@
 computeCommunProbAccelRcpp <- function(object, type = "triMean", raw.use = TRUE, population.size = FALSE,
                                      nboot = 100, seed.use = 1L, Kh = 0.5, n = 1,
-                                     distance.use = NULL) {
+                                     distance.use = NULL,
+                                     algorithm = c("dense", "sparse_exact", "sparse_exact_subset_boot", "sparse_exact_ondemand_simple", "sparse_stream")) {
+  algorithm <- match.arg(algorithm)
   check_supported_object(object, type, population.size, distance.use)
 
   ptm <- Sys.time()
@@ -42,14 +44,6 @@ computeCommunProbAccelRcpp <- function(object, type = "triMean", raw.use = TRUE,
   data.use <- data / max_data
   nC <- ncol(data.use)
   group_int <- as.integer(group)
-  data.use.avg <- group_tri_mean_cpp(data.use, group_int, K)
-  colnames(data.use.avg) <- levels(group)
-  rownames(data.use.avg) <- rownames(data.use)
-
-  set.seed(seed.use)
-  permutation <- replicate(nboot, sample.int(nC, size = nC))
-  group_boot <- matrix(group_int[permutation], nrow = nC, ncol = nboot)
-  avg_boot <- group_tri_mean_boot_cpp(data.use, group_boot, K)$avg_boot
 
   data_genes <- rownames(data.use)
   cofactor_cols <- grepl("cofactor", colnames(cofactor_input))
@@ -70,20 +64,151 @@ computeCommunProbAccelRcpp <- function(object, type = "triMean", raw.use = TRUE,
   antagonist_idx <- make_index_matrix(antagonist_names, data_genes,
                                       cofactor_input = cofactor_input, cofactor_cols = cofactor_cols)
 
-  res <- cellchat_prob_from_avg_cpp(
-    avg = data.use.avg,
-    avgBoot = avg_boot,
-    ligandIdx = ligand_idx,
-    receptorIdx = receptor_idx,
-    coAIdx = coA_idx,
-    coIIdx = coI_idx,
-    agonistIdx = agonist_idx,
-    antagonistIdx = antagonist_idx,
-    hasAgonist = hasAgonist,
-    hasAntagonist = hasAntagonist,
-    Kh = Kh,
-    n_power = n
-  )
+  subset_boot <- algorithm %in% c("sparse_exact_subset_boot", "sparse_exact_ondemand_simple")
+  ondemand_simple <- identical(algorithm, "sparse_exact_ondemand_simple")
+  sparse_stream <- identical(algorithm, "sparse_stream")
+  n_genes_full <- nrow(data.use)
+  n_genes_kernel <- n_genes_full
+
+  set.seed(seed.use)
+  permutation <- replicate(nboot, sample.int(nC, size = nC))
+  group_boot <- matrix(group_int[permutation], nrow = nC, ncol = nboot)
+
+  row_count <- function(idx) rowSums(idx > 0L)
+  row_empty <- function(idx) rowSums(idx > 0L) == 0L
+  direct_simple <- !hasAgonist & !hasAntagonist &
+    row_count(ligand_idx) == 1L & row_count(receptor_idx) == 1L &
+    row_empty(coA_idx) & row_empty(coI_idx)
+
+  run_sparse_subset <- function(lr_use) {
+    idx_list <- list(
+      ligand = ligand_idx[lr_use, , drop = FALSE],
+      receptor = receptor_idx[lr_use, , drop = FALSE],
+      coA = coA_idx[lr_use, , drop = FALSE],
+      coI = coI_idx[lr_use, , drop = FALSE],
+      agonist = agonist_idx[lr_use, , drop = FALSE],
+      antagonist = antagonist_idx[lr_use, , drop = FALSE]
+    )
+    if (subset_boot) {
+      used_genes <- sort(unique(unlist(idx_list, use.names = FALSE)))
+      used_genes <- used_genes[used_genes > 0L]
+      if (!length(used_genes)) stop("No LR/cofactor genes are present in the signaling matrix.", call. = FALSE)
+      old_to_new <- integer(n_genes_full)
+      old_to_new[used_genes] <- seq_along(used_genes)
+      remap_idx <- function(idx) {
+        out <- idx
+        positive <- out > 0L
+        out[positive] <- old_to_new[out[positive]]
+        out
+      }
+      data.kernel <- data.use[used_genes, , drop = FALSE]
+      idx_list <- lapply(idx_list, remap_idx)
+      n_kernel <- length(used_genes)
+    } else {
+      data.kernel <- data.use
+      n_kernel <- n_genes_full
+    }
+
+    data.use.avg <- group_tri_mean_cpp(data.kernel, group_int, K)
+    colnames(data.use.avg) <- levels(group)
+    rownames(data.use.avg) <- rownames(data.kernel)
+    avg_boot <- group_tri_mean_boot_cpp(data.kernel, group_boot, K)$avg_boot
+
+    prob_fun <- if (algorithm %in% c("sparse_exact", "sparse_exact_subset_boot", "sparse_exact_ondemand_simple")) {
+      cellchat_prob_from_avg_sparse_cpp
+    } else {
+      cellchat_prob_from_avg_cpp
+    }
+    res_part <- prob_fun(
+      avg = data.use.avg,
+      avgBoot = avg_boot,
+      ligandIdx = idx_list$ligand,
+      receptorIdx = idx_list$receptor,
+      coAIdx = idx_list$coA,
+      coIIdx = idx_list$coI,
+      agonistIdx = idx_list$agonist,
+      antagonistIdx = idx_list$antagonist,
+      hasAgonist = hasAgonist[lr_use],
+      hasAntagonist = hasAntagonist[lr_use],
+      Kh = Kh,
+      n_power = n
+    )
+    res_part$n_genes_kernel <- n_kernel
+    res_part
+  }
+
+  if (sparse_stream) {
+    data.use.avg <- group_tri_mean_cpp(data.use, group_int, K)
+    colnames(data.use.avg) <- levels(group)
+    rownames(data.use.avg) <- rownames(data.use)
+    res <- cellchat_prob_sparse_stream_cpp(
+      data = data.use,
+      group = group_int,
+      groupBoot = group_boot,
+      avg = data.use.avg,
+      ligandIdx = ligand_idx,
+      receptorIdx = receptor_idx,
+      coAIdx = coA_idx,
+      coIIdx = coI_idx,
+      agonistIdx = agonist_idx,
+      antagonistIdx = antagonist_idx,
+      hasAgonist = hasAgonist,
+      hasAntagonist = hasAntagonist,
+      Kh = Kh,
+      n_power = n
+    )
+    res$n_genes_kernel <- n_genes_full
+  } else if (ondemand_simple && any(direct_simple)) {
+    nLR <- nrow(pairLRsig)
+    Prob <- array(0, dim = c(K, K, nLR))
+    Pval <- array(1, dim = c(K, K, nLR))
+    simple_idx <- which(direct_simple)
+    other_idx <- which(!direct_simple)
+
+    ligand_gene <- as.integer(ligand_idx[simple_idx, 1])
+    receptor_gene <- as.integer(receptor_idx[simple_idx, 1])
+    res_simple <- cellchat_prob_simple_ondemand_cpp(
+      data = data.use,
+      group = group_int,
+      groupBoot = group_boot,
+      ligandGene = ligand_gene,
+      receptorGene = receptor_gene,
+      Kh = Kh,
+      n_power = n
+    )
+    Prob[, , simple_idx] <- res_simple$prob
+    Pval[, , simple_idx] <- res_simple$pval
+
+    active_pairs <- res_simple$active_pairs %||% 0
+    skipped_pairs <- res_simple$skipped_pairs %||% 0
+    total_pairs <- res_simple$total_pairs %||% 0
+    kernel_genes <- length(unique(c(ligand_gene, receptor_gene)))
+
+    if (length(other_idx)) {
+      res_other <- run_sparse_subset(other_idx)
+      Prob[, , other_idx] <- res_other$prob
+      Pval[, , other_idx] <- res_other$pval
+      active_pairs <- active_pairs + (res_other$active_pairs %||% 0)
+      skipped_pairs <- skipped_pairs + (res_other$skipped_pairs %||% 0)
+      total_pairs <- total_pairs + (res_other$total_pairs %||% 0)
+      kernel_genes <- kernel_genes + (res_other$n_genes_kernel %||% 0)
+    }
+    res <- list(
+      prob = Prob,
+      pval = Pval,
+      active_pairs = active_pairs,
+      skipped_pairs = skipped_pairs,
+      total_pairs = total_pairs,
+      active_fraction = if (total_pairs > 0) active_pairs / total_pairs else NA_real_,
+      n_genes_kernel = kernel_genes,
+      n_simple_ondemand_lr = length(simple_idx),
+      n_other_lr = length(other_idx),
+      boot_tri_mean_evals = res_simple$boot_tri_mean_evals %||% NA_real_
+    )
+  } else {
+    res <- run_sparse_subset(rep(TRUE, nrow(pairLRsig)))
+    n_genes_kernel <- res$n_genes_kernel %||% n_genes_full
+  }
 
   Prob <- res$prob
   Pval <- res$pval
@@ -99,6 +224,23 @@ computeCommunProbAccelRcpp <- function(object, type = "triMean", raw.use = TRUE,
                                    k.min = NULL, contact.dependent = FALSE,
                                    contact.range = NULL, contact.knn.k = NULL,
                                    contact.dependent.forced = FALSE)
+  object@options$accelrcpp <- list(
+    algorithm = algorithm,
+    active_pairs = res$active_pairs %||% NA_real_,
+    skipped_pairs = res$skipped_pairs %||% NA_real_,
+    total_pairs = res$total_pairs %||% NA_real_,
+    active_fraction = res$active_fraction %||% NA_real_,
+    n_genes_full = n_genes_full,
+    n_genes_kernel = res$n_genes_kernel %||% n_genes_kernel,
+    n_simple_ondemand_lr = res$n_simple_ondemand_lr %||% NA_integer_,
+    n_other_lr = res$n_other_lr %||% NA_integer_,
+    boot_tri_mean_evals = res$boot_tri_mean_evals %||% NA_real_,
+    cache_hits = res$cache_hits %||% NA_real_,
+    cache_genes = res$cache_genes %||% NA_real_,
+    cache_slots = res$cache_slots %||% NA_real_,
+    streamed_lr = res$streamed_lr %||% NA_real_,
+    max_lr_genes = res$max_lr_genes %||% NA_real_
+  )
   object
 }
 

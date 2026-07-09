@@ -151,7 +151,7 @@ get_optional_export <- function(pkg, fun) {
   get(fun, envir = ns)
 }
 
-run_engine <- function(cellchat, engine, min_cells, accel_pkg, accel_fun, ablation) {
+run_engine <- function(cellchat, engine, min_cells, accel_pkg, accel_fun, ablation, accel_algorithm = "dense") {
   if (identical(engine, "baseline")) {
     cellchat <- CellChat::computeCommunProb(cellchat)
     cellchat <- CellChat::filterCommunication(cellchat, min.cells = min_cells)
@@ -166,7 +166,9 @@ run_engine <- function(cellchat, engine, min_cells, accel_pkg, accel_fun, ablati
 
     if (use_accel_kernel) {
       fun <- find_accel_fun(accel_pkg, accel_fun)
-      cellchat <- fun(cellchat)
+      fun_args <- list(object = cellchat)
+      if ("algorithm" %in% names(formals(fun))) fun_args$algorithm <- accel_algorithm
+      cellchat <- do.call(fun, fun_args)
     } else {
       cellchat <- CellChat::computeCommunProb(cellchat)
     }
@@ -244,12 +246,28 @@ metric_row <- function(args, engine, status, elapsed, cellchat = NULL, err = "",
     max_abs_prob_diff = extra$max_abs_prob_diff %||% NA_real_,
     pearson_prob = extra$pearson_prob %||% NA_real_,
     error = err,
+    accel_algorithm = args[["accel-algorithm"]] %||% "dense",
+    active_pairs = tryCatch(cellchat@options$accelrcpp$active_pairs, error = function(e) NA_real_),
+    skipped_pairs = tryCatch(cellchat@options$accelrcpp$skipped_pairs, error = function(e) NA_real_),
+    total_pairs_sparse = tryCatch(cellchat@options$accelrcpp$total_pairs, error = function(e) NA_real_),
+    active_fraction = tryCatch(cellchat@options$accelrcpp$active_fraction, error = function(e) NA_real_),
+    n_genes_kernel = tryCatch(cellchat@options$accelrcpp$n_genes_kernel, error = function(e) NA_real_),
+    boot_tri_mean_evals = tryCatch(cellchat@options$accelrcpp$boot_tri_mean_evals, error = function(e) NA_real_),
+    cache_hits = tryCatch(cellchat@options$accelrcpp$cache_hits, error = function(e) NA_real_),
+    cache_genes = tryCatch(cellchat@options$accelrcpp$cache_genes, error = function(e) NA_real_),
+    cache_slots = tryCatch(cellchat@options$accelrcpp$cache_slots, error = function(e) NA_real_),
+    streamed_lr = tryCatch(cellchat@options$accelrcpp$streamed_lr, error = function(e) NA_real_),
+    max_lr_genes = tryCatch(cellchat@options$accelrcpp$max_lr_genes, error = function(e) NA_real_),
     stringsAsFactors = FALSE
   )
 }
 
 main <- function() {
   args <- parse_args(commandArgs(trailingOnly = TRUE))
+  all_args <- commandArgs(trailingOnly = FALSE)
+  script_arg <- grep("^--file=", all_args, value = TRUE)
+  script_file <- if (length(script_arg) > 0) sub("^--file=", "", script_arg[[1]]) else NA_character_
+  default_root <- if (!is.na(script_file)) normalizePath(file.path(dirname(script_file), ".."), mustWork = FALSE) else getwd()
   need_pkg("Seurat")
   need_pkg("CellChat")
   suppressPackageStartupMessages({
@@ -257,8 +275,10 @@ main <- function() {
     library(CellChat)
   })
 
-  input <- args[["input"]] %||% stop("--input is required")
-  out_dir <- args[["out-dir"]] %||% "/home/dzf/cellchat_acceleration/results/runs"
+  prepared_input <- args[["prepared-cellchat"]] %||% ""
+  input <- args[["input"]] %||% ""
+  if (!nzchar(input) && !nzchar(prepared_input)) stop("--input or --prepared-cellchat is required", call. = FALSE)
+  out_dir <- args[["out-dir"]] %||% file.path(default_root, "results", "runs")
   dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
   exp_id <- args[["experiment-id"]] %||% paste0("manual_", format(Sys.time(), "%Y%m%d_%H%M%S"))
   metrics_path <- file.path(out_dir, paste0(exp_id, ".metrics.tsv"))
@@ -275,12 +295,18 @@ main <- function() {
   engine <- args[["engine"]] %||% "both"
   accel_pkg <- Sys.getenv("CELLCHAT_ACCEL_PACKAGE", args[["accel-package"]] %||% "CellChatAccelRcpp")
   accel_fun <- Sys.getenv("CELLCHAT_ACCEL_FUN", args[["accel-fun"]] %||% "")
+  accel_algorithm <- Sys.getenv("CELLCHAT_ACCEL_ALGORITHM", args[["accel-algorithm"]] %||% "dense")
+  args[["accel-algorithm"]] <- accel_algorithm
   ablation <- args[["ablation"]] %||% "full"
   label_col <- args[["label-col"]] %||% "auto"
 
   rows <- list()
   prepared_cp <- file.path(checkpoint_dir, "prepared_cellchat.rds")
-  if (identical(args[["resume"]], "true") && file.exists(prepared_cp)) {
+  if (nzchar(prepared_input)) {
+    message("load_prepared_cellchat=", prepared_input)
+    base_cellchat <- readRDS(prepared_input)
+    if (!file.exists(prepared_cp)) saveRDS(base_cellchat, prepared_cp)
+  } else if (identical(args[["resume"]], "true") && file.exists(prepared_cp)) {
     message("resume_checkpoint=", prepared_cp)
     base_cellchat <- readRDS(prepared_cp)
   } else {
@@ -307,7 +333,7 @@ main <- function() {
       status <- "ok_resumed"
     } else {
       obj <- tryCatch(
-        run_engine(base_cellchat, eng, min_cells, accel_pkg, accel_fun, ablation),
+        run_engine(base_cellchat, eng, min_cells, accel_pkg, accel_fun, ablation, accel_algorithm),
         error = function(e) {
           status <<- "error"
           err <<- conditionMessage(e)

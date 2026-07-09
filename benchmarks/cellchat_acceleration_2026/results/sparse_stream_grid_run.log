@@ -1,0 +1,864 @@
+[2026-07-07_09:54:44] start task 1
+[2026-07-07_09:54:44] start task 2
+[2026-07-07_09:54:44] start task 5
+[2026-07-07_09:54:44] start task 3
+[2026-07-07_09:54:44] start task 4
+[2026-07-07_09:54:44] start task 6
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:54:55] done task 6 status 0
+[2026-07-07_09:54:55] start task 7
+[2026-07-07_09:54:55] done task 4 status 0
+[2026-07-07_09:54:55] start task 8
+[2026-07-07_09:54:55] done task 5 status 0
+[2026-07-07_09:54:55] start task 9
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:55:17] done task 3 status 0
+[2026-07-07_09:55:17] start task 10
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:55:18] done task 2 status 0
+[2026-07-07_09:55:18] start task 11
+[2026-07-07_09:55:18] done task 1 status 0
+[2026-07-07_09:55:18] start task 12
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:55:43] done task 9 status 0
+[2026-07-07_09:55:43] start task 13
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:55:43] done task 8 status 0
+[2026-07-07_09:55:43] start task 14
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:55:45] done task 7 status 0
+[2026-07-07_09:55:45] start task 15
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:04] done task 14 status 0
+[2026-07-07_09:56:04] start task 16
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:05] done task 11 status 0
+[2026-07-07_09:56:05] start task 17
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:06] done task 13 status 0
+[2026-07-07_09:56:06] done task 15 status 0
+[2026-07-07_09:56:06] start task 18
+[2026-07-07_09:56:06] start task 19
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:09] done task 12 status 0
+[2026-07-07_09:56:09] start task 20
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:10] done task 10 status 0
+[2026-07-07_09:56:10] start task 21
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__10X__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:39] done task 19 status 0
+[2026-07-07_09:56:39] start task 22
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:43] done task 20 status 0
+[2026-07-07_09:56:43] start task 23
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:44] done task 21 status 0
+[2026-07-07_09:56:44] start task 24
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:49] done task 22 status 0
+[2026-07-07_09:56:49] start task 25
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:53] done task 16 status 0
+[2026-07-07_09:56:53] start task 26
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:54] done task 23 status 0
+[2026-07-07_09:56:54] start task 27
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:54] done task 24 status 0
+[2026-07-07_09:56:54] start task 28
+[2026-07-07_09:56:54] done task 17 status 0
+[2026-07-07_09:56:54] start task 29
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__10X__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:56:56] done task 18 status 0
+[2026-07-07_09:56:56] start task 30
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:58:01] done task 25 status 0
+[2026-07-07_09:58:01] start task 31
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:58:03] done task 27 status 0
+[2026-07-07_09:58:03] start task 32
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:58:05] done task 26 status 0
+[2026-07-07_09:58:05] start task 33
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:58:23] done task 31 status 0
+[2026-07-07_09:58:23] start task 34
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:58:25] done task 32 status 0
+[2026-07-07_09:58:25] start task 35
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:58:27] done task 33 status 0
+[2026-07-07_09:58:27] start task 36
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__EGAS00001004422__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:04] done task 29 status 0
+[2026-07-07_09:59:04] start task 37
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:07] done task 30 status 0
+[2026-07-07_09:59:07] start task 38
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_09:59:11] done task 28 status 0
+[2026-07-07_09:59:11] start task 39
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:42] done task 37 status 0
+[2026-07-07_09:59:42] start task 40
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:48] done task 38 status 0
+[2026-07-07_09:59:48] start task 41
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:48] done task 39 status 0
+[2026-07-07_09:59:48] start task 42
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:53] done task 40 status 0
+[2026-07-07_09:59:53] start task 43
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:58] done task 41 status 0
+[2026-07-07_09:59:58] start task 44
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_09:59:59] done task 42 status 0
+[2026-07-07_09:59:59] start task 45
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:01:16] done task 43 status 0
+[2026-07-07_10:01:16] start task 46
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:01:21] done task 44 status 0
+[2026-07-07_10:01:21] start task 47
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:01:22] done task 45 status 0
+[2026-07-07_10:01:22] start task 48
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:02:37] done task 35 status 0
+[2026-07-07_10:02:37] start task 49
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:02:42] done task 46 status 0
+[2026-07-07_10:02:42] start task 50
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:02:48] done task 47 status 0
+[2026-07-07_10:02:48] start task 51
+[2026-07-07_10:02:48] done task 48 status 0
+[2026-07-07_10:02:48] start task 52
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:02:51] done task 34 status 0
+[2026-07-07_10:02:51] start task 53
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__EGAS00001004422__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:02:59] done task 36 status 0
+[2026-07-07_10:02:59] start task 54
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:00] done task 49 status 0
+[2026-07-07_10:03:00] start task 55
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group1__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:05] done task 50 status 0
+[2026-07-07_10:03:05] start task 56
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:10] done task 51 status 0
+[2026-07-07_10:03:10] start task 57
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:46] done task 55 status 0
+[2026-07-07_10:03:46] start task 58
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:47] done task 56 status 0
+[2026-07-07_10:03:47] start task 59
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:56] done task 57 status 0
+[2026-07-07_10:03:56] start task 60
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:57] done task 58 status 0
+[2026-07-07_10:03:57] start task 61
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:03:59] done task 59 status 0
+[2026-07-07_10:03:59] start task 62
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:04:07] done task 60 status 0
+[2026-07-07_10:04:07] start task 63
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:04:14] done task 52 status 0
+[2026-07-07_10:04:14] start task 64
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:04:24] done task 53 status 0
+[2026-07-07_10:04:24] start task 65
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group1__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:04:25] done task 54 status 0
+[2026-07-07_10:04:25] start task 66
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:05:30] done task 62 status 0
+[2026-07-07_10:05:30] start task 67
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:05:36] done task 61 status 0
+[2026-07-07_10:05:36] start task 68
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:05:39] done task 63 status 0
+[2026-07-07_10:05:39] start task 69
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:05:55] done task 67 status 0
+[2026-07-07_10:05:55] start task 70
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:05:58] done task 64 status 0
+[2026-07-07_10:05:58] start task 71
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:04] done task 69 status 0
+[2026-07-07_10:06:04] start task 72
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:04] done task 68 status 0
+[2026-07-07_10:06:04] start task 73
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__Group2__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:18] done task 65 status 0
+[2026-07-07_10:06:18] start task 74
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:19] done task 66 status 0
+[2026-07-07_10:06:19] start task 75
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:44] done task 73 status 0
+[2026-07-07_10:06:44] start task 76
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:55] done task 75 status 0
+[2026-07-07_10:06:55] start task 77
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:56] done task 74 status 0
+[2026-07-07_10:06:56] start task 78
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:06:59] done task 76 status 0
+[2026-07-07_10:06:59] start task 79
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:11] done task 77 status 0
+[2026-07-07_10:07:11] start task 80
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:12] done task 78 status 0
+[2026-07-07_10:07:12] start task 81
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:39] done task 79 status 0
+[2026-07-07_10:07:39] start task 82
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:40] done task 70 status 0
+[2026-07-07_10:07:40] start task 83
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:42] done task 71 status 0
+[2026-07-07_10:07:42] start task 84
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__Group2__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:07:48] done task 72 status 0
+[2026-07-07_10:07:48] start task 85
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:51] done task 80 status 0
+[2026-07-07_10:07:51] start task 86
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:07:52] done task 81 status 0
+[2026-07-07_10:07:52] start task 87
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:17] done task 83 status 0
+[2026-07-07_10:08:17] start task 88
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:18] done task 82 status 0
+[2026-07-07_10:08:18] start task 89
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:20] done task 84 status 0
+[2026-07-07_10:08:20] start task 90
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA289244__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:08:25] done task 85 status 0
+[2026-07-07_10:08:25] start task 91
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:30] done task 87 status 0
+[2026-07-07_10:08:30] start task 92
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:30] done task 86 status 0
+[2026-07-07_10:08:30] start task 93
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:54] done task 88 status 0
+[2026-07-07_10:08:54] start task 94
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:56] done task 90 status 0
+[2026-07-07_10:08:56] start task 95
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA289244__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:08:57] done task 89 status 0
+[2026-07-07_10:08:57] start task 96
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:09:05] done task 94 status 0
+[2026-07-07_10:09:05] start task 97
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:09:08] done task 95 status 0
+[2026-07-07_10:09:08] start task 98
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:09:09] done task 96 status 0
+[2026-07-07_10:09:09] start task 99
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:09:13] done task 91 status 0
+[2026-07-07_10:09:13] start task 100
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:09:14] done task 92 status 0
+[2026-07-07_10:09:14] start task 101
+[2026-07-07_10:09:15] done task 93 status 0
+[2026-07-07_10:09:15] start task 102
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:10:44] done task 97 status 0
+[2026-07-07_10:10:44] start task 103
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:10:46] done task 98 status 0
+[2026-07-07_10:10:46] start task 104
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:10:55] done task 99 status 0
+[2026-07-07_10:10:55] start task 105
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:11:11] done task 103 status 0
+[2026-07-07_10:11:11] start task 106
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:11:13] done task 104 status 0
+[2026-07-07_10:11:13] start task 107
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:11:23] done task 105 status 0
+[2026-07-07_10:11:23] start task 108
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA395045__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:12:21] done task 102 status 0
+[2026-07-07_10:12:21] start task 109
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:12:34] done task 100 status 0
+[2026-07-07_10:12:34] start task 110
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:12:43] done task 101 status 0
+[2026-07-07_10:12:43] start task 111
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:13:22] done task 109 status 0
+[2026-07-07_10:13:22] start task 112
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:13:35] done task 110 status 0
+[2026-07-07_10:13:35] start task 113
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:13:36] done task 112 status 0
+[2026-07-07_10:13:36] start task 114
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:13:44] done task 111 status 0
+[2026-07-07_10:13:44] start task 115
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:13:49] done task 113 status 0
+[2026-07-07_10:13:49] start task 116
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:13:50] done task 114 status 0
+[2026-07-07_10:13:50] start task 117
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:14:46] done task 115 status 0
+[2026-07-07_10:14:46] start task 118
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:14:51] done task 116 status 0
+[2026-07-07_10:14:51] start task 119
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:14:52] done task 117 status 0
+[2026-07-07_10:14:52] start task 120
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:14:53] done task 107 status 0
+[2026-07-07_10:14:53] start task 121
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:14:56] done task 106 status 0
+[2026-07-07_10:14:56] start task 122
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA395045__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:15:02] done task 108 status 0
+[2026-07-07_10:15:02] start task 123
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:15:32] done task 121 status 0
+[2026-07-07_10:15:32] start task 124
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:15:35] done task 122 status 0
+[2026-07-07_10:15:35] start task 125
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:15:41] done task 123 status 0
+[2026-07-07_10:15:41] start task 126
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA490728__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:15:47] done task 118 status 0
+[2026-07-07_10:15:47] start task 127
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:15:53] done task 119 status 0
+[2026-07-07_10:15:53] start task 128
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:15:53] done task 120 status 0
+[2026-07-07_10:15:53] start task 129
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:34] done task 124 status 0
+[2026-07-07_10:16:34] start task 130
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:37] done task 125 status 0
+[2026-07-07_10:16:37] start task 131
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:41] done task 127 status 0
+[2026-07-07_10:16:41] start task 132
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA490728__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:43] done task 126 status 0
+[2026-07-07_10:16:43] start task 133
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:47] done task 129 status 0
+[2026-07-07_10:16:47] start task 134
+[2026-07-07_10:16:47] done task 128 status 0
+[2026-07-07_10:16:47] start task 135
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:49] done task 130 status 0
+[2026-07-07_10:16:49] start task 136
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:52] done task 131 status 0
+[2026-07-07_10:16:52] start task 137
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:16:56] done task 132 status 0
+[2026-07-07_10:16:56] start task 138
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:17:37] done task 133 status 0
+[2026-07-07_10:17:37] start task 139
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:17:41] done task 134 status 0
+[2026-07-07_10:17:41] start task 140
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:17:41] done task 135 status 0
+[2026-07-07_10:17:41] start task 141
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:17:43] done task 136 status 0
+[2026-07-07_10:17:43] start task 142
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:17:46] done task 137 status 0
+[2026-07-07_10:17:46] start task 143
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:17:50] done task 138 status 0
+[2026-07-07_10:17:50] start task 144
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA593551__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:20] done task 139 status 0
+[2026-07-07_10:18:20] start task 145
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:24] done task 141 status 0
+[2026-07-07_10:18:24] start task 146
+[2026-07-07_10:18:24] done task 140 status 0
+[2026-07-07_10:18:24] start task 147
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:38] done task 142 status 0
+[2026-07-07_10:18:38] start task 148
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:41] done task 143 status 0
+[2026-07-07_10:18:41] start task 149
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA593551__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:45] done task 144 status 0
+[2026-07-07_10:18:45] start task 150
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:49] done task 148 status 0
+[2026-07-07_10:18:49] start task 151
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:52] done task 149 status 0
+[2026-07-07_10:18:52] start task 152
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:18:57] done task 150 status 0
+[2026-07-07_10:18:57] start task 153
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:18:58] done task 145 status 0
+[2026-07-07_10:18:58] start task 154
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:19:03] done task 147 status 0
+[2026-07-07_10:19:03] start task 155
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:19:03] done task 146 status 0
+[2026-07-07_10:19:03] start task 156
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:20:11] done task 151 status 0
+[2026-07-07_10:20:11] start task 157
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:20:14] done task 152 status 0
+[2026-07-07_10:20:14] start task 158
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:20:19] done task 153 status 0
+[2026-07-07_10:20:19] start task 159
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:20:34] done task 157 status 0
+[2026-07-07_10:20:34] start task 160
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:20:38] done task 158 status 0
+[2026-07-07_10:20:38] start task 161
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:20:42] done task 159 status 0
+[2026-07-07_10:20:42] start task 162
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__PRJNA638151__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:21:33] done task 154 status 0
+[2026-07-07_10:21:33] start task 163
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:21:38] done task 156 status 0
+[2026-07-07_10:21:38] start task 164
+[2026-07-07_10:21:38] done task 155 status 0
+[2026-07-07_10:21:38] start task 165
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:22:43] done task 163 status 0
+[2026-07-07_10:22:43] start task 166
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:22:48] done task 164 status 0
+[2026-07-07_10:22:48] start task 167
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:22:49] done task 165 status 0
+[2026-07-07_10:22:49] start task 168
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:22:59] done task 166 status 0
+[2026-07-07_10:22:59] start task 169
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:23:04] done task 167 status 0
+[2026-07-07_10:23:04] start task 170
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:23:05] done task 168 status 0
+[2026-07-07_10:23:05] start task 171
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:23:52] done task 160 status 0
+[2026-07-07_10:23:52] start task 172
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:23:54] done task 161 status 0
+[2026-07-07_10:23:54] start task 173
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__PRJNA638151__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+[2026-07-07_10:24:00] done task 162 status 0
+[2026-07-07_10:24:00] start task 174
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:24:07] done task 169 status 0
+[2026-07-07_10:24:07] start task 175
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:24:13] done task 170 status 0
+[2026-07-07_10:24:13] start task 176
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:24:14] done task 171 status 0
+[2026-07-07_10:24:14] start task 177
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:24:53] done task 175 status 0
+[2026-07-07_10:24:53] start task 178
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:00] done task 176 status 0
+[2026-07-07_10:25:00] start task 179
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:01] done task 177 status 0
+[2026-07-07_10:25:01] start task 180
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:01] done task 172 status 0
+[2026-07-07_10:25:01] start task 181
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:03] done task 173 status 0
+[2026-07-07_10:25:03] start task 182
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/3CA_data__SmartSeq2__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:09] done task 174 status 0
+[2026-07-07_10:25:09] start task 183
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:32] done task 181 status 0
+[2026-07-07_10:25:32] start task 184
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:33] done task 182 status 0
+[2026-07-07_10:25:33] start task 185
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:40] done task 183 status 0
+[2026-07-07_10:25:40] start task 186
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:42] done task 184 status 0
+[2026-07-07_10:25:42] start task 187
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:43] done task 185 status 0
+[2026-07-07_10:25:43] start task 188
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:25:50] done task 186 status 0
+[2026-07-07_10:25:50] start task 189
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:26:02] done task 178 status 0
+[2026-07-07_10:26:02] start task 190
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:26:09] done task 179 status 0
+[2026-07-07_10:26:09] start task 191
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/3CA_data__SmartSeq2__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:26:10] done task 180 status 0
+[2026-07-07_10:26:10] start task 192
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:26:41] done task 187 status 0
+[2026-07-07_10:26:41] start task 193
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:26:43] done task 188 status 0
+[2026-07-07_10:26:43] start task 194
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:26:50] done task 189 status 0
+[2026-07-07_10:26:50] start task 195
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:00] done task 193 status 0
+[2026-07-07_10:27:00] start task 196
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:02] done task 190 status 0
+[2026-07-07_10:27:02] start task 197
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:02] done task 194 status 0
+[2026-07-07_10:27:02] start task 198
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:08] done task 191 status 0
+[2026-07-07_10:27:08] start task 199
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample5__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:10] done task 195 status 0
+[2026-07-07_10:27:10] start task 200
+[2026-07-07_10:27:10] done task 192 status 0
+[2026-07-07_10:27:10] start task 201
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-10000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-10000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-10000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-10000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:41] done task 199 status 0
+[2026-07-07_10:27:41] start task 202
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-10000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:42] done task 200 status 0
+[2026-07-07_10:27:42] start task 203
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-10000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:43] done task 201 status 0
+[2026-07-07_10:27:43] start task 204
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-1000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-1000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-1000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-1000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:51] done task 202 status 0
+[2026-07-07_10:27:51] start task 205
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-1000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:52] done task 203 status 0
+[2026-07-07_10:27:52] start task 206
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-1000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:27:53] done task 204 status 0
+[2026-07-07_10:27:53] start task 207
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-25000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-25000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-25000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:28:00] done task 196 status 0
+[2026-07-07_10:28:00] start task 208
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:28:01] done task 198 status 0
+[2026-07-07_10:28:01] start task 209
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample5__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:28:04] done task 197 status 0
+[2026-07-07_10:28:04] start task 210
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-50000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-50000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-50000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-25000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-25000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:00] done task 205 status 0
+[2026-07-07_10:29:00] start task 211
+[2026-07-07_10:29:00] done task 206 status 0
+[2026-07-07_10:29:00] start task 212
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-25000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:00] done task 207 status 0
+[2026-07-07_10:29:00] start task 213
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-5000__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-5000__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-5000__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:09] done task 209 status 0
+[2026-07-07_10:29:09] start task 214
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-50000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:10] done task 208 status 0
+[2026-07-07_10:29:10] start task 215
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-50000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:11] done task 210 status 0
+[2026-07-07_10:29:11] start task 216
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-all__rep-1__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-all__rep-2__engine-both__ablation-full/prepared_cellchat.rds
+load_prepared_cellchat=/home/dzf/cellchat_acceleration/results/runs/checkpoints/normal_control__Sample8__cells-all__rep-3__engine-both__ablation-full/prepared_cellchat.rds
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:21] done task 212 status 0
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-5000__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-5000__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:29:21] done task 213 status 0
+[2026-07-07_10:29:21] done task 211 status 0
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-all__rep-1__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:30:19] done task 214 status 0
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-all__rep-3__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:30:21] done task 216 status 0
+metrics=/home/dzf/cellchat_acceleration/CellChatAccelRcpp_e517ce2/benchmarks/cellchat_acceleration_2026/results/runs/normal_control__Sample8__cells-all__rep-2__engine-both__ablation-full__algorithm-sparse_stream.metrics.tsv
+[2026-07-07_10:30:22] done task 215 status 0

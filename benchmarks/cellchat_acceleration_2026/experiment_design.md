@@ -1,4 +1,4 @@
-# Experiment design for CellChat acceleration manuscript
+# Experiment design for CellChatAccelRcpp manuscript
 
 ## Manuscript target
 
@@ -14,9 +14,9 @@ Core claim to support:
 
 Use only real datasets as the primary evidence.
 
-1. `3CA_data`: transferred complete under `/home/dzf/share/3CA_data`.
-2. `normal_control`: transferred complete under `/home/dzf/share/normal_control`.
-3. `Pediatric`: currently partial under `/home/dzf/share/Pediatric`; use after transfer resumes.
+1. `3CA_data`: source data available in the benchmark data workspace.
+2. `normal_control`: source data available in the benchmark data workspace.
+3. `Pediatric`: optional candidate data; use only after source data transfer is complete.
 
 The benchmark should prefer ready-to-use `.rds` Seurat objects. `.h5ad`, `.h5`,
 and `.mtx` files are included in the manifest as conversion candidates.

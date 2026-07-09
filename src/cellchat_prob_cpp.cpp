@@ -1,6 +1,7 @@
 #include <Rcpp.h>
 #include <algorithm>
 #include <cmath>
+#include <limits>
 #include <vector>
 using namespace Rcpp;
 
@@ -300,6 +301,29 @@ static inline double cofactor_factor_boot(const NumericVector& avgBoot, int G, i
   return out;
 }
 
+static inline bool index_row_empty(const IntegerMatrix& idx, int row) {
+  for (int j = 0; j < idx.ncol(); ++j) {
+    if (idx(row, j) > 0) return false;
+  }
+  return true;
+}
+
+static inline int index_row_count(const IntegerMatrix& idx, int row) {
+  int out = 0;
+  for (int j = 0; j < idx.ncol(); ++j) {
+    if (idx(row, j) > 0) ++out;
+  }
+  return out;
+}
+
+static inline int index_row_first0(const IntegerMatrix& idx, int row) {
+  for (int j = 0; j < idx.ncol(); ++j) {
+    const int g = idx(row, j) - 1;
+    if (g >= 0) return g;
+  }
+  return -1;
+}
+
 // [[Rcpp::export]]
 List cellchat_prob_from_avg_cpp(
     NumericMatrix avg,
@@ -397,6 +421,615 @@ List cellchat_prob_from_avg_cpp(
   }
 
   return List::create(Named("prob") = prob, Named("pval") = pval);
+}
+
+// [[Rcpp::export]]
+List cellchat_prob_from_avg_sparse_cpp(
+    NumericMatrix avg,
+    NumericVector avgBoot,
+    IntegerMatrix ligandIdx,
+    IntegerMatrix receptorIdx,
+    IntegerMatrix coAIdx,
+    IntegerMatrix coIIdx,
+    IntegerMatrix agonistIdx,
+    IntegerMatrix antagonistIdx,
+    LogicalVector hasAgonist,
+    LogicalVector hasAntagonist,
+    double Kh,
+    double n_power) {
+
+  const IntegerVector dims = avgBoot.attr("dim");
+  const int G = dims[0];
+  const int K = dims[1];
+  const int nboot = dims[2];
+  const int nLR = ligandIdx.nrow();
+  const int KK = K * K;
+  const double Kh_n = std::pow(Kh, n_power);
+
+  NumericVector prob(Dimension(K, K, nLR));
+  NumericVector pval(Dimension(K, K, nLR));
+
+  std::vector<double> L(K), R(K), ago(K), ant(K);
+  std::vector<double> Lb(K), Rb(K), agoB(K), antB(K);
+  long long active_pairs = 0;
+  long long skipped_pairs = 0;
+
+  for (int lr = 0; lr < nLR; ++lr) {
+    const bool simple_lr = !hasAgonist[lr] && !hasAntagonist[lr] &&
+      index_row_empty(coAIdx, lr) && index_row_empty(coIIdx, lr);
+    const int ligand_count = index_row_count(ligandIdx, lr);
+    const int receptor_count = index_row_count(receptorIdx, lr);
+    const bool direct_simple_lr = simple_lr && ligand_count == 1 && receptor_count == 1;
+    const int ligand_gene0 = direct_simple_lr ? index_row_first0(ligandIdx, lr) : -1;
+    const int receptor_gene0 = direct_simple_lr ? index_row_first0(receptorIdx, lr) : -1;
+
+    for (int k = 0; k < K; ++k) {
+      L[k] = avg_expr_matrix(avg, ligandIdx, lr, k);
+      R[k] = avg_expr_matrix(avg, receptorIdx, lr, k);
+      if (simple_lr) {
+        ago[k] = 1.0;
+        ant[k] = 1.0;
+      } else {
+        const double coA = coreceptor_factor_matrix(avg, coAIdx, lr, k);
+        const double coI = coreceptor_factor_matrix(avg, coIIdx, lr, k);
+        R[k] = R[k] * coA / coI;
+        ago[k] = hasAgonist[lr] ? cofactor_factor_matrix(avg, agonistIdx, lr, k, true, Kh_n, n_power) : 1.0;
+        ant[k] = hasAntagonist[lr] ? cofactor_factor_matrix(avg, antagonistIdx, lr, k, false, Kh_n, n_power) : 1.0;
+      }
+    }
+
+    std::vector<double> pnull(KK, 0.0);
+    std::vector<double> product_null(KK, 0.0);
+    std::vector<int> active_idx;
+    std::vector<int> active_groups;
+    std::vector<char> group_seen(K, 0);
+    active_idx.reserve(KK);
+    active_groups.reserve(K);
+    const int lr_offset = KK * lr;
+
+    for (int idx = 0; idx < KK; ++idx) {
+      pval[idx + lr_offset] = 1.0;
+    }
+
+    for (int s = 0; s < K; ++s) {
+      for (int r = 0; r < K; ++r) {
+        const double dataLR = L[s] * R[r];
+        double p1 = 0.0;
+        if (dataLR > 0.0) {
+          const double dataLR_n = std::pow(dataLR, n_power);
+          p1 = dataLR_n / (Kh_n + dataLR_n);
+        }
+        const double val = p1 * ago[s] * ago[r] * ant[s] * ant[r];
+        const int idx = s + K * r;
+        product_null[idx] = dataLR;
+        pnull[idx] = val;
+        prob[idx + lr_offset] = val;
+        if (val != 0.0) {
+          active_idx.push_back(idx);
+          if (!group_seen[s]) {
+            group_seen[s] = 1;
+            active_groups.push_back(s);
+          }
+          if (!group_seen[r]) {
+            group_seen[r] = 1;
+            active_groups.push_back(r);
+          }
+        }
+      }
+    }
+
+    active_pairs += static_cast<long long>(active_idx.size());
+    skipped_pairs += static_cast<long long>(KK - active_idx.size());
+    if (active_idx.empty()) continue;
+
+    std::vector<int> reject(active_idx.size(), 0);
+    for (int b = 0; b < nboot; ++b) {
+      const int boot_offset = G * K * b;
+      for (int k : active_groups) {
+        if (direct_simple_lr) {
+          Lb[k] = avg_expr_boot(avgBoot, G, K, ligandIdx, lr, k, b);
+          Rb[k] = avg_expr_boot(avgBoot, G, K, receptorIdx, lr, k, b);
+        } else {
+          Lb[k] = avg_expr_boot(avgBoot, G, K, ligandIdx, lr, k, b);
+          Rb[k] = avg_expr_boot(avgBoot, G, K, receptorIdx, lr, k, b);
+          if (!simple_lr) {
+            const double coA = coreceptor_factor_boot(avgBoot, G, K, coAIdx, lr, k, b);
+            const double coI = coreceptor_factor_boot(avgBoot, G, K, coIIdx, lr, k, b);
+            Rb[k] = Rb[k] * coA / coI;
+            agoB[k] = hasAgonist[lr] ? cofactor_factor_boot(avgBoot, G, K, agonistIdx, lr, k, b, true, Kh_n, n_power) : 1.0;
+            antB[k] = hasAntagonist[lr] ? cofactor_factor_boot(avgBoot, G, K, antagonistIdx, lr, k, b, false, Kh_n, n_power) : 1.0;
+          }
+        }
+      }
+      for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
+        const int idx = active_idx[j];
+        const int s = idx % K;
+        const int r = idx / K;
+        const double dataLR = Lb[s] * Rb[r];
+        double p1 = 0.0;
+        if (dataLR > 0.0) {
+          const double dataLR_n = std::pow(dataLR, n_power);
+          p1 = dataLR_n / (Kh_n + dataLR_n);
+        }
+        if (simple_lr) {
+          if (p1 - pnull[idx] > 0.0) reject[j] += 1;
+        } else {
+          const double val = p1 * agoB[s] * agoB[r] * antB[s] * antB[r];
+          if (val - pnull[idx] > 0.0) reject[j] += 1;
+        }
+      }
+    }
+
+    for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
+      const int idx = active_idx[j];
+      pval[idx + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
+    }
+  }
+
+  const long long total_pairs = static_cast<long long>(nLR) * static_cast<long long>(KK);
+  return List::create(
+    Named("prob") = prob,
+    Named("pval") = pval,
+    Named("active_pairs") = static_cast<double>(active_pairs),
+    Named("skipped_pairs") = static_cast<double>(skipped_pairs),
+    Named("total_pairs") = static_cast<double>(total_pairs),
+    Named("active_fraction") = total_pairs > 0 ? static_cast<double>(active_pairs) / static_cast<double>(total_pairs) : NA_REAL
+  );
+}
+
+static inline double tri_mean_gene_group_boot(NumericMatrix data, IntegerMatrix groupBoot,
+                                              int gene0, int group1, int b) {
+  const int C = data.ncol();
+  std::vector<double> vals;
+  vals.reserve(C);
+  for (int c = 0; c < C; ++c) {
+    if (groupBoot(c, b) != group1) continue;
+    const double v = data(gene0, c);
+    if (!NumericVector::is_na(v)) vals.push_back(v);
+  }
+  return tri_mean_unsorted(vals);
+}
+
+static inline double tri_mean_gene_cells(const NumericMatrix& data, int gene0,
+                                         const std::vector<int>& cell_idx) {
+  std::vector<double> vals;
+  vals.reserve(cell_idx.size());
+  for (int c : cell_idx) {
+    const double v = data(gene0, c);
+    if (!NumericVector::is_na(v)) vals.push_back(v);
+  }
+  return tri_mean_unsorted(vals);
+}
+
+static inline void add_index_genes(std::vector<int>& genes, const IntegerMatrix& idx, int row) {
+  for (int j = 0; j < idx.ncol(); ++j) {
+    const int g0 = idx(row, j) - 1;
+    if (g0 >= 0) genes.push_back(g0);
+  }
+}
+
+static inline double avg_expr_local(const std::vector<double>& bootAvg,
+                                    const std::vector<int>& gene_to_local,
+                                    const IntegerMatrix& idx,
+                                    int row, int k, int K) {
+  double sum_log = 0.0;
+  int n = 0;
+  for (int j = 0; j < idx.ncol(); ++j) {
+    const int g0 = idx(row, j) - 1;
+    if (g0 < 0) continue;
+    const int local = gene_to_local[g0];
+    if (local < 0) continue;
+    const double val = bootAvg[local * K + k];
+    if (NumericVector::is_na(val)) continue;
+    sum_log += std::log(val);
+    ++n;
+  }
+  if (n == 0) return NA_REAL;
+  if (n == 1) return std::exp(sum_log);
+  return std::exp(sum_log / static_cast<double>(n));
+}
+
+static inline double coreceptor_factor_local(const std::vector<double>& bootAvg,
+                                             const std::vector<int>& gene_to_local,
+                                             const IntegerMatrix& idx,
+                                             int row, int k, int K) {
+  double out = 1.0;
+  for (int j = 0; j < idx.ncol(); ++j) {
+    const int g0 = idx(row, j) - 1;
+    if (g0 < 0) continue;
+    const int local = gene_to_local[g0];
+    if (local < 0) continue;
+    const double x = bootAvg[local * K + k];
+    if (NumericVector::is_na(x)) continue;
+    out *= 1.0 + x;
+  }
+  return out;
+}
+
+static inline double cofactor_factor_local(const std::vector<double>& bootAvg,
+                                           const std::vector<int>& gene_to_local,
+                                           const IntegerMatrix& idx,
+                                           int row, int k, int K,
+                                           bool agonist_mode, double Kh_n, double n_power) {
+  double out = 1.0;
+  for (int j = 0; j < idx.ncol(); ++j) {
+    const int g0 = idx(row, j) - 1;
+    if (g0 < 0) continue;
+    const int local = gene_to_local[g0];
+    if (local < 0) continue;
+    const double x = bootAvg[local * K + k];
+    if (NumericVector::is_na(x)) continue;
+    out *= agonist_mode ? agonist_factor_value(x, Kh_n, n_power) : antagonist_factor_value(x, Kh_n, n_power);
+  }
+  return out;
+}
+
+// [[Rcpp::export]]
+List cellchat_prob_sparse_stream_cpp(
+    NumericMatrix data,
+    IntegerVector group,
+    IntegerMatrix groupBoot,
+    NumericMatrix avg,
+    IntegerMatrix ligandIdx,
+    IntegerMatrix receptorIdx,
+    IntegerMatrix coAIdx,
+    IntegerMatrix coIIdx,
+    IntegerMatrix agonistIdx,
+    IntegerMatrix antagonistIdx,
+    LogicalVector hasAgonist,
+    LogicalVector hasAntagonist,
+    double Kh,
+    double n_power) {
+
+  const int G = data.nrow();
+  const int C = data.ncol();
+  const int K = Rcpp::max(group);
+  const int nboot = groupBoot.ncol();
+  const int nLR = ligandIdx.nrow();
+  const int KK = K * K;
+  const double Kh_n = std::pow(Kh, n_power);
+
+  std::vector< std::vector<int> > boot_cells(nboot * K);
+  for (int b = 0; b < nboot; ++b) {
+    for (int c = 0; c < C; ++c) {
+      const int k = groupBoot(c, b) - 1;
+      if (k >= 0 && k < K) boot_cells[b * K + k].push_back(c);
+    }
+  }
+
+  std::vector<int> cache_genes;
+  cache_genes.reserve(G);
+  for (int lr = 0; lr < nLR; ++lr) {
+    add_index_genes(cache_genes, ligandIdx, lr);
+    add_index_genes(cache_genes, receptorIdx, lr);
+    add_index_genes(cache_genes, coAIdx, lr);
+    add_index_genes(cache_genes, coIIdx, lr);
+    if (hasAgonist[lr]) add_index_genes(cache_genes, agonistIdx, lr);
+    if (hasAntagonist[lr]) add_index_genes(cache_genes, antagonistIdx, lr);
+  }
+  std::sort(cache_genes.begin(), cache_genes.end());
+  cache_genes.erase(std::unique(cache_genes.begin(), cache_genes.end()), cache_genes.end());
+  const int U = cache_genes.size();
+  std::vector<int> gene_to_cache(G, -1);
+  for (int u = 0; u < U; ++u) gene_to_cache[cache_genes[u]] = u;
+
+  // Layout: [bootstrap][gene][group]. The innermost group dimension is
+  // contiguous, matching the sparse-stream access pattern for one LR gene.
+  std::vector<double> tri_cache(static_cast<size_t>(U) * K * nboot, NA_REAL);
+  std::vector<unsigned char> tri_seen(static_cast<size_t>(U) * K * nboot, 0);
+
+  NumericVector prob(Dimension(K, K, nLR));
+  NumericVector pval(Dimension(K, K, nLR));
+  std::vector<double> L(K), R(K), ago(K), ant(K);
+  std::vector<double> Lb(K), Rb(K), agoB(K), antB(K);
+  std::vector<int> gene_to_local(G, -1);
+
+  long long active_pairs = 0;
+  long long skipped_pairs = 0;
+  long long boot_tri_mean_evals = 0;
+  long long cache_hits = 0;
+  long long streamed_lr = 0;
+  long long max_lr_genes = 0;
+
+  for (int lr = 0; lr < nLR; ++lr) {
+    const bool simple_lr = !hasAgonist[lr] && !hasAntagonist[lr] &&
+      index_row_empty(coAIdx, lr) && index_row_empty(coIIdx, lr);
+    const int lr_offset = KK * lr;
+
+    for (int idx = 0; idx < KK; ++idx) {
+      pval[idx + lr_offset] = 1.0;
+    }
+
+    for (int k = 0; k < K; ++k) {
+      L[k] = avg_expr_matrix(avg, ligandIdx, lr, k);
+      R[k] = avg_expr_matrix(avg, receptorIdx, lr, k);
+      if (simple_lr) {
+        ago[k] = 1.0;
+        ant[k] = 1.0;
+      } else {
+        const double coA = coreceptor_factor_matrix(avg, coAIdx, lr, k);
+        const double coI = coreceptor_factor_matrix(avg, coIIdx, lr, k);
+        R[k] = R[k] * coA / coI;
+        ago[k] = hasAgonist[lr] ? cofactor_factor_matrix(avg, agonistIdx, lr, k, true, Kh_n, n_power) : 1.0;
+        ant[k] = hasAntagonist[lr] ? cofactor_factor_matrix(avg, antagonistIdx, lr, k, false, Kh_n, n_power) : 1.0;
+      }
+    }
+
+    std::vector<double> pnull(KK, 0.0);
+    std::vector<int> active_idx;
+    std::vector<int> active_groups;
+    std::vector<char> group_seen(K, 0);
+    active_idx.reserve(KK);
+    active_groups.reserve(K);
+
+    for (int s = 0; s < K; ++s) {
+      for (int r = 0; r < K; ++r) {
+        const double dataLR = L[s] * R[r];
+        double p1 = 0.0;
+        if (dataLR > 0.0) {
+          const double dataLR_n = std::pow(dataLR, n_power);
+          p1 = dataLR_n / (Kh_n + dataLR_n);
+        }
+        const double val = p1 * ago[s] * ago[r] * ant[s] * ant[r];
+        const int idx = s + K * r;
+        pnull[idx] = val;
+        prob[idx + lr_offset] = val;
+        if (val != 0.0) {
+          active_idx.push_back(idx);
+          if (!group_seen[s]) {
+            group_seen[s] = 1;
+            active_groups.push_back(s);
+          }
+          if (!group_seen[r]) {
+            group_seen[r] = 1;
+            active_groups.push_back(r);
+          }
+        }
+      }
+    }
+
+    active_pairs += static_cast<long long>(active_idx.size());
+    skipped_pairs += static_cast<long long>(KK - active_idx.size());
+    if (active_idx.empty()) continue;
+    std::sort(active_groups.begin(), active_groups.end());
+    streamed_lr += 1;
+
+    std::vector<int> lr_genes;
+    add_index_genes(lr_genes, ligandIdx, lr);
+    add_index_genes(lr_genes, receptorIdx, lr);
+    if (!simple_lr) {
+      add_index_genes(lr_genes, coAIdx, lr);
+      add_index_genes(lr_genes, coIIdx, lr);
+      if (hasAgonist[lr]) add_index_genes(lr_genes, agonistIdx, lr);
+      if (hasAntagonist[lr]) add_index_genes(lr_genes, antagonistIdx, lr);
+    }
+    std::sort(lr_genes.begin(), lr_genes.end());
+    lr_genes.erase(std::unique(lr_genes.begin(), lr_genes.end()), lr_genes.end());
+    max_lr_genes = std::max(max_lr_genes, static_cast<long long>(lr_genes.size()));
+    for (int i = 0; i < static_cast<int>(lr_genes.size()); ++i) {
+      gene_to_local[lr_genes[i]] = i;
+    }
+
+    std::vector<int> reject(active_idx.size(), 0);
+    std::vector<double> bootAvg(lr_genes.size() * K, NA_REAL);
+    for (int b = 0; b < nboot; ++b) {
+      std::fill(bootAvg.begin(), bootAvg.end(), NA_REAL);
+      for (int local = 0; local < static_cast<int>(lr_genes.size()); ++local) {
+        const int gene0 = lr_genes[local];
+        const int cache_gene = gene_to_cache[gene0];
+        if (cache_gene < 0) continue;
+        const size_t cache_base = static_cast<size_t>(K) *
+          (static_cast<size_t>(cache_gene) + static_cast<size_t>(U) * static_cast<size_t>(b));
+        for (int k : active_groups) {
+          const size_t cache_idx = cache_base + static_cast<size_t>(k);
+          if (!tri_seen[cache_idx]) {
+            tri_cache[cache_idx] = tri_mean_gene_cells(data, gene0, boot_cells[b * K + k]);
+            tri_seen[cache_idx] = 1;
+            boot_tri_mean_evals += 1;
+          } else {
+            cache_hits += 1;
+          }
+          bootAvg[local * K + k] = tri_cache[cache_idx];
+        }
+      }
+
+      for (int k : active_groups) {
+        Lb[k] = avg_expr_local(bootAvg, gene_to_local, ligandIdx, lr, k, K);
+        Rb[k] = avg_expr_local(bootAvg, gene_to_local, receptorIdx, lr, k, K);
+        if (simple_lr) {
+          agoB[k] = 1.0;
+          antB[k] = 1.0;
+        } else {
+          const double coA = coreceptor_factor_local(bootAvg, gene_to_local, coAIdx, lr, k, K);
+          const double coI = coreceptor_factor_local(bootAvg, gene_to_local, coIIdx, lr, k, K);
+          Rb[k] = Rb[k] * coA / coI;
+          agoB[k] = hasAgonist[lr] ? cofactor_factor_local(bootAvg, gene_to_local, agonistIdx, lr, k, K, true, Kh_n, n_power) : 1.0;
+          antB[k] = hasAntagonist[lr] ? cofactor_factor_local(bootAvg, gene_to_local, antagonistIdx, lr, k, K, false, Kh_n, n_power) : 1.0;
+        }
+      }
+
+      for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
+        const int idx = active_idx[j];
+        const int s = idx % K;
+        const int r = idx / K;
+        const double dataLR = Lb[s] * Rb[r];
+        double p1 = 0.0;
+        if (dataLR > 0.0) {
+          const double dataLR_n = std::pow(dataLR, n_power);
+          p1 = dataLR_n / (Kh_n + dataLR_n);
+        }
+        const double val = p1 * agoB[s] * agoB[r] * antB[s] * antB[r];
+        if (val - pnull[idx] > 0.0) reject[j] += 1;
+      }
+    }
+
+    for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
+      const int idx = active_idx[j];
+      pval[idx + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
+    }
+
+    for (int g0 : lr_genes) {
+      gene_to_local[g0] = -1;
+    }
+  }
+
+  const long long total_pairs = static_cast<long long>(nLR) * static_cast<long long>(KK);
+  return List::create(
+    Named("prob") = prob,
+    Named("pval") = pval,
+    Named("active_pairs") = static_cast<double>(active_pairs),
+    Named("skipped_pairs") = static_cast<double>(skipped_pairs),
+    Named("total_pairs") = static_cast<double>(total_pairs),
+    Named("active_fraction") = total_pairs > 0 ? static_cast<double>(active_pairs) / static_cast<double>(total_pairs) : NA_REAL,
+    Named("boot_tri_mean_evals") = static_cast<double>(boot_tri_mean_evals),
+    Named("cache_hits") = static_cast<double>(cache_hits),
+    Named("cache_genes") = static_cast<double>(U),
+    Named("cache_slots") = static_cast<double>(static_cast<long long>(U) * static_cast<long long>(K) * static_cast<long long>(nboot)),
+    Named("streamed_lr") = static_cast<double>(streamed_lr),
+    Named("max_lr_genes") = static_cast<double>(max_lr_genes)
+  );
+}
+
+// [[Rcpp::export]]
+List cellchat_prob_simple_ondemand_cpp(
+    NumericMatrix data,
+    IntegerVector group,
+    IntegerMatrix groupBoot,
+    IntegerVector ligandGene,
+    IntegerVector receptorGene,
+    double Kh,
+    double n_power) {
+
+  const int K = Rcpp::max(group);
+  const int nboot = groupBoot.ncol();
+  const int nLR = ligandGene.size();
+  const int KK = K * K;
+  const double Kh_n = std::pow(Kh, n_power);
+
+  NumericVector prob(Dimension(K, K, nLR));
+  NumericVector pval(Dimension(K, K, nLR));
+  NumericMatrix Lavg(nLR, K);
+  NumericMatrix Ravg(nLR, K);
+
+  std::vector< std::vector<int> > cells(K);
+  for (int c = 0; c < data.ncol(); ++c) {
+    const int g = group[c] - 1;
+    if (g >= 0 && g < K) cells[g].push_back(c);
+  }
+
+  std::vector<double> vals;
+  for (int lr = 0; lr < nLR; ++lr) {
+    const int lig0 = ligandGene[lr] - 1;
+    const int rec0 = receptorGene[lr] - 1;
+    for (int k = 0; k < K; ++k) {
+      vals.clear();
+      vals.reserve(cells[k].size());
+      for (int idx : cells[k]) {
+        const double v = data(lig0, idx);
+        if (!NumericVector::is_na(v)) vals.push_back(v);
+      }
+      Lavg(lr, k) = tri_mean_unsorted(vals);
+      if (!NumericVector::is_na(Lavg(lr, k))) Lavg(lr, k) = std::exp(std::log(Lavg(lr, k)));
+
+      vals.clear();
+      vals.reserve(cells[k].size());
+      for (int idx : cells[k]) {
+        const double v = data(rec0, idx);
+        if (!NumericVector::is_na(v)) vals.push_back(v);
+      }
+      Ravg(lr, k) = tri_mean_unsorted(vals);
+      if (!NumericVector::is_na(Ravg(lr, k))) Ravg(lr, k) = std::exp(std::log(Ravg(lr, k)));
+    }
+  }
+
+  long long active_pairs = 0;
+  long long skipped_pairs = 0;
+  long long boot_tri_mean_evals = 0;
+  std::vector<double> Lb(K), Rb(K);
+
+  for (int lr = 0; lr < nLR; ++lr) {
+    const int lig0 = ligandGene[lr] - 1;
+    const int rec0 = receptorGene[lr] - 1;
+    const int lr_offset = KK * lr;
+    std::vector<double> product_null(KK, 0.0);
+    std::vector<double> pnull(KK, 0.0);
+    std::vector<int> active_idx;
+    std::vector<int> active_groups;
+    std::vector<char> group_seen(K, 0);
+    active_idx.reserve(KK);
+    active_groups.reserve(K);
+
+    for (int idx = 0; idx < KK; ++idx) {
+      pval[idx + lr_offset] = 1.0;
+    }
+
+    for (int s = 0; s < K; ++s) {
+      for (int r = 0; r < K; ++r) {
+        const double dataLR = Lavg(lr, s) * Ravg(lr, r);
+        double p1 = 0.0;
+        if (dataLR > 0.0) {
+          const double dataLR_n = std::pow(dataLR, n_power);
+          p1 = dataLR_n / (Kh_n + dataLR_n);
+        }
+        const int idx = s + K * r;
+        product_null[idx] = dataLR;
+        pnull[idx] = p1;
+        prob[idx + lr_offset] = p1;
+        if (p1 != 0.0) {
+          active_idx.push_back(idx);
+          if (!group_seen[s]) {
+            group_seen[s] = 1;
+            active_groups.push_back(s);
+          }
+          if (!group_seen[r]) {
+            group_seen[r] = 1;
+            active_groups.push_back(r);
+          }
+        }
+      }
+    }
+
+    active_pairs += static_cast<long long>(active_idx.size());
+    skipped_pairs += static_cast<long long>(KK - active_idx.size());
+    if (active_idx.empty()) continue;
+
+    std::vector<int> reject(active_idx.size(), 0);
+    for (int b = 0; b < nboot; ++b) {
+      for (int k : active_groups) {
+        Lb[k] = tri_mean_gene_group_boot(data, groupBoot, lig0, k + 1, b);
+        Rb[k] = tri_mean_gene_group_boot(data, groupBoot, rec0, k + 1, b);
+        boot_tri_mean_evals += 2;
+      }
+      for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
+        const int idx = active_idx[j];
+        const int s = idx % K;
+        const int r = idx / K;
+        const double dataLR = Lb[s] * Rb[r];
+        double p1 = 0.0;
+        if (dataLR > 0.0) {
+          const double dataLR_n = std::pow(dataLR, n_power);
+          p1 = dataLR_n / (Kh_n + dataLR_n);
+        }
+        if (p1 - pnull[idx] > 0.0) reject[j] += 1;
+      }
+    }
+
+    for (int j = 0; j < static_cast<int>(active_idx.size()); ++j) {
+      const int idx = active_idx[j];
+      pval[idx + lr_offset] = static_cast<double>(reject[j]) / static_cast<double>(nboot);
+    }
+  }
+
+  const long long total_pairs = static_cast<long long>(nLR) * static_cast<long long>(KK);
+  return List::create(
+    Named("prob") = prob,
+    Named("pval") = pval,
+    Named("active_pairs") = static_cast<double>(active_pairs),
+    Named("skipped_pairs") = static_cast<double>(skipped_pairs),
+    Named("total_pairs") = static_cast<double>(total_pairs),
+    Named("active_fraction") = total_pairs > 0 ? static_cast<double>(active_pairs) / static_cast<double>(total_pairs) : NA_REAL,
+    Named("boot_tri_mean_evals") = static_cast<double>(boot_tri_mean_evals)
+  );
 }
 
 // [[Rcpp::export]]

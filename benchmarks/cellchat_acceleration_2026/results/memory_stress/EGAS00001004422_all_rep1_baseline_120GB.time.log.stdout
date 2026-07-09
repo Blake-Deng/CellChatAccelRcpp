@@ -1,0 +1,7 @@
+triMean is used for calculating the average gene expression per cell group. 
+[1] ">>> Run CellChat on sc/snRNA-seq data <<< [2026-07-07 11:54:42.781199]"
+[1] ">>> CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-07-07 12:14:47.907816]"
+    engine algorithm memory_limit status elapsed_sec  cells genes groups   lr
+1 baseline                  120GB     ok    1241.358 100335  1003     32 1765
+  accel_algorithm active_fraction error
+1            <NA>              NA      

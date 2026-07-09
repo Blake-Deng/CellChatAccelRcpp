@@ -55,7 +55,7 @@ runtime scalability, large-cohort throughput, and checkpoint/restart behavior.
 
 ### 2.1 Datasets
 
-Benchmarks use real single-cell datasets stored under `/home/dzf/share`,
+Benchmarks use real single-cell datasets stored in the benchmark data workspace,
 including 3CA-derived datasets, normal-control datasets, and pediatric atlas
 data. The primary benchmark uses Seurat RDS objects when available, because
 these can be analyzed directly by CellChat. H5AD, H5, and MTX files are

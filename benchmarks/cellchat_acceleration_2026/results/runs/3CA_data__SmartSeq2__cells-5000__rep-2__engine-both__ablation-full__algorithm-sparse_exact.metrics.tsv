@@ -1,0 +1,2 @@
+experiment_id	dataset_id	input_path	engine	ablation	n_cells_target	seed	status	elapsed_sec	n_groups	total_lr_pairs	mean_weight	max_weight	max_abs_prob_diff	pearson_prob	error	accel_algorithm	active_pairs	skipped_pairs	total_pairs_sparse	active_fraction	n_genes_kernel
+3CA_data__SmartSeq2__cells-5000__rep-2__engine-both__ablation-full__algorithm-sparse_exact	3CA_data__SmartSeq2	NA	accelerated	full	5000	104002	ok	33.081	18	25135	0.469108414040747	1.77460630507524	NA	NA		sparse_exact	40746	523662	564408	0.0721924565208147	997

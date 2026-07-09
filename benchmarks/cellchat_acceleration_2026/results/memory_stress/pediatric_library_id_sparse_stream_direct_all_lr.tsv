@@ -1,0 +1,2 @@
+engine	algorithm	status	elapsed_sec	compute_elapsed_sec	cells	genes	groups	lr	active_fraction	error
+sparse_stream	sparse_stream	ok	1516.2987613678	1406.50537824631	1517274	1016	249	1939	0.00818866660712579	

@@ -22,13 +22,14 @@ def read_manifest(path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--manifest", default="/home/dzf/cellchat_acceleration/results/data_manifest.tsv")
-    ap.add_argument("--out", default="/home/dzf/cellchat_acceleration/results/experiment_grid.csv")
+    ap.add_argument("--manifest", default="results/data_manifest.tsv")
+    ap.add_argument("--out", default="results/experiment_grid.csv")
     ap.add_argument("--max-datasets", type=int, default=12)
     ap.add_argument("--repeats", type=int, default=3)
     ap.add_argument("--scales", default="1000,5000,10000,25000,50000,all")
     ap.add_argument("--engines", default="both,accelerated")
     ap.add_argument("--ablations", default="no_accel_kernel,no_accel_pathway,no_accel_aggregate")
+    ap.add_argument("--accel-algorithms", default="dense")
     args = ap.parse_args()
 
     manifest = read_manifest(args.manifest)
@@ -49,6 +50,7 @@ def main():
     scales = parse_scales(args.scales)
     engines = [x.strip() for x in args.engines.split(",") if x.strip()]
     ablations = [x.strip() for x in args.ablations.split(",") if x.strip()]
+    accel_algorithms = [x.strip() for x in args.accel_algorithms.split(",") if x.strip()]
 
     rows = []
     for ds_i, ds in enumerate(selected, start=1):
@@ -62,28 +64,32 @@ def main():
                         ablation_list = ["full"]
                     else:
                         ablation_list = ["none"]
+                    algorithm_list = accel_algorithms if engine in {"accelerated", "both"} else ["dense"]
                     for ablation in ablation_list:
-                        exp_id = (
-                            f"{dataset_id}__cells-{n_cells}__rep-{rep}"
-                            f"__engine-{engine}__ablation-{ablation}"
-                        )
-                        rows.append(
-                            {
-                                "experiment_id": exp_id,
-                                "dataset_id": dataset_id,
-                                "input_path": ds["path"],
-                                "dataset_root": ds["dataset_root"],
-                                "sample_id": ds["sample_id"],
-                                "input_kind": ds["kind"],
-                                "input_bytes": ds["bytes"],
-                                "n_cells": n_cells,
-                                "repeat": rep,
-                                "seed": 100000 + ds_i * 1000 + rep,
-                                "engine": engine,
-                                "ablation": ablation,
-                                "label_col": "auto",
-                            }
-                        )
+                        for accel_algorithm in algorithm_list:
+                            alg_suffix = "" if accel_algorithm == "dense" else f"__algorithm-{accel_algorithm}"
+                            exp_id = (
+                                f"{dataset_id}__cells-{n_cells}__rep-{rep}"
+                                f"__engine-{engine}__ablation-{ablation}{alg_suffix}"
+                            )
+                            rows.append(
+                                {
+                                    "experiment_id": exp_id,
+                                    "dataset_id": dataset_id,
+                                    "input_path": ds["path"],
+                                    "dataset_root": ds["dataset_root"],
+                                    "sample_id": ds["sample_id"],
+                                    "input_kind": ds["kind"],
+                                    "input_bytes": ds["bytes"],
+                                    "n_cells": n_cells,
+                                    "repeat": rep,
+                                    "seed": 100000 + ds_i * 1000 + rep,
+                                    "engine": engine,
+                                    "ablation": ablation,
+                                    "accel_algorithm": accel_algorithm,
+                                    "label_col": "auto",
+                                }
+                            )
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -91,7 +97,7 @@ def main():
         fieldnames = [
             "experiment_id", "dataset_id", "input_path", "dataset_root", "sample_id",
             "input_kind", "input_bytes", "n_cells", "repeat", "seed",
-            "engine", "ablation", "label_col",
+            "engine", "ablation", "accel_algorithm", "label_col",
         ]
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
         writer.writeheader()

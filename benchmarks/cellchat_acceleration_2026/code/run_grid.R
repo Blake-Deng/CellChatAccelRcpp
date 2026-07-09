@@ -17,7 +17,11 @@ args <- parse_args(commandArgs(trailingOnly = TRUE))
 grid_path <- args[["grid"]]
 task_id <- as.integer(args[["task-id"]])
 root <- args[["root"]]
-if (is.null(root)) root <- "/home/dzf/cellchat_acceleration"
+all_args <- commandArgs(trailingOnly = FALSE)
+script_arg <- grep("^--file=", all_args, value = TRUE)
+script_file <- if (length(script_arg) > 0) sub("^--file=", "", script_arg[[1]]) else NA_character_
+default_root <- if (!is.na(script_file)) normalizePath(file.path(dirname(script_file), ".."), mustWork = FALSE) else getwd()
+if (is.null(root)) root <- default_root
 if (is.na(task_id) || task_id < 1) stop("--task-id must be a positive integer")
 
 grid <- utils::read.csv(grid_path, stringsAsFactors = FALSE)
@@ -31,7 +35,6 @@ dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
 cmd_args <- c(
   bench,
-  "--input", row$input_path,
   "--out-dir", out_dir,
   "--experiment-id", row$experiment_id,
   "--dataset-id", row$dataset_id,
@@ -42,6 +45,15 @@ cmd_args <- c(
   "--label-col", row$label_col,
   "--resume", "true"
 )
+if ("input_path" %in% names(row) && nzchar(row$input_path)) {
+  cmd_args <- c(cmd_args, "--input", row$input_path)
+}
+if ("accel_algorithm" %in% names(row) && nzchar(row$accel_algorithm)) {
+  cmd_args <- c(cmd_args, "--accel-algorithm", row$accel_algorithm)
+}
+if ("prepared_cellchat" %in% names(row) && nzchar(row$prepared_cellchat)) {
+  cmd_args <- c(cmd_args, "--prepared-cellchat", row$prepared_cellchat)
+}
 
 status <- system2(rscript, cmd_args)
 quit(save = "no", status = status)

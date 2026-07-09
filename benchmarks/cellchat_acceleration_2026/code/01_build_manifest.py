@@ -55,9 +55,9 @@ def iter_files(data_root):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-root", default="/home/dzf/share")
-    ap.add_argument("--out", default="/home/dzf/cellchat_acceleration/results/data_manifest.tsv")
-    ap.add_argument("--candidates", default="/home/dzf/cellchat_acceleration/results/dataset_candidates.tsv")
+    ap.add_argument("--data-root", default="data")
+    ap.add_argument("--out", default="results/data_manifest.tsv")
+    ap.add_argument("--candidates", default="results/dataset_candidates.tsv")
     args = ap.parse_args()
 
     data_root = Path(args.data_root).resolve()

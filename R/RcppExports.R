@@ -17,6 +17,18 @@ cellchat_prob_from_avg_cpp <- function(avg, avgBoot, ligandIdx, receptorIdx, coA
     .Call(`_CellChatAccelRcpp_cellchat_prob_from_avg_cpp`, avg, avgBoot, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power)
 }
 
+cellchat_prob_from_avg_sparse_cpp <- function(avg, avgBoot, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power) {
+    .Call(`_CellChatAccelRcpp_cellchat_prob_from_avg_sparse_cpp`, avg, avgBoot, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power)
+}
+
+cellchat_prob_sparse_stream_cpp <- function(data, group, groupBoot, avg, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power) {
+    .Call(`_CellChatAccelRcpp_cellchat_prob_sparse_stream_cpp`, data, group, groupBoot, avg, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power)
+}
+
+cellchat_prob_simple_ondemand_cpp <- function(data, group, groupBoot, ligandGene, receptorGene, Kh, n_power) {
+    .Call(`_CellChatAccelRcpp_cellchat_prob_simple_ondemand_cpp`, data, group, groupBoot, ligandGene, receptorGene, Kh, n_power)
+}
+
 pathway_sum_cpp <- function(prob, pval, pathway, n_pathways, thresh) {
     .Call(`_CellChatAccelRcpp_pathway_sum_cpp`, prob, pval, pathway, n_pathways, thresh)
 }

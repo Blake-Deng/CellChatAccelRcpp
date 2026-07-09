@@ -5,4 +5,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.DS_Store$
+^\.gitignore$
+^\.zenodo\.json$
+^CITATION\.cff$
 ^src/symbols\.rds$
+^src/.*\.o$
+^src/.*\.so$
+^src/.*\.dll$
+^src/.*\.dylib$

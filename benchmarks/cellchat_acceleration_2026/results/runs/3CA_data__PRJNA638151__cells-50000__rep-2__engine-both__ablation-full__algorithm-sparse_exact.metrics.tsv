@@ -1,0 +1,2 @@
+experiment_id	dataset_id	input_path	engine	ablation	n_cells_target	seed	status	elapsed_sec	n_groups	total_lr_pairs	mean_weight	max_weight	max_abs_prob_diff	pearson_prob	error	accel_algorithm	active_pairs	skipped_pairs	total_pairs_sparse	active_fraction	n_genes_kernel
+3CA_data__PRJNA638151__cells-50000__rep-2__engine-both__ablation-full__algorithm-sparse_exact	3CA_data__PRJNA638151	NA	accelerated	full	50000	103002	ok	200.729	31	33284	0.667506269448419	3.70251798495306	NA	NA		sparse_exact	38356	1738533	1776889	0.0215860416717082	1011

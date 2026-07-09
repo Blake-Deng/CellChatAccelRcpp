@@ -1,0 +1,3 @@
+object	dense_sec	sparse_stream_sec	speedup	active_pairs	total_pairs	active_fraction	boot_tri_mean_evals	cache_hits	streamed_lr	max_lr_genes	prob_max_abs	prob_cor	pval_max_abs	pval_cor
+namecheck_3ca_10x_n200	3.653	0.162	22.5493827160494	95	4176	0.0227490421455939	2380	1400	54	3	0	1	0	1
+prjna490728_5k	3.256	1.604	2.02992518703242	41968	1092500	0.0384146453089245	120280	524320	472	28	0	1	0	1

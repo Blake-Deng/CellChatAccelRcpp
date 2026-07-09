@@ -13,7 +13,7 @@ before running the benchmark:
 ```bash
 source ~/.bashrc
 conda activate <env-with-R-Seurat-CellChat>
-cd /home/dzf/cellchat_acceleration
+cd /path/to/CellChatAccelRcpp/benchmarks/cellchat_acceleration_2026
 bash code/00_environment_check.sh
 ```
 
@@ -22,8 +22,8 @@ bash code/00_environment_check.sh
 If mamba/conda is available:
 
 ```bash
-mamba env create -f /home/dzf/cellchat_acceleration/environment.yml
-conda activate cellchat-acceleration
+mamba env create -f benchmarks/cellchat_acceleration_2026/environment.yml
+conda activate cellchat-accelrcpp
 Rscript -e 'remotes::install_github("sqjin/CellChat")'
 Rscript -e 'remotes::install_github("Blake-Deng/CellChatAccelRcpp")'
 ```
@@ -47,6 +47,7 @@ Then install R packages from R/CRAN/Bioconductor/GitHub.
 Before any benchmark run:
 
 ```bash
-bash /home/dzf/cellchat_acceleration/code/00_environment_check.sh
+cd benchmarks/cellchat_acceleration_2026
+bash code/00_environment_check.sh
 ```
 

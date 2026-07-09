@@ -1,0 +1,2 @@
+engine	algorithm	memory_limit	status	elapsed_sec	cells	genes	groups	lr	accel_algorithm	active_fraction	error
+baseline		120GB	ok	1241.35840702057	100335	1003	32	1765	NA	NA	

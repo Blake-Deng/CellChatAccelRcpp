@@ -81,6 +81,69 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cellchat_prob_from_avg_sparse_cpp
+List cellchat_prob_from_avg_sparse_cpp(NumericMatrix avg, NumericVector avgBoot, IntegerMatrix ligandIdx, IntegerMatrix receptorIdx, IntegerMatrix coAIdx, IntegerMatrix coIIdx, IntegerMatrix agonistIdx, IntegerMatrix antagonistIdx, LogicalVector hasAgonist, LogicalVector hasAntagonist, double Kh, double n_power);
+RcppExport SEXP _CellChatAccelRcpp_cellchat_prob_from_avg_sparse_cpp(SEXP avgSEXP, SEXP avgBootSEXP, SEXP ligandIdxSEXP, SEXP receptorIdxSEXP, SEXP coAIdxSEXP, SEXP coIIdxSEXP, SEXP agonistIdxSEXP, SEXP antagonistIdxSEXP, SEXP hasAgonistSEXP, SEXP hasAntagonistSEXP, SEXP KhSEXP, SEXP n_powerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type avg(avgSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type avgBoot(avgBootSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type ligandIdx(ligandIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type receptorIdx(receptorIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type coAIdx(coAIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type coIIdx(coIIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type agonistIdx(agonistIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type antagonistIdx(antagonistIdxSEXP);
+    Rcpp::traits::input_parameter< LogicalVector >::type hasAgonist(hasAgonistSEXP);
+    Rcpp::traits::input_parameter< LogicalVector >::type hasAntagonist(hasAntagonistSEXP);
+    Rcpp::traits::input_parameter< double >::type Kh(KhSEXP);
+    Rcpp::traits::input_parameter< double >::type n_power(n_powerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cellchat_prob_from_avg_sparse_cpp(avg, avgBoot, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cellchat_prob_sparse_stream_cpp
+List cellchat_prob_sparse_stream_cpp(NumericMatrix data, IntegerVector group, IntegerMatrix groupBoot, NumericMatrix avg, IntegerMatrix ligandIdx, IntegerMatrix receptorIdx, IntegerMatrix coAIdx, IntegerMatrix coIIdx, IntegerMatrix agonistIdx, IntegerMatrix antagonistIdx, LogicalVector hasAgonist, LogicalVector hasAntagonist, double Kh, double n_power);
+RcppExport SEXP _CellChatAccelRcpp_cellchat_prob_sparse_stream_cpp(SEXP dataSEXP, SEXP groupSEXP, SEXP groupBootSEXP, SEXP avgSEXP, SEXP ligandIdxSEXP, SEXP receptorIdxSEXP, SEXP coAIdxSEXP, SEXP coIIdxSEXP, SEXP agonistIdxSEXP, SEXP antagonistIdxSEXP, SEXP hasAgonistSEXP, SEXP hasAntagonistSEXP, SEXP KhSEXP, SEXP n_powerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type group(groupSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type groupBoot(groupBootSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type avg(avgSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type ligandIdx(ligandIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type receptorIdx(receptorIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type coAIdx(coAIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type coIIdx(coIIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type agonistIdx(agonistIdxSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type antagonistIdx(antagonistIdxSEXP);
+    Rcpp::traits::input_parameter< LogicalVector >::type hasAgonist(hasAgonistSEXP);
+    Rcpp::traits::input_parameter< LogicalVector >::type hasAntagonist(hasAntagonistSEXP);
+    Rcpp::traits::input_parameter< double >::type Kh(KhSEXP);
+    Rcpp::traits::input_parameter< double >::type n_power(n_powerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cellchat_prob_sparse_stream_cpp(data, group, groupBoot, avg, ligandIdx, receptorIdx, coAIdx, coIIdx, agonistIdx, antagonistIdx, hasAgonist, hasAntagonist, Kh, n_power));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cellchat_prob_simple_ondemand_cpp
+List cellchat_prob_simple_ondemand_cpp(NumericMatrix data, IntegerVector group, IntegerMatrix groupBoot, IntegerVector ligandGene, IntegerVector receptorGene, double Kh, double n_power);
+RcppExport SEXP _CellChatAccelRcpp_cellchat_prob_simple_ondemand_cpp(SEXP dataSEXP, SEXP groupSEXP, SEXP groupBootSEXP, SEXP ligandGeneSEXP, SEXP receptorGeneSEXP, SEXP KhSEXP, SEXP n_powerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type group(groupSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type groupBoot(groupBootSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type ligandGene(ligandGeneSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type receptorGene(receptorGeneSEXP);
+    Rcpp::traits::input_parameter< double >::type Kh(KhSEXP);
+    Rcpp::traits::input_parameter< double >::type n_power(n_powerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cellchat_prob_simple_ondemand_cpp(data, group, groupBoot, ligandGene, receptorGene, Kh, n_power));
+    return rcpp_result_gen;
+END_RCPP
+}
 // pathway_sum_cpp
 List pathway_sum_cpp(NumericVector prob, NumericVector pval, IntegerVector pathway, int n_pathways, double thresh);
 RcppExport SEXP _CellChatAccelRcpp_pathway_sum_cpp(SEXP probSEXP, SEXP pvalSEXP, SEXP pathwaySEXP, SEXP n_pathwaysSEXP, SEXP threshSEXP) {
@@ -115,6 +178,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_CellChatAccelRcpp_group_tri_mean_cpp", (DL_FUNC) &_CellChatAccelRcpp_group_tri_mean_cpp, 3},
     {"_CellChatAccelRcpp_group_tri_mean_boot_cpp", (DL_FUNC) &_CellChatAccelRcpp_group_tri_mean_boot_cpp, 3},
     {"_CellChatAccelRcpp_cellchat_prob_from_avg_cpp", (DL_FUNC) &_CellChatAccelRcpp_cellchat_prob_from_avg_cpp, 12},
+    {"_CellChatAccelRcpp_cellchat_prob_from_avg_sparse_cpp", (DL_FUNC) &_CellChatAccelRcpp_cellchat_prob_from_avg_sparse_cpp, 12},
+    {"_CellChatAccelRcpp_cellchat_prob_sparse_stream_cpp", (DL_FUNC) &_CellChatAccelRcpp_cellchat_prob_sparse_stream_cpp, 14},
+    {"_CellChatAccelRcpp_cellchat_prob_simple_ondemand_cpp", (DL_FUNC) &_CellChatAccelRcpp_cellchat_prob_simple_ondemand_cpp, 7},
     {"_CellChatAccelRcpp_pathway_sum_cpp", (DL_FUNC) &_CellChatAccelRcpp_pathway_sum_cpp, 5},
     {"_CellChatAccelRcpp_aggregate_net_cpp", (DL_FUNC) &_CellChatAccelRcpp_aggregate_net_cpp, 3},
     {NULL, NULL, 0}
