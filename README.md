@@ -1,10 +1,38 @@
 # CellChatAccelRcpp
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21186108.svg)](https://doi.org/10.5281/zenodo.21186108)
+[![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![R](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](DESCRIPTION)
+
 CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It keeps the standard CellChat object interface and replaces selected computational bottlenecks with compiled routines for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.
 
-The package is designed for users who want to run many CellChat analyses at larger cell scales while preserving outputs that remain directly comparable with the original CellChat workflow.
+The package is intended for users who need to run many CellChat analyses, larger cell sets or high-resolution groupings while preserving outputs that remain directly comparable with the original CellChat workflow.
 
-## Key Results
+Current release: `v0.1.1`
+
+## What Is Accelerated
+
+CellChatAccelRcpp provides accelerated replacements for the main single-dataset RNA workflow steps:
+
+- `computeAveExprAccelRcpp()`: group-level `triMean` expression summaries
+- `computeCommunProbAccelRcpp()`: ligand-receptor communication probability inference
+- `computeCommunProbPathwayAccelRcpp()`: pathway-level aggregation
+- `aggregateNetAccelRcpp()`: network aggregation
+
+The `computeCommunProbAccelRcpp()` implementation includes dense and sparse kernels. The current recommended large-dataset path is:
+
+```r
+computeCommunProbAccelRcpp(
+  cellchat,
+  algorithm = "sparse_stream",
+  nboot = 100,
+  seed.use = 1L
+)
+```
+
+The accelerated code preserves the CellChat probability model. It reduces interpreter overhead, avoids redundant work and streams sparse computations, but it does not remove the intrinsic sender-by-receiver group-pair term in the CellChat probability tensor.
+
+## Benchmark Summary
 
 In a paired benchmark across 12 real single-cell datasets, six target cell scales and three repeats, CellChatAccelRcpp completed 864 benchmark jobs without failed metric files.
 
@@ -30,7 +58,7 @@ Median speedup by target cell scale:
 
 ![Runtime compression](benchmarks/cellchat_acceleration_2026/results/figures/Fig01_runtime_compression.png)
 
-Full benchmark scripts, publication figures and summary tables are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026); manuscript result tables are under `benchmarks/cellchat_acceleration_2026/results/tables/`. Application Note writing material and LaTeX sources are in [`paper`](paper).
+Full benchmark scripts, publication figures and summary tables are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). Application Note material and LaTeX sources are in [`paper`](paper).
 
 ## Installation
 
@@ -42,10 +70,11 @@ remotes::install_github("jinworks/CellChat")
 remotes::install_github("Blake-Deng/CellChatAccelRcpp")
 ```
 
-For reproducible benchmark work, use the conda environment file in:
+For reproducible benchmark work, use the conda environment file:
 
-```text
-benchmarks/cellchat_acceleration_2026/environment.yml
+```bash
+mamba env create -f benchmarks/cellchat_acceleration_2026/environment.yml
+mamba activate cellchat-accelrcpp
 ```
 
 ## Single Object Usage
@@ -58,7 +87,12 @@ cellchat <- CellChat::subsetData(cellchat)
 cellchat <- CellChat::identifyOverExpressedGenes(cellchat)
 cellchat <- CellChat::identifyOverExpressedInteractions(cellchat)
 
-cellchat <- computeCommunProbAccelRcpp(cellchat, nboot = 100, seed.use = 1L)
+cellchat <- computeCommunProbAccelRcpp(
+  cellchat,
+  algorithm = "sparse_stream",
+  nboot = 100,
+  seed.use = 1L
+)
 cellchat <- CellChat::filterCommunication(cellchat, min.cells = 10)
 cellchat <- computeCommunProbPathwayAccelRcpp(cellchat)
 cellchat <- aggregateNetAccelRcpp(cellchat)
@@ -79,7 +113,7 @@ Rscript scripts/run_cellchat_accel_batch.R \
   --species human
 ```
 
-Before applying the package to a new dataset type or CellChat version, run:
+Before applying the package to a new dataset type or CellChat version, run an equivalence check:
 
 ```bash
 Rscript scripts/check_equivalence_one.R \
@@ -88,18 +122,18 @@ Rscript scripts/check_equivalence_one.R \
   5
 ```
 
-## Scope
+## Supported Scope
 
 CellChatAccelRcpp currently targets:
 
 - single-dataset CellChat objects
-- sc/snRNA-seq RNA workflows
+- scRNA-seq and snRNA-seq RNA workflows
 - `type = "triMean"`
 - `population.size = FALSE`
 - non-spatial CellChat workflows
 - CellChat v1-style object/API
 
-It does not currently validate spatial distance constraints, `population.size = TRUE`, alternative mean functions, merged CellChat objects or full CellChat v2 workflows. Run the equivalence script before using new settings at scale.
+The package has not yet been validated for spatial distance constraints, `population.size = TRUE`, alternative mean functions, merged CellChat objects or full CellChat v2 workflows. Run the equivalence script before using new settings at scale.
 
 ## Repository Layout
 
@@ -107,9 +141,14 @@ It does not currently validate spatial distance constraints, `population.size = 
 R/                      R interface for accelerated CellChat steps
 src/                    Rcpp implementations and registration
 scripts/                batch and equivalence-check scripts
-benchmarks/             reproducible benchmark summaries and figures
+benchmarks/             benchmark design, scripts, summaries and figures
 paper/                  Bioinformatics Application Note draft material
+NEWS.md                 release notes
 ```
+
+## Release Notes
+
+See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.1` release adds the sparse streamed probability kernel, expanded benchmark outputs and updated publication material.
 
 ## Citation
 

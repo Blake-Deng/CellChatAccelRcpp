@@ -1,5 +1,7 @@
 {
   "title": "CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses",
+  "version": "0.1.1",
+  "publication_date": "2026-07-09",
   "creators": [
     {
       "name": "Deng, Zifeng",
