@@ -1,0 +1,70 @@
+name: Sync GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Build release package
+        run: |
+          R CMD build .
+
+      - name: Prepare release metadata
+        run: |
+          version="$(awk '/^Version:/ {print $2}' DESCRIPTION)"
+          tag="v${version}"
+          tarball="CellChatAccelRcpp_${version}.tar.gz"
+
+          {
+            echo "VERSION=${version}"
+            echo "TAG=${tag}"
+            echo "TARBALL=${tarball}"
+          } >> "${GITHUB_ENV}"
+
+          awk -v version="${version}" '
+            $0 == "## CellChatAccelRcpp " version { found = 1; next }
+            /^## / && found { exit }
+            found { print }
+          ' NEWS.md > release_notes.md
+
+          if [ ! -s release_notes.md ]; then
+            echo "CellChatAccelRcpp ${version}" > release_notes.md
+          fi
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="CellChatAccelRcpp ${TAG}"
+
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release edit "${TAG}" \
+              --title "${title}" \
+              --notes-file release_notes.md \
+              --latest
+            gh release upload "${TAG}" "${TARBALL}" --clobber
+          else
+            gh release create "${TAG}" "${TARBALL}" \
+              --title "${title}" \
+              --notes-file release_notes.md \
+              --latest
+          fi
