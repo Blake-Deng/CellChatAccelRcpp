@@ -1,7 +1,7 @@
 computeCommunProbAccelRcpp <- function(object, type = "triMean", raw.use = TRUE, population.size = FALSE,
                                      nboot = 100, seed.use = 1L, Kh = 0.5, n = 1,
                                      distance.use = NULL,
-                                     algorithm = c("dense", "sparse_exact", "sparse_exact_subset_boot", "sparse_exact_ondemand_simple", "sparse_stream")) {
+                                     algorithm = c("sparse_stream", "dense", "sparse_exact", "sparse_exact_subset_boot", "sparse_exact_ondemand_simple")) {
   algorithm <- match.arg(algorithm)
   check_supported_object(object, type, population.size, distance.use)
 

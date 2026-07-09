@@ -2,6 +2,7 @@
 
 ## CellChatAccelRcpp 0.1.1
 
+- Made `sparse_stream` the default `computeCommunProbAccelRcpp()` probability kernel.
 - Added the `sparse_stream` communication-probability kernel for active sender-receiver ligand-receptor pairs.
 - Added sparse benchmark summaries, checkpoint grids, memory-stress evidence and publication figure outputs.
 - Updated the README, package metadata and citation metadata for the v0.1.1 GitHub release.

@@ -19,12 +19,11 @@ CellChatAccelRcpp provides accelerated replacements for the main single-dataset 
 - `computeCommunProbPathwayAccelRcpp()`: pathway-level aggregation
 - `aggregateNetAccelRcpp()`: network aggregation
 
-The `computeCommunProbAccelRcpp()` implementation includes dense and sparse kernels. The current recommended large-dataset path is:
+The `computeCommunProbAccelRcpp()` implementation includes dense and sparse kernels. The default path is now `algorithm = "sparse_stream"`:
 
 ```r
 computeCommunProbAccelRcpp(
   cellchat,
-  algorithm = "sparse_stream",
   nboot = 100,
   seed.use = 1L
 )
@@ -87,12 +86,7 @@ cellchat <- CellChat::subsetData(cellchat)
 cellchat <- CellChat::identifyOverExpressedGenes(cellchat)
 cellchat <- CellChat::identifyOverExpressedInteractions(cellchat)
 
-cellchat <- computeCommunProbAccelRcpp(
-  cellchat,
-  algorithm = "sparse_stream",
-  nboot = 100,
-  seed.use = 1L
-)
+cellchat <- computeCommunProbAccelRcpp(cellchat, nboot = 100, seed.use = 1L)
 cellchat <- CellChat::filterCommunication(cellchat, min.cells = 10)
 cellchat <- computeCommunProbPathwayAccelRcpp(cellchat)
 cellchat <- aggregateNetAccelRcpp(cellchat)
@@ -148,7 +142,7 @@ NEWS.md                 release notes
 
 ## Release Notes
 
-See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.1` release adds the sparse streamed probability kernel, expanded benchmark outputs and updated publication material.
+See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.1` release makes `sparse_stream` the default probability kernel and includes expanded benchmark outputs and updated publication material.
 
 ## Citation
 
