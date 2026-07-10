@@ -1,5 +1,5 @@
 {
-  "title": "CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses",
+  "title": "CellChatAccelRcpp: 64-bit sparse-stream Rcpp acceleration of CellChat inference for large single-cell communication analyses",
   "version": "0.1.3",
   "publication_date": "2026-07-10",
   "creators": [
@@ -8,12 +8,13 @@
       "affiliation": "Hainan Bielefeld University of Applied Sciences"
     }
   ],
-  "description": "CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It preserves the standard CellChat object interface while replacing selected computational bottlenecks with compiled implementations for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.",
+  "description": "CellChatAccelRcpp is a 64-bit sparse_stream R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It preserves the standard CellChat object interface while replacing selected computational bottlenecks with compiled implementations for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.",
   "license": "GPL-3.0-only",
   "keywords": [
     "single-cell RNA-seq",
     "cell-cell communication",
     "CellChat",
+    "sparse_stream",
     "Rcpp",
     "computational acceleration"
   ],

@@ -1,141 +1,79 @@
-# Experiment design for CellChatAccelRcpp manuscript
+# Experiment Design For The Sparse-Stream Manuscript Benchmark
 
-## Manuscript target
+This benchmark supports the Bioinformatics Application Note for the v0.1.3
+`sparse_stream` release of CellChatAccelRcpp. The benchmark is organized around
+one public claim: the 64-bit `sparse_stream` implementation preserves CellChat
+communication outputs while reducing runtime and memory pressure for repeated
+large single-cell RNA workflows.
 
-Target article type: Bioinformatics software/original paper.
+## Dataset Panel
 
-Core claim to support:
+The primary benchmark uses prepared Seurat RDS inputs from two collections:
 
-> The accelerated implementation reproduces CellChat communication probability
-> results while reducing runtime and enabling larger real-world single-cell
-> cohorts with checkpointable execution.
+1. `3CA_data`, used as Curated Cancer Cell Atlas-derived tumor benchmark inputs.
+2. `normal_control`, using PRJNA871268-derived Sample5 and Sample8 controls.
 
-## Dataset panel
+Raw input objects are not committed to GitHub because they are large and
+dataset-specific. The repository tracks the accession table, manifest,
+experiment grid, processed summaries and source plots needed to reproduce the
+analysis when the source objects are available.
 
-Use only real datasets as the primary evidence.
+## Paired Benchmark
 
-1. `3CA_data`: source data available in the benchmark data workspace.
-2. `normal_control`: source data available in the benchmark data workspace.
-3. `Pediatric`: optional candidate data; use only after source data transfer is complete.
+Each dataset is evaluated at six target cell scales:
 
-The benchmark should prefer ready-to-use `.rds` Seurat objects. `.h5ad`, `.h5`,
-and `.mtx` files are included in the manifest as conversion candidates.
+- 1k
+- 5k
+- 10k
+- 25k
+- 50k
+- all available cells
 
-## E1. Numerical agreement
+Each dataset-scale pair is repeated with three random seeds. For the paired
+comparison, original CellChat and CellChatAccelRcpp start from the same prepared
+CellChat object and use the same `triMean`, `nboot = 100`, non-spatial RNA
+workflow and group labels.
 
-Purpose: prove the accelerated engine preserves the CellChat result.
+The accelerated branch uses `computeCommunProbAccelRcpp()` with the default
+64-bit `sparse_stream` probability kernel.
 
-Design:
+## Numerical Agreement
 
-- Use 6-12 representative Seurat RDS datasets.
-- Downsample to 1k, 5k, 10k, 25k, 50k, and all available cells.
-- Run baseline and accelerated engines with identical random seeds and grouping.
-- Metrics:
-  - maximum absolute difference in `cellchat@net$prob`
-  - Pearson correlation of flattened probability tensors
-  - number of ligand-receptor interactions
-  - pathway-level interaction count agreement
+Numerical agreement is assessed by comparing flattened CellChat communication
+probability tensors between original CellChat and `sparse_stream` outputs.
 
-Expected figure/table:
+Primary agreement metrics:
 
-- Figure 1: probability scatter or Bland-Altman plot.
-- Table 1: agreement statistics by dataset and scale.
+- maximum absolute difference in `cellchat@net$prob`
+- Pearson correlation of flattened probability tensors
+- ligand-receptor output dimensions and non-zero output consistency
 
-## E2. Runtime and scalability
+The manuscript reports floating-point agreement across the paired benchmark.
 
-Purpose: show the algorithm supports large-scale workloads.
+## Runtime And Memory
 
-Design:
+Runtime is summarized by target cell scale as median and interquartile range.
+Speedup is defined as original CellChat elapsed time divided by `sparse_stream`
+elapsed time for the same dataset, target cell scale and repeat.
 
-- Same dataset panel as E1.
-- Three repeats per scale.
-- Record elapsed time, success/failure, and optional peak memory.
-- Report median and IQR.
+The benchmark also records peak resident memory where available. A separate
+large Xenium stress case is reported in the manuscript to demonstrate the
+practical memory and runtime barrier of original CellChat under high group
+resolution and the completed 64-bit `sparse_stream` run.
 
-Metrics:
+## Component Ablation
 
-- speedup = baseline median elapsed / accelerated median elapsed
-- maximum completed cell count per engine
-- throughput = cells processed per second
+Component ablations quantify how much of the observed speedup comes from the
+probability kernel versus downstream pathway or network aggregation. The
+manuscript-facing interpretation is that the communication probability kernel is
+the dominant acceleration target, while the accelerated pathway and network
+steps preserve compatibility with the standard CellChat workflow.
 
-Expected figure/table:
+## Reproducibility Checklist
 
-- Figure 2: runtime vs number of cells, log scale.
-- Figure 3: speedup vs number of cells.
-- Table 2: largest completed workload per engine.
-
-## E3. Cohort throughput
-
-Purpose: show practical batch throughput.
-
-Design:
-
-- Run all eligible RDS datasets in `3CA_data` and `normal_control`.
-- Use checkpoint/resume mode.
-- Summarize total wall-clock time, completed samples, failed samples, and errors.
-
-Expected figure/table:
-
-- Figure 4: per-sample runtime distribution.
-- Supplementary Table: per-sample status and ligand-receptor summary.
-
-## E4. Checkpoint/resume reliability
-
-Purpose: support "breakpoint experiment" claims.
-
-Design:
-
-- Select at least one medium and one large sample.
-- Start accelerated run with checkpointing enabled.
-- Interrupt after a fixed step or after N minutes.
-- Restart with `--resume`.
-- Compare resumed output to uninterrupted accelerated output.
-
-Metrics:
-
-- resumed result status
-- skipped/completed checkpoint count
-- max absolute probability difference vs uninterrupted run
-- total time lost after interruption
-
-Expected figure/table:
-
-- Figure 5: resume timeline.
-- Table 3: resumed vs uninterrupted agreement.
-
-## E5. Ablation experiments
-
-Purpose: isolate which design choices contribute speed.
-
-Ablation modes used in the grid:
-
-- `full`: all acceleration enabled.
-- `no_accel_kernel`: disable accelerated probability kernel.
-- `no_sparse_prefilter`: disable sparse/pre-filter optimization if supported.
-- `no_parallel`: single-thread or serial execution if supported.
-
-The benchmark script sets `CELLCHAT_ACCEL_ABLATION` and
-`options(CellChatAccelRcpp.ablation = ...)`. The accelerated package should
-read one of these controls or expose a matching function.
-
-Expected figure/table:
-
-- Figure 6: ablation runtime bars.
-- Table 4: contribution of each component to speedup.
-
-## Statistical reporting
-
-- Use three repeats for runtime experiments.
-- Report median and IQR.
-- Use paired comparisons within the same dataset and scale.
-- Do not use p-values as the main evidence; effect sizes and successful scale
-  completion are more important for a software paper.
-
-## Reproducibility checklist
-
-- Pin package versions in `results/environment/R_packages.txt`.
-- Keep the exact experiment grid in `results/experiment_grid.csv`.
+- Keep package versions in `results/environment/R_packages.txt`.
+- Keep the exact experiment grid under the benchmark `results/` directory.
 - Keep one metrics file per experiment in `results/runs/`.
-- Produce final tables from `code/summarize_results.R`.
-- Do not hand-edit benchmark tables.
-
+- Produce summary tables from `code/summarize_results.R`.
+- Keep the current manuscript Figure 1 under `paper/figures/`.
+- Do not hand-edit processed benchmark tables.

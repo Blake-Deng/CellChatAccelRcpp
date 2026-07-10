@@ -1,6 +1,6 @@
 \name{computeCommunProbAccelRcpp}
 \alias{computeCommunProbAccelRcpp}
-\title{Accelerated CellChat Communication Probability}
+\title{Sparse-Stream Accelerated CellChat Communication Probability}
 \usage{
 computeCommunProbAccelRcpp(object, type = "triMean", raw.use = TRUE,
   population.size = FALSE, nboot = 100, seed.use = 1L, Kh = 0.5,
@@ -16,14 +16,13 @@ computeCommunProbAccelRcpp(object, type = "triMean", raw.use = TRUE,
 \item{Kh}{Hill function parameter.}
 \item{n}{Hill function exponent.}
 \item{distance.use}{Spatial distance option. Only non-spatial workflows are supported.}
-\item{algorithm}{Probability kernel. The default \code{"sparse_stream"} mode computes bootstrap triMean values lazily for genes and groups touched by active sender-receiver pairs, reusing cached values across ligand-receptor pairs. \code{"dense"} evaluates all sender-receiver group pairs. \code{"sparse_exact"} skips bootstrap comparisons for observed-zero group pairs whose final CellChat p-value is necessarily 1. \code{"sparse_exact_subset_boot"} additionally computes bootstrap group averages only for genes referenced by ligand-receptor and cofactor tables. \code{"sparse_exact_ondemand_simple"} is an experimental hybrid that computes bootstrap triMean values on demand for simple single-gene ligand-receptor pairs and falls back to the sparse subset path for complex pairs.}
+\item{algorithm}{Probability kernel. The default and manuscript-facing \code{"sparse_stream"} mode computes bootstrap triMean values lazily for genes and groups touched by active sender-receiver pairs, reusing cached values across ligand-receptor pairs. Other kernels are retained for developer checks and numerical-equivalence testing: \code{"dense"} evaluates all sender-receiver group pairs; \code{"sparse_exact"} skips bootstrap comparisons for observed-zero group pairs whose final CellChat p-value is necessarily 1; \code{"sparse_exact_subset_boot"} additionally computes bootstrap group averages only for genes referenced by ligand-receptor and cofactor tables; \code{"sparse_exact_ondemand_simple"} is an experimental hybrid that computes bootstrap triMean values on demand for simple single-gene ligand-receptor pairs and falls back to the sparse subset path for complex pairs.}
 }
 \value{A CellChat object with \code{object@net$prob} and \code{object@net$pval}.}
 \description{
 Rcpp implementation of the common CellChat RNA \code{computeCommunProb}
-workflow for \code{type = "triMean"}. The optional sparse algorithms preserve
-dense output tensors while avoiding bootstrap work for observed-zero
-sender-receiver pairs. The default \code{"sparse_stream"} mode is an
-active-pair implementation that avoids dense bootstrap-array precomputation and
-reuses lazy bootstrap triMean values for active ligand-receptor group pairs.
+workflow for \code{type = "triMean"}. The current public workflow uses the
+64-bit \code{"sparse_stream"} active-pair implementation, which preserves dense
+CellChat output tensors while avoiding dense bootstrap-array precomputation and
+reusing lazy bootstrap triMean values for active ligand-receptor group pairs.
 }

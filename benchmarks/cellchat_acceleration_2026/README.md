@@ -12,6 +12,7 @@ The benchmark was designed for a Bioinformatics Application Note: paired origina
 | cell scales | 1k, 5k, 10k, 25k, 50k, all available cells |
 | repeats | 3 random seeds per dataset-scale pair |
 | paired comparisons | original CellChat vs CellChatAccelRcpp |
+| accelerated probability kernel | 64-bit `sparse_stream` |
 | component ablations | probability kernel, pathway aggregation, network aggregation |
 | completed jobs | 864 / 864 |
 | failed metric files | 0 |

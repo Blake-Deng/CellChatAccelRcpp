@@ -1,7 +1,11 @@
-# SCPCP000004 Benchmark
+# SCPCP000004 Supporting Validation
 
-This benchmark compares the original CellChat R implementation with the
-CellChatAccelRcpp/AccelRcpp workflow on the SCPCP000004 Seurat RDS collection.
+This directory is retained as supporting validation only. The current
+manuscript and GitHub front page start from the v0.1.3 64-bit `sparse_stream`
+workflow in `benchmarks/cellchat_acceleration_2026`.
+
+This supporting benchmark compares the original CellChat R implementation with
+the CellChatAccelRcpp workflow on the SCPCP000004 Seurat RDS collection.
 
 The raw `.rds` CellChat objects and expression matrices are intentionally not
 included in this repository. This directory contains only runnable scripts and
@@ -31,7 +35,7 @@ CSV summaries.
 | method | successful samples | failed samples | successful elapsed time |
 | --- | ---: | ---: | ---: |
 | Original CellChat R | 40 | 2 | 15,202.23 sec |
-| CellChatAccelRcpp/AccelRcpp | 40 | 2 | 1,805.11 sec |
+| CellChatAccelRcpp | 40 | 2 | 1,805.11 sec |
 
 Overall speedup on successful samples:
 
@@ -115,7 +119,8 @@ SCPCP_NBOOT=100 \
 Rscript benchmarks/SCPCP000004/scripts/run_SCPCP000004_official_cellchat_R.R
 ```
 
-Run the AccelRcpp workflow with the package batch script:
+Run the CellChatAccelRcpp workflow with the package batch script. The current
+package default is `algorithm = "sparse_stream"`:
 
 ```bash
 Rscript scripts/run_cellchat_accel_batch.R \

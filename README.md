@@ -4,11 +4,11 @@
 [![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![R](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](DESCRIPTION)
 
-CellChatAccelRcpp is an R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It keeps the standard CellChat object interface and replaces selected computational bottlenecks with compiled routines for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.
+CellChatAccelRcpp is a 64-bit `sparse_stream` R/Rcpp acceleration layer for large-scale CellChat RNA workflows. It keeps the standard CellChat object interface and replaces selected computational bottlenecks with compiled routines for communication probability estimation, pathway aggregation, network aggregation and group-level expression summaries.
 
 The package is intended for users who need to run many CellChat analyses, larger cell sets or high-resolution groupings while preserving outputs that remain directly comparable with the original CellChat workflow.
 
-Current release: `v0.1.3`
+Current public release: `v0.1.3`, the 64-bit `sparse_stream` release.
 
 ## What Is Accelerated
 
@@ -19,7 +19,7 @@ CellChatAccelRcpp provides accelerated replacements for the main single-dataset 
 - `computeCommunProbPathwayAccelRcpp()`: pathway-level aggregation
 - `aggregateNetAccelRcpp()`: network aggregation
 
-The `computeCommunProbAccelRcpp()` implementation includes dense and sparse kernels. The default path is now `algorithm = "sparse_stream"`:
+The public workflow starts from the 64-bit `sparse_stream` kernel. Other kernels are retained for developer checks and equivalence testing, but the default user path is:
 
 ```r
 computeCommunProbAccelRcpp(
@@ -149,7 +149,7 @@ See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.3` release confirms th
 Please cite the archived software release:
 
 ```text
-Deng Z. CellChatAccelRcpp: scalable Rcpp acceleration of CellChat inference for large single-cell communication analyses.
+Deng Z. CellChatAccelRcpp: 64-bit sparse-stream Rcpp acceleration of CellChat inference for large single-cell communication analyses.
 DOI: https://doi.org/10.5281/zenodo.21294476
 GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
 ```
