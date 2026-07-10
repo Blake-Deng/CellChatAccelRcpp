@@ -1,5 +1,11 @@
 # CellChatAccelRcpp News
 
+## CellChatAccelRcpp 0.1.3
+
+- Confirmed 64-bit R vector indexing in the C++ probability and aggregation kernels for large output tensors.
+- Kept `sparse_stream` as the default `computeCommunProbAccelRcpp()` probability kernel.
+- Rebuilt the GitHub and Zenodo release archive so the 64-bit sparse-stream implementation is archived as v0.1.3.
+
 ## CellChatAccelRcpp 0.1.2
 
 - Added 64-bit R vector indexing in C++ probability and aggregation kernels for large output tensors.
