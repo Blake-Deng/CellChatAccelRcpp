@@ -1,17 +1,17 @@
 # Benchmarks
 
-This directory contains two benchmark tracks. They answer different questions and should not be read as duplicate or unfinished work.
+This directory contains the primary benchmark track and one supporting validation track. They answer different questions and should not be read as duplicate or unfinished work.
 
 ## Benchmark Tracks
 
 | directory | role | status | main result |
 | --- | --- | --- | --- |
 | [`cellchat_acceleration_2026`](cellchat_acceleration_2026) | Main publication benchmark for the Bioinformatics Application Note | Complete | 12 real datasets, 216 paired original/accelerated comparisons, 648 ablation runs, median 11.4x speedup |
-| [`SCPCP000004`](SCPCP000004) | Earlier dataset-specific validation on the OpenScPCA SCPCP000004 cohort | Complete | 40 successful sample-level comparisons, 8.42x end-to-end speedup, matched CellChat outputs |
+| [`SCPCP000004`](SCPCP000004) | Supporting dataset-specific validation on the OpenScPCA SCPCP000004 cohort | Complete | 40 successful sample-level comparisons, 8.42x end-to-end speedup, matched CellChat outputs |
 
 ## What To Cite In The Manuscript
 
-The manuscript and main figures use [`cellchat_acceleration_2026`](cellchat_acceleration_2026). This is the paper-facing benchmark with the final tables, figure-generation scripts, environment records and Supplementary Table S1 links.
+The manuscript benchmark uses [`cellchat_acceleration_2026`](cellchat_acceleration_2026). This is the paper-facing benchmark with the final tables, source plot scripts, environment records and Supplementary Table S1 links.
 
 [`SCPCP000004`](SCPCP000004) is retained as supporting evidence that the accelerated workflow also reproduces a separate cohort-style CellChat analysis. It is useful for repository transparency, but it is not the primary benchmark summarized in the Application Note abstract.
 
@@ -25,9 +25,8 @@ Key files under [`cellchat_acceleration_2026`](cellchat_acceleration_2026):
 - `data_manifest.tsv` and `dataset_candidates.tsv`: dataset inventory and selected RDS inputs.
 - `code/`: manifest construction, grid generation, paired benchmark runner, summarization and figure scripts.
 - `results/tables/`: processed benchmark tables used by the manuscript.
-- `results/figures/`: final PDF and PNG figures used for the manuscript.
-- `results/figures_nature/`: alternate Nature-style PNG figure versions produced during figure refinement.
+- `results/figures/`: PDF and PNG source plots used to assemble the current manuscript figure.
+- `results/figures_nature/`: alternate PNG source plots produced during figure refinement.
 - `results/environment/`: package and system environment records.
 
 Raw `.rds`, `.h5ad`, `.h5`, `.mtx` and other large source data files are intentionally not stored in this GitHub repository.
-

@@ -55,9 +55,9 @@ Median speedup by target cell scale:
 | 50k | 6.0x |
 | all available cells | 6.0x |
 
-![Runtime compression](benchmarks/cellchat_acceleration_2026/results/figures/Fig01_runtime_compression.png)
+![CellChatAccelRcpp main benchmark figure](paper/figures/Figure_main_combined.png)
 
-Full benchmark scripts, publication figures and summary tables are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). Publication figures and supplementary table files are in [`paper`](paper); manuscript text and LaTeX source are kept local until submission.
+Full benchmark scripts and summary tables are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). The current manuscript figure and supplementary table files are in [`paper`](paper); manuscript text and LaTeX source are kept local until submission.
 
 ## Installation
 
@@ -135,8 +135,8 @@ The package has not yet been validated for spatial distance constraints, `popula
 R/                      R interface for accelerated CellChat steps
 src/                    Rcpp implementations and registration
 scripts/                batch and equivalence-check scripts
-benchmarks/             benchmark design, scripts, summaries and figures
-paper/                  Publication figures and supplementary table files
+benchmarks/             benchmark design, scripts, summaries and source plots
+paper/                  Current manuscript figure and supplementary table files
 NEWS.md                 release notes
 ```
 

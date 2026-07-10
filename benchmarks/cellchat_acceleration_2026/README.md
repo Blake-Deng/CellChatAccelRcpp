@@ -16,7 +16,7 @@ The benchmark was designed for a Bioinformatics Application Note: paired origina
 | completed jobs | 864 / 864 |
 | failed metric files | 0 |
 
-Raw input objects are not committed to GitHub because they are large and dataset-specific. The tracked files contain the manifest, experiment grid, environment record, summary tables, publication figures and scripts needed to reproduce the analysis when the source data are available.
+Raw input objects are not committed to GitHub because they are large and dataset-specific. The tracked files contain the manifest, experiment grid, environment record, summary tables, source plots and scripts needed to reproduce the analysis when the source data are available.
 
 ## Main Results
 
@@ -38,18 +38,11 @@ Raw input objects are not committed to GitHub because they are large and dataset
 | 50k | 6.0x |
 | all | 6.0x |
 
-## Publication Figures
+## Source Plots
 
-The final figure files are in [`results/figures`](results/figures). PDF files are intended for manuscript submission; PNG files are included for GitHub preview.
+The benchmark source plots are in [`results/figures`](results/figures). These files document the component plots used to assemble the current manuscript Figure 1 stored under [`../../paper/figures`](../../paper/figures).
 
-| file | content |
-| --- | --- |
-| `Fig01_runtime_compression` | paired runtime compression by cell scale |
-| `Fig02_speedup_distribution` | distribution of speedups across runs |
-| `Fig03_paired_runtime_scatter` | paired original vs accelerated runtime |
-| `Fig04_numerical_equivalence` | probability tensor numerical agreement |
-| `Fig05_component_ablation` | contribution of each accelerated component |
-| `Fig06_dataset_speedup_heatmap` | dataset-level speedup landscape |
+The source plots cover runtime compression, speedup distributions, paired runtime scatter, numerical equivalence, component ablation and dataset-level speedup summaries.
 
 ## Tables
 

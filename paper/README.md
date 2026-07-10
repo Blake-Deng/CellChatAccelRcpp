@@ -1,14 +1,14 @@
-# Publication Figures
+# Manuscript Figure And Supplementary Tables
 
-This directory contains publication-facing figures and supplementary table files.
+This directory contains the current manuscript-facing figure and supplementary table files.
 Manuscript text, LaTeX source, compiled PDFs, bibliography files and journal template files are kept local and are intentionally not tracked in GitHub before submission.
 
 ## Main Files
 
 | file or directory | purpose |
 | --- | --- |
-| `figures/1.pdf` | main six-panel manuscript figure |
-| `figures/Fig01_*` to `figures/Fig06_*` | individual panel/source figure files |
+| `figures/Figure_main_combined.pdf` | current manuscript Figure 1 in PDF format |
+| `figures/Figure_main_combined.png` | GitHub preview copy of the current manuscript Figure 1 |
 | `Supplementary_Table_S1.csv` | dataset accession table for Data availability |
 | `Supplementary_Table_S1.tsv` | TSV copy of Supplementary Table S1 |
 
@@ -30,4 +30,4 @@ benchmarks/cellchat_acceleration_2026/results/tables/
 benchmarks/cellchat_acceleration_2026/results/figures/
 ```
 
-The earlier `benchmarks/SCPCP000004` analysis is a separate supporting benchmark and is not the primary Application Note benchmark.
+The `benchmarks/SCPCP000004` analysis is separate supporting evidence and is not the primary Application Note benchmark.
