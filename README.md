@@ -1,6 +1,6 @@
 # CellChatAccelRcpp
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21294476.svg)](https://doi.org/10.5281/zenodo.21294476)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21186107.svg)](https://doi.org/10.5281/zenodo.21186107)
 [![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![R](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](DESCRIPTION)
 
@@ -8,7 +8,7 @@ CellChatAccelRcpp is a 64-bit `sparse_stream` R/Rcpp acceleration layer for larg
 
 The package is intended for users who need to run many CellChat analyses, larger cell sets or high-resolution groupings while preserving outputs that remain directly comparable with the original CellChat workflow.
 
-Current public release: `v0.1.3`, the 64-bit `sparse_stream` release.
+Current public release: `v0.1.4`, the 64-bit `sparse_stream` release.
 
 ## What Is Accelerated
 
@@ -38,22 +38,33 @@ In a paired benchmark across 12 real single-cell datasets, six target cell scale
 | metric | result |
 | --- | ---: |
 | paired original/accelerated comparisons | 216 |
-| overall median speedup | 11.4x |
+| median speedup over original CellChat | 17.5x |
+| median speedup over dense Rcpp | 1.6x |
 | median original CellChat runtime | 426.6 s |
-| median CellChatAccelRcpp runtime | 36.0 s |
+| median sparse_stream runtime | 22.7 s |
 | maximum absolute probability difference | 1.39e-16 |
 | minimum probability Pearson correlation | 1.000 |
+| median peak-RSS reduction vs original CellChat at >=25k cells | 54% |
 
 Median speedup by target cell scale:
 
 | cells | median speedup |
 | ---: | ---: |
-| 1k | 37.4x |
-| 5k | 15.3x |
-| 10k | 11.0x |
-| 25k | 8.0x |
-| 50k | 6.0x |
-| all available cells | 6.0x |
+| 1k | 55.3x |
+| 5k | 26.8x |
+| 10k | 20.1x |
+| 25k | 15.3x |
+| 50k | 14.1x |
+| all available cells | 13.2x |
+
+Large Xenium stress test measured with `/usr/bin/time -v`:
+
+| version | wall time | core computation time | peak RSS |
+| --- | ---: | ---: | ---: |
+| original CellChat | 14:21:26 | 14:12:53 | 268.11 GiB (281.13 GB) |
+| sparse_stream fix64 | 30:18.98 | 21:35.64 | 119.03 GiB (124.81 GB) |
+
+This corresponds to 28.4x lower full-process wall time, 39.5x lower core-computation time and 55.6% lower peak resident memory.
 
 ![CellChatAccelRcpp main benchmark figure](paper/figures/Figure_main_combined.png)
 
@@ -82,9 +93,9 @@ From a clean clone, the package source can be built and checked without the larg
 
 ```bash
 R CMD build .
-R CMD check --no-manual --no-build-vignettes CellChatAccelRcpp_0.1.3.tar.gz
+R CMD check --no-manual --no-build-vignettes CellChatAccelRcpp_0.1.4.tar.gz
 mkdir -p .r-review-lib
-R CMD INSTALL -l .r-review-lib CellChatAccelRcpp_0.1.3.tar.gz
+R CMD INSTALL -l .r-review-lib CellChatAccelRcpp_0.1.4.tar.gz
 R_LIBS="$(pwd)/.r-review-lib" Rscript scripts/smoke_test_install.R
 ```
 
@@ -158,7 +169,7 @@ NEWS.md                 release notes
 
 ## Release Notes
 
-See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.3` release confirms the 64-bit R vector indexing path and keeps `sparse_stream` as the default probability kernel.
+See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.4` release keeps the 64-bit `sparse_stream` probability kernel as the default workflow and aligns the repository with the current manuscript-facing benchmark summaries.
 
 ## Citation
 
@@ -166,6 +177,6 @@ Please cite the archived software release:
 
 ```text
 Deng Z. CellChatAccelRcpp: 64-bit sparse-stream Rcpp acceleration of CellChat inference for large single-cell communication analyses.
-DOI: https://doi.org/10.5281/zenodo.21294476
+DOI: https://doi.org/10.5281/zenodo.21186107
 GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
 ```

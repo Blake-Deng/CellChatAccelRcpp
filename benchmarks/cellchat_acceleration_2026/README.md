@@ -24,20 +24,24 @@ Raw input objects are not committed to GitHub because they are large and dataset
 | metric | result |
 | --- | ---: |
 | paired original/accelerated comparisons | 216 |
-| overall median speedup | 11.4x |
+| median speedup over original CellChat | 17.5x |
+| median speedup over dense Rcpp | 1.6x |
 | median original CellChat runtime | 426.6 s |
-| median CellChatAccelRcpp runtime | 36.0 s |
+| median sparse_stream runtime | 22.7 s |
 | maximum absolute probability difference | 1.39e-16 |
 | minimum probability Pearson correlation | 1.000 |
+| median peak-RSS reduction vs original CellChat at >=25k cells | 54% |
 
 | target cells | median speedup |
 | ---: | ---: |
-| 1k | 37.4x |
-| 5k | 15.3x |
-| 10k | 11.0x |
-| 25k | 8.0x |
-| 50k | 6.0x |
-| all | 6.0x |
+| 1k | 55.3x |
+| 5k | 26.8x |
+| 10k | 20.1x |
+| 25k | 15.3x |
+| 50k | 14.1x |
+| all | 13.2x |
+
+The manuscript also reports a 50-grid Xenium stress test on the 10x Genomics Xenium Prime fresh-frozen human ovarian adenocarcinoma dataset. Measured with `/usr/bin/time -v`, original CellChat required 14:21:26 wall time and 268.11 GiB peak RSS, whereas the 64-bit `sparse_stream` implementation required 30:18.98 wall time and 119.03 GiB peak RSS.
 
 ## Source Plots
 

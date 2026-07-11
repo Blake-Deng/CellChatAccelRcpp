@@ -1,7 +1,7 @@
 {
   "title": "CellChatAccelRcpp: 64-bit sparse-stream Rcpp acceleration of CellChat inference for large single-cell communication analyses",
-  "version": "0.1.3",
-  "publication_date": "2026-07-10",
+  "version": "0.1.4",
+  "publication_date": "2026-07-11",
   "creators": [
     {
       "name": "Deng, Zifeng",

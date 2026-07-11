@@ -1,7 +1,7 @@
 # SCPCP000004 Supporting Validation
 
 This directory is retained as supporting validation only. The current
-manuscript and GitHub front page start from the v0.1.3 64-bit `sparse_stream`
+manuscript and GitHub front page start from the v0.1.4 64-bit `sparse_stream`
 workflow in `benchmarks/cellchat_acceleration_2026`.
 
 This supporting benchmark compares the original CellChat R implementation with
