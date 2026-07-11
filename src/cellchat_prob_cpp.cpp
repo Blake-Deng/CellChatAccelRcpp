@@ -97,19 +97,6 @@ List cellchat_prob_boot_cpp(
   );
 }
 
-static inline double quantile_type7_sorted(const std::vector<double>& x, double p) {
-  const int n = x.size();
-  if (n == 0) return NA_REAL;
-  if (n == 1) return x[0];
-  const double h = 1.0 + (n - 1.0) * p;
-  const int hf = static_cast<int>(std::floor(h));
-  const double frac = h - hf;
-  const int i0 = hf - 1;
-  if (i0 < 0) return x[0];
-  if (i0 >= n - 1) return x[n - 1];
-  return x[i0] + frac * (x[i0 + 1] - x[i0]);
-}
-
 static inline double kth_value(std::vector<double> vals, int k) {
   std::nth_element(vals.begin(), vals.begin() + k, vals.end());
   return vals[k];
@@ -128,14 +115,6 @@ static inline double quantile_type7_unsorted(const std::vector<double>& x, doubl
   const double lo = kth_value(x, i0);
   const double hi = kth_value(x, i0 + 1);
   return lo + frac * (hi - lo);
-}
-
-static inline double tri_mean_sorted(const std::vector<double>& x) {
-  if (x.empty()) return NA_REAL;
-  const double q1 = quantile_type7_sorted(x, 0.25);
-  const double q2 = quantile_type7_sorted(x, 0.50);
-  const double q3 = quantile_type7_sorted(x, 0.75);
-  return (q1 + 2.0 * q2 + q3) / 4.0;
 }
 
 static inline double tri_mean_unsorted(const std::vector<double>& x) {
@@ -317,14 +296,6 @@ static inline int index_row_count(const IntegerMatrix& idx, int row) {
   return out;
 }
 
-static inline int index_row_first0(const IntegerMatrix& idx, int row) {
-  for (int j = 0; j < idx.ncol(); ++j) {
-    const int g = idx(row, j) - 1;
-    if (g >= 0) return g;
-  }
-  return -1;
-}
-
 // [[Rcpp::export]]
 List cellchat_prob_from_avg_cpp(
     NumericMatrix avg,
@@ -463,8 +434,6 @@ List cellchat_prob_from_avg_sparse_cpp(
     const int ligand_count = index_row_count(ligandIdx, lr);
     const int receptor_count = index_row_count(receptorIdx, lr);
     const bool direct_simple_lr = simple_lr && ligand_count == 1 && receptor_count == 1;
-    const int ligand_gene0 = direct_simple_lr ? index_row_first0(ligandIdx, lr) : -1;
-    const int receptor_gene0 = direct_simple_lr ? index_row_first0(receptorIdx, lr) : -1;
 
     for (int k = 0; k < K; ++k) {
       L[k] = avg_expr_matrix(avg, ligandIdx, lr, k);
@@ -527,7 +496,6 @@ List cellchat_prob_from_avg_sparse_cpp(
 
     std::vector<int> reject(active_idx.size(), 0);
     for (int b = 0; b < nboot; ++b) {
-      const int boot_offset = G * K * b;
       for (int k : active_groups) {
         if (direct_simple_lr) {
           Lb[k] = avg_expr_boot(avgBoot, G, K, ligandIdx, lr, k, b);

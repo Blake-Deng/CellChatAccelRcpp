@@ -5,6 +5,7 @@
 *.Rcheck
 *.tar.gz
 Rlib/
+.r-review-lib/
 results/
 !benchmarks/
 !benchmarks/**/

@@ -13,3 +13,6 @@
 ^src/.*\.so$
 ^src/.*\.dll$
 ^src/.*\.dylib$
+^.*\.Rcheck$
+^CellChatAccelRcpp_.*\.tar\.gz$
+^\.r-review-lib$

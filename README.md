@@ -76,6 +76,20 @@ mamba env create -f benchmarks/cellchat_acceleration_2026/environment.yml
 mamba activate cellchat-accelrcpp
 ```
 
+## Reviewer Quick Checks
+
+From a clean clone, the package source can be built and checked without the large benchmark datasets:
+
+```bash
+R CMD build .
+R CMD check --no-manual --no-build-vignettes CellChatAccelRcpp_0.1.3.tar.gz
+mkdir -p .r-review-lib
+R CMD INSTALL -l .r-review-lib CellChatAccelRcpp_0.1.3.tar.gz
+R_LIBS="$(pwd)/.r-review-lib" Rscript scripts/smoke_test_install.R
+```
+
+The smoke test loads the installed package, checks the exported acceleration functions and confirms a 64-bit R session. It does not require Seurat, CellChat or external datasets.
+
 ## Single Object Usage
 
 ```r
@@ -115,6 +129,8 @@ Rscript scripts/check_equivalence_one.R \
   openscpca_celltype_annotation \
   5
 ```
+
+This optional equivalence check requires Seurat, CellChat and one processed Seurat RDS object. It runs original CellChat and CellChatAccelRcpp from the same prepared object and reports probability, p-value, pathway and aggregate-network agreement.
 
 ## Supported Scope
 
