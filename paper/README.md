@@ -1,6 +1,6 @@
 # Manuscript Figure And Supplementary Tables
 
-This directory contains the current v0.1.4 `sparse_stream` manuscript-facing figure and supplementary table files.
+This directory contains the current v0.1.5 `sparse_stream` manuscript-facing figure and supplementary table files.
 Manuscript text, LaTeX source, compiled PDFs, bibliography files and journal template files are kept local and are intentionally not tracked in GitHub before submission.
 
 ## Main Files

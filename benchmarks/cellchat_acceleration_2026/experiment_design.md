@@ -1,6 +1,6 @@
 # Experiment Design For The Sparse-Stream Manuscript Benchmark
 
-This benchmark supports the Bioinformatics Application Note for the v0.1.4
+This benchmark supports the Bioinformatics Application Note for the v0.1.5
 `sparse_stream` release of CellChatAccelRcpp. The benchmark is organized around
 one public claim: the 64-bit `sparse_stream` implementation preserves CellChat
 communication outputs while reducing runtime and memory pressure for repeated

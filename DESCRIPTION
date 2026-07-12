@@ -1,7 +1,7 @@
 Package: CellChatAccelRcpp
 Type: Package
 Title: Sparse-Stream Rcpp Acceleration for CellChat RNA Workflows
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: person("DENG", "Zifeng", role = c("aut", "cre"), email = "zifengd8@gmail.com")
 Author: DENG Zifeng [aut, cre]
 Maintainer: DENG Zifeng <zifengd8@gmail.com>

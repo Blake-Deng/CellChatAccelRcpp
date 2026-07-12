@@ -1,6 +1,6 @@
 # CellChatAccelRcpp
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21310546.svg)](https://doi.org/10.5281/zenodo.21310546)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21186107.svg)](https://doi.org/10.5281/zenodo.21186107)
 [![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![R](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](DESCRIPTION)
 
@@ -8,7 +8,7 @@ CellChatAccelRcpp is a 64-bit `sparse_stream` R/Rcpp acceleration layer for larg
 
 The package is intended for users who need to run many CellChat analyses, larger cell sets or high-resolution groupings while preserving outputs that remain directly comparable with the original CellChat workflow.
 
-Current public release: `v0.1.4`, the 64-bit `sparse_stream` release.
+Current public release: `v0.1.5`, the 64-bit `sparse_stream` release.
 
 ## What Is Accelerated
 
@@ -106,9 +106,9 @@ From a clean clone, the package source can be built and checked without the larg
 
 ```bash
 R CMD build .
-R CMD check --no-manual --no-build-vignettes CellChatAccelRcpp_0.1.4.tar.gz
+R CMD check --no-manual --no-build-vignettes CellChatAccelRcpp_0.1.5.tar.gz
 mkdir -p .r-review-lib
-R CMD INSTALL -l .r-review-lib CellChatAccelRcpp_0.1.4.tar.gz
+R CMD INSTALL -l .r-review-lib CellChatAccelRcpp_0.1.5.tar.gz
 R_LIBS="$(pwd)/.r-review-lib" Rscript scripts/smoke_test_install.R
 ```
 
@@ -182,7 +182,7 @@ NEWS.md                 release notes
 
 ## Release Notes
 
-See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.4` release keeps the 64-bit `sparse_stream` probability kernel as the default workflow and aligns the repository with the current manuscript-facing benchmark summaries.
+See [`NEWS.md`](NEWS.md) for versioned changes. The `v0.1.5` release keeps the 64-bit `sparse_stream` probability kernel as the default workflow and adds a reviewer-facing reproducible minimal example archive.
 
 ## Citation
 
@@ -190,6 +190,6 @@ Please cite the archived software release:
 
 ```text
 Deng Z. CellChatAccelRcpp: 64-bit sparse-stream Rcpp acceleration of CellChat inference for large single-cell communication analyses.
-DOI: https://doi.org/10.5281/zenodo.21310546
+DOI: https://doi.org/10.5281/zenodo.21186107
 GitHub: https://github.com/Blake-Deng/CellChatAccelRcpp
 ```
