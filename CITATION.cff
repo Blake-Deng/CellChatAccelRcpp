@@ -4,8 +4,8 @@ title: "CellChatAccelRcpp: 64-bit sparse-stream Rcpp acceleration of CellChat in
 version: 0.1.5
 date-released: 2026-07-12
 type: software
-doi: 10.5281/zenodo.21186107
-url: "https://doi.org/10.5281/zenodo.21186107"
+doi: 10.5281/zenodo.21316970
+url: "https://doi.org/10.5281/zenodo.21316970"
 authors:
   - family-names: Deng
     given-names: Zifeng
