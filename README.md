@@ -70,6 +70,19 @@ This corresponds to 28.4x lower full-process wall time, 39.5x lower core-computa
 
 Full benchmark scripts and summary tables are in [`benchmarks/cellchat_acceleration_2026`](benchmarks/cellchat_acceleration_2026). The current manuscript figure and supplementary table files are in [`paper`](paper); manuscript text and LaTeX source are kept local until submission.
 
+## Reproducible Minimal Example
+
+A small reviewer-facing offline example is available in [`reproducibility`](reproducibility). It uses a prepared PBMC3k CellChat object and the tested `a2af664` source snapshot to run original CellChat and `sparse_stream`, then checks probability, p-value, pathway and aggregate-network agreement.
+
+```bash
+cd reproducibility
+tar -xzf CellChatAccelRcpp_reproducible_minimal_example_a2af664.tar.gz
+cd CellChatAccelRcpp_reproducible_minimal_example
+bash run_example.sh
+```
+
+The expected final line is `VALIDATION PASSED`. The archive SHA-256 is `1a6fca64fb83cd138fbdeb2f22d3a7e3f8152439c947581cdbb745bd8a10fe4e`.
+
 ## Installation
 
 Install CellChat and then install this package from GitHub:

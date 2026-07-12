@@ -4,6 +4,8 @@
 .Rproj.user
 *.Rcheck
 *.tar.gz
+!reproducibility/
+!reproducibility/*.tar.gz
 Rlib/
 .r-review-lib/
 results/

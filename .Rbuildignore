@@ -1,4 +1,5 @@
 ^benchmarks$
+^reproducibility$
 ^paper$
 ^README_files$
 ^\.github$
